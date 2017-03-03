@@ -28,7 +28,7 @@ SECRET_KEY = '&f_&+j^7xkb502waksb@+oz5h(7!x(9ovfr^aqhhcxt!9=hyvh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'tekuPico.wsgi.application'
 DATABASES = {   
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': '/home/niga/igapico/tekupico/db.sqlite3',
     }
 }
 
