@@ -15,7 +15,7 @@ class Treasure_Beacon(models.Model):
 	beacon = models.IntegerField('beacon', default = 0)
 
 class Shop_Beacon(models.Model):
-	shopname = models.CharField('shopname', default = 0)
+	shopname = models.CharField('shopname', max_length = 255, default = 'SHOPNAME')
 	shop = models.IntegerField('shop', default = 0)
 	beacon = models.IntegerField('beacon', default = 0)
 
