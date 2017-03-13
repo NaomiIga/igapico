@@ -77,11 +77,12 @@ WSGI_APPLICATION = 'tekuPico.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-#DB kakikaeru toki ni henkou shitene!!! 
-DATABASES = {   
+#DB kakikaeru toki ni henkou shitene!!!
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/home/niga/igapico/tekupico/db.sqlite3',
+        #'NAME': '/home/niga/igapico/tekupico/db.sqlite3',
+        'NAME': '/Users/royroy55/igapico/tekupico/db.sqlite3'
     }
 }
 

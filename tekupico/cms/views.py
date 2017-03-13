@@ -8,7 +8,9 @@ from django.template import RequestContext
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.csrf import ensure_csrf_cookie
-from models import *
+#from models import *
+from models import Data
+#from mdoels import User
 from django.db.models import Q
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
@@ -38,6 +40,27 @@ def post_test(request):
 		new_data.save() #デーベ保存
 
 		return HttpResponse(u'post succeed')
+	else:
+		response = HttpResponse()
+		response['msg'] = 'NG'
+
+
+@csrf_exempt
+def pico_login(request):
+	if request.method == 'POST':
+		datas = json.loads(request.body)
+		name = datas["name"]
+
+		try:
+			testname = User.objects.get(username = name)
+		except:
+			new_data = User.objects.create(
+			usename = name,
+			)
+			new_data.save()
+			print ('ログイン完了')
+		else:
+			raise ValidationError('This name already sign up...')
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
