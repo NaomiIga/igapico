@@ -16,10 +16,11 @@ class Treasure_Beacon(models.Model):
 
 class Shop_Beacon(models.Model):
 	shopname = models.CharField('shopname', max_length = 255, default = 'SHOPNAME')
-	shop = models.IntegerField('shop', default = 0)
+	shop_id = models.IntegerField('shop_id', default = 0)
 	beacon = models.IntegerField('beacon', default = 0)
 
 class Beacon(models.Model):
+	beacon = models.IntegerField('beacon', default = 0)
 	major = models.IntegerField('major', default = 0)
 	minor = models.IntegerField('minor', default = 0)
 
