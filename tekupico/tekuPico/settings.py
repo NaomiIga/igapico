@@ -28,7 +28,7 @@ SECRET_KEY = '&f_&+j^7xkb502waksb@+oz5h(7!x(9ovfr^aqhhcxt!9=hyvh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["http://kinopio.mxd.media.ritsumei.ac.jp/*"]
 
 
 # Application definition
