@@ -8,15 +8,15 @@ from django.template import RequestContext
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.csrf import ensure_csrf_cookie
-#from models import *
-from models import Data
-#from mdoels import User
+from models import *
 from django.db.models import Q
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth import logout
 from datetime import datetime
 import json
+import numpy
+import time
 
 #csrf_exemptはつけたい関数の上にそれぞれつけなきゃダメ
 #csrfを無視するコマンド
@@ -44,7 +44,7 @@ def post_test(request):
 		response = HttpResponse()
 		response['msg'] = 'NG'
 
-
+#ユーザ登録する関数、今のままだとこの瞬間が開始時刻
 @csrf_exempt
 def pico_login(request):
 	if request.method == 'POST':
@@ -55,12 +55,48 @@ def pico_login(request):
 			testname = User.objects.get(username = name)
 		except:
 			new_data = User.objects.create(
-			usename = name,
+			username = name,
+			starttime = time.time()
 			)
 			new_data.save()
-			print ('ログイン完了')
+			print ('登録完了')
 		else:
 			raise ValidationError('This name already sign up...')
+	else:
+		response = HttpResponse()
+		response['msg'] = 'NG'
+
+#飛んできた店ID(店名？)の配列からBeaconIDに変換する関数
+@csrf_exempt
+def shop_connect(request):
+	if request.method == 'POST':
+		num_list = []
+		datas = json.loads(request.body)
+		name = datas["shopname"]
+
+		for i in name:
+			#Shop_Beacon.objects.get(shopname = i)
+			num_list.append(Shop_Beacon.objects.get(shop_id = i))
+
+	else:
+		response = HttpResponse()
+		response['msg'] = 'NG'
+
+#宝ゲットのときにそれを反映、絶対エラーでそう
+@csrf_exempt
+def treasure_check(request):
+	if request.method == 'POST':
+		datas = json.loads(request.body)
+		name = datas["name"]
+		treasure = datas["treasure_id"]
+		treasure = 'treasure' + treasure
+
+		update_data = User.objects.get(username = name)
+		update_data.treasure = True
+		update_data.save()
+
+
+
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'

@@ -8,7 +8,8 @@ class User(models.Model):
 	username = models.CharField('username', max_length = 255, default = 'NAME')
 	starttime = models.IntegerField('starttime', default = 0)
 	finishtime = models.IntegerField('finishtime', default = 0)
-	hint_action1_1 = models.IntegerField('hint1_1', default = False)
+	hint_action1_1 = models.IntegerField('hint1_1', default = 0)
+	treasure1 = models.IntegerField('treasure1', default = 0)
 
 class Treasure_Beacon(models.Model):
 	treasure = models.IntegerField('treasure', default = 0)
