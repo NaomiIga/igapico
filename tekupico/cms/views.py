@@ -75,7 +75,7 @@ def shop_connect(request):
 		name = datas["shopname"]
 
 		for i in name:
-			#Shop_Beacon.objects.get(shopname = i)
+			#num_list.append(Shop_Beacon.objects.get(shopname = i))
 			num_list.append(Shop_Beacon.objects.get(shop_id = i))
 
 	else:
