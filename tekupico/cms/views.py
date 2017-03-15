@@ -80,6 +80,7 @@ def shoplog(request):
 		#datavalue = float(datas[x].values()),
 
 		update_data = User.objects.get(username = name)
+		return HttpResponse(update_data)
 		update_data.shopname = shops
 		update_data.save()
 	else:
