@@ -74,13 +74,12 @@ def shoplog(request):
 		datas = json.loads(request.body)
 		#name = datas["name"]
 
-		name = datas.keys(),
+		name = datas.keys()
 		#whatdata = datas[x].keys(),
-		shops = datas.values(),
+		shops = datas.values()
 		#datavalue = float(datas[x].values()),
 
 		update_data = User.objects.get(username = name)
-		return HttpResponse(update_data)
 		update_data.shopname = shops
 		update_data.save()
 	else:
