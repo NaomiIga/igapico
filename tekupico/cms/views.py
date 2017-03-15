@@ -24,9 +24,9 @@ import time
 def post_test(request):
 	if request.method == 'POST':
 		datas = json.loads(request.body)
-		name = "default"
+		#name = "default"
 		#print request.body
-		print datas
+		#print datas
 		#print datas[0]["StartTime"]
 		#print datakeys
 		#count = len(datas)
@@ -59,9 +59,9 @@ def pico_login(request):
 			starttime = time.time()
 			)
 			new_data.save()
-			print ('登録完了')
+			return HttpResponse(u'登録完了')
 		else:
-			raise ValidationError('This name already sign up...')
+			return HttpResponse(u'This name already sign up...')
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
@@ -81,6 +81,8 @@ def shop_connect(request):
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
+
+	return num_list
 
 #宝ゲットのときにそれを反映、絶対エラーでそう
 @csrf_exempt
