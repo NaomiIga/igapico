@@ -8,7 +8,7 @@ class UserAdmin(admin.ModelAdmin):
 	list_display_links = ('username',)
 
 class UsedhintAdmin(admin.ModelAdmin):
-	list_display = ('username', '1-1', '1-2', '1-3',)
+	list_display = ('username', '1_1', '1_2', '1_3',)
 	list_display_links = ('username',)
 
 class BeaconAdmin(admin.ModelAdmin):

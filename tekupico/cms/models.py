@@ -17,15 +17,15 @@ class User(models.Model):
 # User no hint siyou jyoukyou
 class UsedHint(models.Model):
 	username = models.CharField('username', max_length = 255, default = 'NAME')
-	treasure1_1 = models.IntegerField('1-1time', default = 0)
-	treasure1_2 = models.IntegerField('1-2time', default = 0)
-	treasure1_3 = models.IntegerField('1-3time', default = 0)
-	treasure2_1 = models.IntegerField('2-1time', default = 0)
-	treasure2_2 = models.IntegerField('2-2time', default = 0)
-	treasure2_3 = models.IntegerField('2-3time', default = 0)
-	treasure3_1 = models.IntegerField('3-1time', default = 0)
-	treasure3_2 = models.IntegerField('3-2time', default = 0)
-	treasure3_3 = models.IntegerField('3-3time', default = 0)
+	treasure1_1 = models.IntegerField('1_1time', default = 0)
+	treasure1_2 = models.IntegerField('1_2time', default = 0)
+	treasure1_3 = models.IntegerField('1_3time', default = 0)
+	treasure2_1 = models.IntegerField('2_1time', default = 0)
+	treasure2_2 = models.IntegerField('2_2time', default = 0)
+	treasure2_3 = models.IntegerField('2_3time', default = 0)
+	treasure3_1 = models.IntegerField('3_1time', default = 0)
+	treasure3_2 = models.IntegerField('3_2time', default = 0)
+	treasure3_3 = models.IntegerField('3_3time', default = 0)
 
 
 # Not Change: treasure and beaconNo wo himoduke
