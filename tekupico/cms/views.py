@@ -49,7 +49,8 @@ def post_test(request):
 def pico_login(request):
 	if request.method == 'POST':
 		datas = json.loads(request.body)
-		name = datas["name"]
+		#name = datas["name"]
+		name = datas
 
 		try:
 			testname = User.objects.get(username = name)
