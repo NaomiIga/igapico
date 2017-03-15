@@ -12,8 +12,8 @@ class UsedhintAdmin(admin.ModelAdmin):
 	list_display_links = ('username',)
 
 class BeaconAdmin(admin.ModelAdmin):
-	list_display = ('beacon',)
-	list_display_links = ('beacon',)
+	list_display = ('beacon_id', 'uuid', 'major', 'minor', 'category',)
+	list_display_links = ('beacon_id',)
 
 class ShopAdmin(admin.ModelAdmin):
 	list_display = ('shopname', 'shop_id', 'beacon',)

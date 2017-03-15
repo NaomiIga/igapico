@@ -41,9 +41,11 @@ class Shop_Beacon(models.Model):
 
 # Not Change: beacon list
 class Beacon(models.Model):
-	beacon = models.IntegerField('beacon', default = 0)
+	beacon_id = models.IntegerField('beacon', default = 0)
+	uuid = models.IntegerField('uuid', default = 0)
 	major = models.IntegerField('major', default = 0)
 	minor = models.IntegerField('minor', default = 0)
+	category = models.CharField('category', max_length = 255, default = 'CATEGORY')
 
 # Not Change: Hint list
 class Hint(models.Model):
