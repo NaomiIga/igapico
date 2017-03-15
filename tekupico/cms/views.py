@@ -44,7 +44,7 @@ def post_test(request):
 		response = HttpResponse()
 		response['msg'] = 'NG'
 
-#ユーザ登録する関数、今のままだとこの瞬間が開始時刻
+#ユーザ登録(ダブり確認)する関数、今のままだとこの瞬間が開始時刻
 @csrf_exempt
 def pico_login(request):
 	if request.method == 'POST':
@@ -63,6 +63,25 @@ def pico_login(request):
 			return HttpResponse(u'登録完了')
 		else:
 			return HttpResponse(u'This name already sign up...')
+	else:
+		response = HttpResponse()
+		response['msg'] = 'NG'
+
+#ユーザが行きたいショップをUserに保存
+@csrf_exempt
+def shoplog(request):
+	if request.method == 'POST':
+		datas = json.loads(request.body)
+		#name = datas["name"]
+
+		name = datas.keys(),
+		#whatdata = datas[x].keys(),
+		shops = datas.values(),
+		#datavalue = float(datas[x].values()),
+
+		update_data = User.objects.get(username = name)
+		update_data.shopname = shops
+		update_data.save()
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
