@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^',include('django.contrib.staticfiles.urls')),
     url(r'^post_test', views.post_test, name="post_test"),
-    url(r'^pico_login', views.pico_login, name="pico_login")
+    url(r'^pico_login', views.pico_login, name="pico_login"),
+    url(r'^shoplog', views.shoplog, name="shoplog"),
 ]
