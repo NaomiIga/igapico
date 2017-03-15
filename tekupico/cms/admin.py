@@ -7,6 +7,10 @@ class UserAdmin(admin.ModelAdmin):
 	list_display = ('username', 'starttime', 'finishtime',)
 	list_display_links = ('username',)
 
+class UsedhintAdmin(admin.ModelAdmin):
+	list_display = ('username', '1-1', '1-2', '1-3',)
+	list_display_links = ('username',)
+
 class BeaconAdmin(admin.ModelAdmin):
 	list_display = ('beacon',)
 	list_display_links = ('beacon',)
@@ -27,8 +31,10 @@ class DataAdmin(admin.ModelAdmin):
 	list_display = ('userdata', 'datavalue',)
 	list_display_links = ('userdata',)
 admin.site.register(User, UserAdmin)
+admin.site.register(UsedHint, UsedhintAdmin)
 admin.site.register(Beacon, BeaconAdmin)
 admin.site.register(Shop_Beacon, ShopAdmin)
 admin.site.register(Treasure_Beacon, TreasureAdmin)
 admin.site.register(Hint, HintAdmin)
 admin.site.register(Data, DataAdmin)
+
