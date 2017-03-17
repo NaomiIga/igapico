@@ -49,7 +49,7 @@ def post_test(request):
 @csrf_exempt
 def pico_login(request):
 	if request.method == 'POST':
-		datas = json.loads(request.body)
+		datas = json.loads(request.body, ensure_ascii=False)  #追記
 		#name = datas["name"]
 		name = datas
 
@@ -89,7 +89,9 @@ def shoplog(request):
 		update_data.shopname = shops
 		update_data.save()
 
-		#num_list = shop_connect(shops)   #ショップとビーコンを紐づけるshop_connect関数に飛ぶ
+		num_list = shop_connect(shops)   #ショップとビーコンを紐づけるshop_connect関数に飛ぶ
+		num_list = json.dumps(num_list, ensure_ascii=False)  #json形式にする
+		return HttpResponse(some_json, content_type='application/json')  #json返す
 
 	else:
 		response = HttpResponse()
@@ -99,7 +101,7 @@ def shoplog(request):
 #飛んできた店ID(店名？)の配列からBeaconIDに変換する関数
 def shop_connect(shopArr):
 	num_list = [] #結果のbeaconNOを格納する配列
-	
+
 	for i in shopArr:
 		num_list.append(Shop_Beacon.objects.get(shopname = i))
 		#num_list.append(Shop_Beacon.objects.get(shop_id = i))
