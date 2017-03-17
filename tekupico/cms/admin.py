@@ -16,12 +16,12 @@ class BeaconAdmin(admin.ModelAdmin):
 	list_display_links = ('beacon_id',)
 
 class ShopAdmin(admin.ModelAdmin):
-	list_display = ('shopname', 'shop_id', 'beacon',)
-	list_display_links = ('shopname', 'shop_id', 'beacon',)
+	list_display = ('shopname', 'shop_id', 'beacon_id',)
+	list_display_links = ('shopname', 'shop_id', 'beacon_id',)
 
 class TreasureAdmin(admin.ModelAdmin):
-	list_display = ('treasure', 'beacon',)
-	list_display_links = ('treasure', 'beacon')
+	list_display = ('treasure', 'beacon_id',)
+	list_display_links = ('treasure', 'beacon_id')
 
 class HintAdmin(admin.ModelAdmin):
 	list_display = ('hint_num', 'hint_sent',)
@@ -37,4 +37,3 @@ admin.site.register(Shop_Beacon, ShopAdmin)
 admin.site.register(Treasure_Beacon, TreasureAdmin)
 admin.site.register(Hint, HintAdmin)
 admin.site.register(Data, DataAdmin)
-
