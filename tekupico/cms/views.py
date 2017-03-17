@@ -91,7 +91,7 @@ def shoplog(request):
 
 		num_list = shop_connect(shops)   #ショップとビーコンを紐づけるshop_connect関数に飛ぶ
 		num_list = json.dumps(num_list, ensure_ascii=False)  #json形式にする
-		return HttpResponse(some_json, content_type='application/json')  #json返す
+		return HttpResponse(num_list, content_type='application/json')  #json返す
 
 	else:
 		response = HttpResponse()
