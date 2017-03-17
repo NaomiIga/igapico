@@ -132,6 +132,8 @@ def treasure_check(request):
 
 
 def treasure_num(get_major, get_minor):
-	data = Treasure_Beacon.objects.get(major = get_major && minor = get_minor)
-	treasure_num = data.treasure
+	#data = Treasure_Beacon.objects.get(major = get_major and minor = get_minor)
+	data = Treasure_Beacon.objects.get(major = get_major)
+	if data.minor == get_minor:
+		treasure_num = data.treasure
 	return treasure_num
