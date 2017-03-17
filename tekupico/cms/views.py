@@ -16,6 +16,7 @@ from django.contrib.auth import logout
 from datetime import datetime
 import json
 import numpy
+import datetime
 import time
 
 #csrf_exemptはつけたい関数の上にそれぞれつけなきゃダメ
@@ -60,6 +61,11 @@ def pico_login(request):
 			starttime = time.time()
 			)
 			new_data.save()
+
+			new_data = UsedHint.objects.create(
+			username = name,
+			)
+			new_data.save()
 			return HttpResponse(u'登録完了')
 		else:
 			return HttpResponse(u'This name already sign up...')
@@ -82,43 +88,48 @@ def shoplog(request):
 		update_data = User.objects.get(username = name)
 		update_data.shopname = shops
 		update_data.save()
+
+		#num_list = shop_connect(shops)   #ショップとビーコンを紐づけるshop_connect関数に飛ぶ
+
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
+	return name
 
 #飛んできた店ID(店名？)の配列からBeaconIDに変換する関数
-@csrf_exempt
-def shop_connect(request):
-	if request.method == 'POST':
-		num_list = []
-		datas = json.loads(request.body)
-		name = datas["shopname"]
-
-		for i in name:
-			#num_list.append(Shop_Beacon.objects.get(shopname = i))
-			num_list.append(Shop_Beacon.objects.get(shop_id = i))
-
-	else:
-		response = HttpResponse()
-		response['msg'] = 'NG'
+def shop_connect(shopArr):
+	num_list = [] #結果のbeaconNOを格納する配列
+	
+	for i in shopArr:
+		num_list.append(Shop_Beacon.objects.get(shopname = i))
+		#num_list.append(Shop_Beacon.objects.get(shop_id = i))
 
 	return num_list
+
+
 
 #宝ゲットのときにそれを反映、絶対エラーでそう
 @csrf_exempt
 def treasure_check(request):
 	if request.method == 'POST':
 		datas = json.loads(request.body)
-		name = datas["name"]
-		treasure = datas["treasure_id"]
-		treasure = 'treasure' + treasure
+		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
+		major = datas["major"]
+		minor = datas["minor"]
+		treasure_num = treasure_num(major,minor)
+
+		treasure = 'treasure' + treasure_num
 
 		update_data = User.objects.get(username = name)
-		update_data.treasure = True
+		update_data.treasure = datetime.datetime.today()
 		update_data.save()
-
-
-
+		return treasure_num
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
+
+
+def treasure_num(get_major, get_minor):
+	data = Treasure_Beacon.objects.get(major = get_major && minor = get_minor)
+	treasure_num = data.treasure
+	return treasure_num
