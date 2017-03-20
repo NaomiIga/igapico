@@ -110,7 +110,7 @@ def shop_connect(shopArr):
 
 
 
-#宝ゲットのときにそれを反映、絶対エラーでそう
+#宝ゲットのときにそれを反映
 @csrf_exempt
 def treasure_check(request):
 	if request.method == 'POST':
@@ -130,10 +130,35 @@ def treasure_check(request):
 		response = HttpResponse()
 		response['msg'] = 'NG'
 
-
+#とんできたビーコンの番号から、どの宝かを識別
 def treasure_num(get_major, get_minor):
 	#data = Treasure_Beacon.objects.get(major = get_major and minor = get_minor)
 	data = Treasure_Beacon.objects.get(major = get_major)
 	if data.minor == get_minor:
 		treasure_num = data.treasure
 	return treasure_num
+
+#ヒント使うときによばれる
+@csrf_exempt
+def hint(request):
+	if request.method == 'POST':
+		datas = json.loads(request.body)
+		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
+		treasureNo = datas["treasureNo"]
+		
+		UsedHint(name, treasureNo)
+
+
+		update_data = User.objects.get(username = name)
+		update_data.treasure = datetime.datetime.today()
+		update_data.save()
+		return treasure_num
+	else:
+		response = HttpResponse()
+		response['msg'] = 'NG'
+
+#どれだけヒント使ってきたかをチェック まだ未完成　書き換え必須
+def hint_check(name, treasureNo):
+	data = UsedHint.objects.get(username = name)
+
+	return "mikansei"
