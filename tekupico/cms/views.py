@@ -91,7 +91,7 @@ def shoplog(request):
 
 		num_list = shop_connect(shops)   #ショップとビーコンを紐づけるshop_connect関数に飛ぶ
 		num_list = json.dumps(num_list, ensure_ascii=False)  #json形式にする
-		return HttpResponse(num_list, content_type='application/json')  #json返す
+		return JsonResponse(num_list, content_type='application/json')  #json返す
 
 	else:
 		response = HttpResponse()
@@ -148,7 +148,8 @@ def hint(request):
 		
 		check = UsedHint(name, treasureNo)
 
-		
+		for i in range(3):
+			if check[i] = "":
 
 		update_data = User.objects.get(username = name)
 		update_data.treasure = datetime.datetime.today()
@@ -162,13 +163,13 @@ def hint(request):
 def hint_check(name, treasureNo):
 	data = UsedHint.objects.get(username = name)
 
-	if treasureNo = "treasure1":
+	if treasureNo == "treasure1":
 		check = data.treasure1
-	elif treasureNo = "treasure2":
+	elif treasureNo == "treasure2":
 		check = data.treasure2
-	elif treasureNo = "treasure3":
+	elif treasureNo == "treasure3":
 		check = data.treasure3
-	else
+	else:
 		break
 
 	return check
