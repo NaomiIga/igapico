@@ -58,7 +58,7 @@ def pico_login(request):
 		except:
 			new_data = User.objects.create(
 			username = name,
-			starttime = time.time()
+			starttime = datetime.datetime.today()
 			)
 			new_data.save()
 
@@ -146,8 +146,9 @@ def hint(request):
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
 		treasureNo = datas["treasureNo"]
 		
-		UsedHint(name, treasureNo)
+		check = UsedHint(name, treasureNo)
 
+		
 
 		update_data = User.objects.get(username = name)
 		update_data.treasure = datetime.datetime.today()
@@ -161,4 +162,13 @@ def hint(request):
 def hint_check(name, treasureNo):
 	data = UsedHint.objects.get(username = name)
 
-	return "mikansei"
+	if treasureNo = "treasure1":
+		check = data.treasure1
+	elif treasureNo = "treasure2":
+		check = data.treasure2
+	elif treasureNo = "treasure3":
+		check = data.treasure3
+	else
+		break
+
+	return check
