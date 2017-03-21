@@ -150,6 +150,7 @@ def hint(request):
 
 		for i in range(3):
 			if check[i] == "":
+				break
 
 		update_data = User.objects.get(username = name)
 		update_data.treasure = datetime.datetime.today()
