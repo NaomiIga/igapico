@@ -171,6 +171,7 @@ def hint_check(name, treasureNo):
 	elif treasureNo == "treasure3":
 		check = data.treasure3
 	else:
-		break
+		print 'error'
+		
 
 	return check
