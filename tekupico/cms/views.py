@@ -149,7 +149,7 @@ def hint(request):
 		check = UsedHint(name, treasureNo)
 
 		for i in range(3):
-			if check[i] = "":
+			if check[i] == "":
 
 		update_data = User.objects.get(username = name)
 		update_data.treasure = datetime.datetime.today()
