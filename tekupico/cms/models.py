@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.utils.timezone import now
+from django.utils import timezone
 
 # Create your models here.
 #default ha nyuuryoku ga kara no toki ni hyouji sareru moji
@@ -19,9 +19,9 @@ class User(models.Model):
 # User no hint siyou jyoukyou
 class UsedHint(models.Model):
 	username = models.CharField('username', max_length = 255, default = 'NAME')
-	treasure1 = models.DateTimeField(default = now)
-	treasure2 = models.DateTimeField(default = now)
-	treasure3 = models.DateTimeField(default = now)
+	treasure1 = models.DateTimeField(default = timezone.now)
+	treasure2 = models.DateTimeField(default = timezone.now)
+	treasure3 = models.DateTimeField(default = timezone.now)
 	#treasure1_1 = models.IntegerField('1_1time', default = 0)
 	#treasure1_2 = models.IntegerField('1_2time', default = 0)
 	#treasure1_3 = models.IntegerField('1_3time', default = 0)
