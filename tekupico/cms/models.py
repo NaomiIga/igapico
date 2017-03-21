@@ -18,9 +18,9 @@ class User(models.Model):
 # User no hint siyou jyoukyou
 class UsedHint(models.Model):
 	username = models.CharField('username', max_length = 255, default = 'NAME')
-	treasure1 = models.DateTimeField(default = 0)
-	treasure2 = models.DateTimeField(default = 0)
-	treasure3 = models.DateTimeField(default = 0)
+	treasure1 = models.DateTimeField(default = [now, now, now])
+	treasure2 = models.DateTimeField(default = [now, now, now])
+	treasure3 = models.DateTimeField(default = [now, now, now])
 	#treasure1_1 = models.IntegerField('1_1time', default = 0)
 	#treasure1_2 = models.IntegerField('1_2time', default = 0)
 	#treasure1_3 = models.IntegerField('1_3time', default = 0)
