@@ -10,17 +10,17 @@ class User(models.Model):
 	username = models.CharField('username', max_length = 255, default = 'NAME')
 	starttime = models.IntegerField('starttime', default = 0)
 	finishtime = models.IntegerField('finishtime', default = 0)
-	treasure1 = models.IntegerField('treasure1', default = 0)
-	treasure2 = models.IntegerField('treasure2', default = 0)
-	treasure3 = models.IntegerField('treasure3', default = 0)
+	treasure1 = models.DateTimeField('treasure1', default = 0)
+	treasure2 = models.DateTimeField('treasure2', default = 0)
+	treasure3 = models.DateTimeField('treasure3', default = 0)
 	shopname = models.CharField('shopname', max_length = 255, default = 'SHOP')
 
 # User no hint siyou jyoukyou
 class UsedHint(models.Model):
 	username = models.CharField('username', max_length = 255, default = 'NAME')
-	treasure1 = models.IntegerField('treasure1', default = [0, 0, 0])
-	treasure2 = models.IntegerField('treasure2', default = [0, 0, 0])
-	treasure3 = models.IntegerField('treasure3', default = [0, 0, 0])
+	treasure1 = models.DateTimeField('treasure1', default = [0, 0, 0])
+	treasure2 = models.DateTimeField('treasure2', default = [0, 0, 0])
+	treasure3 = models.DateTimeField('treasure3', default = [0, 0, 0])
 	#treasure1_1 = models.IntegerField('1_1time', default = 0)
 	#treasure1_2 = models.IntegerField('1_2time', default = 0)
 	#treasure1_3 = models.IntegerField('1_3time', default = 0)
