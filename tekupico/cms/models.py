@@ -21,6 +21,7 @@ class UsedHint(models.Model):
 	username = models.CharField('username', max_length = 255, default = 'NAME')
 	treasure1 = models.DateTimeField(default = timezone.now)
 	treasure2 = models.DateTimeField(default = timezone.now)
+	treasure3 = models.DateTimeField(default = timezone.now)
 	#treasure1_1 = models.IntegerField('1_1time', default = 0)
 	#treasure1_2 = models.IntegerField('1_2time', default = 0)
 	#treasure1_3 = models.IntegerField('1_3time', default = 0)
