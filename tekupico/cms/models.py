@@ -9,22 +9,22 @@ from django.utils import timezone
 # User log wo tameru
 class User(models.Model):
 	username = models.CharField('username', max_length = 255, default = 'NAME')
-	starttime = models.DateTimeField('starttime', default=0, null=True)
-	finishtime = models.DateTimeField('finishtime', default=0, null=True)
+	starttime = models.DateTimeField('starttime', default=0, null=True, blank=True)
+	finishtime = models.DateTimeField('finishtime', default=0, null=True, blank=True)
 	#treasure1 = models.DateTimeField(default=timezone.now)
 	#treasure2 = models.DateTimeField(default=timezone.now)
 	#treasure3 = models.DateTimeField(default=timezone.now)
-	treasure1 = models.DateTimeField('1time', default=0, null=True)
-	treasure2 = models.DateTimeField('2time', default=0, null=True)
-	treasure3 = models.DateTimeField('3time', default=0, null=True)
+	treasure1 = models.DateTimeField('1time', default=0, null=True, blank=True)
+	treasure2 = models.DateTimeField('2time', default=0, null=True, blank=True)
+	treasure3 = models.DateTimeField('3time', default=0, null=True, blank=True)
 	shopname = models.CharField('shopname', max_length = 255, default = 'SHOP')
 
 # User no hint siyou jyoukyou
 class UsedHint(models.Model):
 	username = models.CharField('username', max_length = 255, default = 'NAME')
-	treasure1 = models.DateTimeField('hint1-1', default=0, null=True)
-	treasure2 = models.DateTimeField('hint2-1', default=0, null=True)
-	treasure3 = models.DateTimeField('hint3-1', default=0, null=True)
+	treasure1 = models.DateTimeField('hint1-1', default=0, null=True, blank=True)
+	treasure2 = models.DateTimeField('hint2-1', default=0, null=True, blank=True)
+	treasure3 = models.DateTimeField('hint3-1', default=0, null=True, blank=True)
 	#treasure1 = models.IntegerField('1_1time', default = 0)
 	#treasure1_2 = models.IntegerField('1_2time', default = 0)
 	#treasure1_3 = models.IntegerField('1_3time', default = 0)
