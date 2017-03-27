@@ -12,12 +12,12 @@ class User(models.Model):
 	username = models.CharField('username', max_length = 255, default = 'NAME')
 	starttime = models.IntegerField('starttime', default = 0)
 	finishtime = models.IntegerField('finishtime', default = 0)
-	treasure1 = models.DateTimeField(default=timezone.now)
-	treasure2 = models.DateTimeField(default=timezone.now)
-	treasure3 = models.DateTimeField(default=timezone.now)
-	#treasure1 = models.IntegerField('1time', default=timezone.now)
-	#treasure2 = models.IntegerField('2time', default=timezone.now)
-	#treasure3 = models.IntegerField('3time', default=timezone.now)
+	#treasure1 = models.DateTimeField(default=timezone.now)
+	#treasure2 = models.DateTimeField(default=timezone.now)
+	#treasure3 = models.DateTimeField(default=timezone.now)
+	treasure1 = models.IntegerField('1time', default=timezone.now)
+	treasure2 = models.IntegerField('2time', default=timezone.now)
+	treasure3 = models.IntegerField('3time', default=timezone.now)
 	shopname = models.CharField('shopname', max_length = 255, default = 'SHOP')
 
 # User no hint siyou jyoukyou
