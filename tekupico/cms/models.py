@@ -15,9 +15,9 @@ class User(models.Model):
 	#treasure1 = models.DateTimeField(default=timezone.now)
 	#treasure2 = models.DateTimeField(default=timezone.now)
 	#treasure3 = models.DateTimeField(default=timezone.now)
-	treasure1 = models.IntegerField('1time', default=0)
-	treasure2 = models.IntegerField('2time', default=0)
-	treasure3 = models.IntegerField('3time', default=0)
+	treasure1 = models.IntegerField('1time', default=timezone.now)
+	treasure2 = models.IntegerField('2time', default=timezone.now)
+	treasure3 = models.IntegerField('3time', default=timezone.now)
 	shopname = models.CharField('shopname', max_length = 255, default = 'SHOP')
 
 # User no hint siyou jyoukyou
