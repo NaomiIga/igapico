@@ -23,16 +23,16 @@ class User(models.Model):
 # User no hint siyou jyoukyou
 class UsedHint(models.Model):
 	username = models.CharField('username', max_length = 255, default = 'NAME')
-	#treasure1 = models.DateTimeField(default=timezone.now)
-	#treasure2 = models.DateTimeField(default=timezone.now)
-	#treasure3 = models.DateTimeField(default=timezone.now)
-	treasure1 = models.IntegerField('1_1time', default = 0)
+	treasure1 = models.DateTimeField(default=timezone.now)
+	treasure2 = models.DateTimeField(default=timezone.now)
+	treasure3 = models.DateTimeField(default=timezone.now)
+	#treasure1 = models.IntegerField('1_1time', default = 0)
 	#treasure1_2 = models.IntegerField('1_2time', default = 0)
 	#treasure1_3 = models.IntegerField('1_3time', default = 0)
-	treasure2 = models.IntegerField('2_1time', default = 0)
+	#treasure2 = models.IntegerField('2_1time', default = 0)
 	#treasure2_2 = models.IntegerField('2_2time', default = 0)
 	#treasure2_3 = models.IntegerField('2_3time', default = 0)
-	treasure3 = models.IntegerField('3_1time', default = 0)
+	#treasure3 = models.IntegerField('3_1time', default = 0)
 	#treasure3_2 = models.IntegerField('3_2time', default = 0)
 	#treasure3_3 = models.IntegerField('3_3time', default = 0)
 
