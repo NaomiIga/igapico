@@ -1,7 +1,6 @@
 from __future__ import unicode_literals
 
 from django.db import models
-import datetime
 from django.utils import timezone
 
 # Create your models here.
@@ -15,17 +14,17 @@ class User(models.Model):
 	#treasure1 = models.DateTimeField(default=timezone.now)
 	#treasure2 = models.DateTimeField(default=timezone.now)
 	#treasure3 = models.DateTimeField(default=timezone.now)
-	treasure1 = models.DateTimeField('1time', default=timezone.now)
-	treasure2 = models.DateTimeField('2time', default=timezone.now)
-	treasure3 = models.DateTimeField('3time', default=timezone.now)
+	treasure1 = models.DateTimeField('1time', default=0)
+	treasure2 = models.DateTimeField('2time', default=0)
+	treasure3 = models.DateTimeField('3time', default=0)
 	shopname = models.CharField('shopname', max_length = 255, default = 'SHOP')
 
 # User no hint siyou jyoukyou
 class UsedHint(models.Model):
 	username = models.CharField('username', max_length = 255, default = 'NAME')
-	treasure1 = models.DateTimeField(default=timezone.now)
-	treasure2 = models.DateTimeField(default=timezone.now)
-	treasure3 = models.DateTimeField(default=timezone.now)
+	treasure1 = models.DateTimeField(default=0)
+	treasure2 = models.DateTimeField(default=0)
+	treasure3 = models.DateTimeField(default=0)
 	#treasure1 = models.IntegerField('1_1time', default = 0)
 	#treasure1_2 = models.IntegerField('1_2time', default = 0)
 	#treasure1_3 = models.IntegerField('1_3time', default = 0)
