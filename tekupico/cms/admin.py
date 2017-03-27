@@ -7,7 +7,7 @@ class UserAdmin(admin.ModelAdmin):
 	list_display = ('username', 'starttime', 'finishtime',)
 	list_display_links = ('username',)
 
-class UsedhintAdmin(admin.ModelAdmin):
+class UsedHintAdmin(admin.ModelAdmin):
 	list_display = ('username', 'treasure1', 'treasure2', 'treasure3',)
 	list_display_links = ('username',)
 
