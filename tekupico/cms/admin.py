@@ -31,7 +31,7 @@ class DataAdmin(admin.ModelAdmin):
 	list_display = ('userdata', 'datavalue',)
 	list_display_links = ('userdata',)
 admin.site.register(User, UserAdmin)
-admin.site.register(UsedHint, UsedhintAdmin)
+admin.site.register(UsedHint, UsedHintAdmin)
 admin.site.register(Beacon, BeaconAdmin)
 admin.site.register(Shop_Beacon, ShopAdmin)
 admin.site.register(Treasure_Beacon, TreasureAdmin)
