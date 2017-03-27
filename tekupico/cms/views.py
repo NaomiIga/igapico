@@ -103,8 +103,9 @@ def shop_connect(shopArr):
 	num_list = [] #結果のbeaconNOを格納する配列
 
 	for i in shopArr:
-		num_list.append(Shop_Beacon.objects.get(shopname = i))
+		#num_list.append(Shop_Beacon.objects.get(shopname = i))
 		#num_list.append(Shop_Beacon.objects.get(shop_id = i))
+		num_list.append('1')
 
 	return num_list
 
@@ -145,12 +146,12 @@ def hint(request):
 		datas = json.loads(request.body)
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
 		treasureNo = datas["treasureNo"]
-		
+
 		check = UsedHint(name, treasureNo)
 
 		#for i in range(3):
 			#if check[i] == "":
-			
+
 
 		update_data = User.objects.get(username = name)
 		update_data.treasure = datetime.datetime.today()
@@ -172,6 +173,6 @@ def hint_check(name, treasureNo):
 		check = data.treasure3
 	else:
 		print 'error'
-		
+
 
 	return check
