@@ -13,7 +13,7 @@ from django.db.models import Q
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth import logout
-from datetime import datetime
+import datetime
 import json
 import numpy
 import time
@@ -58,7 +58,7 @@ def pico_login(request):
 		except:
 			new_data = User.objects.create(
 			username = smart_str(name),
-			starttime = datetime.now(),
+			starttime = datetime.datetime.now(),
 			)
 			new_data.save()
 
