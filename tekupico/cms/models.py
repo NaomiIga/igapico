@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 #default ha nyuuryoku ga kara no toki ni hyouji sareru moji
@@ -8,26 +9,29 @@ from django.db import models
 # User log wo tameru
 class User(models.Model):
 	username = models.CharField('username', max_length = 255, default = 'NAME')
-	starttime = models.IntegerField('starttime', default = 0)
-	finishtime = models.IntegerField('finishtime', default = 0)
-	treasure1 = models.DateTimeField('treasure1', default = 0)
-	treasure2 = models.DateTimeField('treasure2', default = 0)
-	treasure3 = models.DateTimeField('treasure3', default = 0)
+	starttime = models.DateTimeField('starttime', null=True, blank=True)
+	finishtime = models.DateTimeField('finishtime', null=True, blank=True)
+	#treasure1 = models.DateTimeField(default=timezone.now)
+	#treasure2 = models.DateTimeField(default=timezone.now)
+	#treasure3 = models.DateTimeField(default=timezone.now)
+	treasure1 = models.DateTimeField('1time', null=True, blank=True)
+	treasure2 = models.DateTimeField('2time', null=True, blank=True)
+	treasure3 = models.DateTimeField('3time', null=True, blank=True)
 	shopname = models.CharField('shopname', max_length = 255, default = 'SHOP')
 
 # User no hint siyou jyoukyou
 class UsedHint(models.Model):
 	username = models.CharField('username', max_length = 255, default = 'NAME')
-	treasure1 = models.DateTimeField('treasure1', default = [0, 0, 0])
-	treasure2 = models.DateTimeField('treasure2', default = [0, 0, 0])
-	treasure3 = models.DateTimeField('treasure3', default = [0, 0, 0])
-	#treasure1_1 = models.IntegerField('1_1time', default = 0)
+	treasure1 = models.DateTimeField('hint1-1', null=True, blank=True)
+	treasure2 = models.DateTimeField('hint2-1', null=True, blank=True)
+	treasure3 = models.DateTimeField('hint3-1', null=True, blank=True)
+	#treasure1 = models.IntegerField('1_1time', default = 0)
 	#treasure1_2 = models.IntegerField('1_2time', default = 0)
 	#treasure1_3 = models.IntegerField('1_3time', default = 0)
-	#treasure2_1 = models.IntegerField('2_1time', default = 0)
+	#treasure2 = models.IntegerField('2_1time', default = 0)
 	#treasure2_2 = models.IntegerField('2_2time', default = 0)
 	#treasure2_3 = models.IntegerField('2_3time', default = 0)
-	#treasure3_1 = models.IntegerField('3_1time', default = 0)
+	#treasure3 = models.IntegerField('3_1time', default = 0)
 	#treasure3_2 = models.IntegerField('3_2time', default = 0)
 	#treasure3_3 = models.IntegerField('3_3time', default = 0)
 
@@ -111,3 +115,8 @@ class Shop_limited(models.Model):
 class Data(models.Model):
 	userdata = models.CharField('username', max_length = 255, default = 'NAME')
 	datavalue = models.CharField('shop', max_length = 255, default = 'SHOP')
+
+class KeyArea(models.Model):
+	beacon_id = models.IntegerField('beacon', default = 0)
+	xgrid = models.IntegerField('x', default = 0)
+	ygrid = models.IntegerField('y', default = 0)

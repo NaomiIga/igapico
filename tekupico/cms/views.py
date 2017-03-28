@@ -16,8 +16,8 @@ from django.contrib.auth import logout
 from datetime import datetime
 import json
 import numpy
-import datetime
 import time
+from django.utils.encoding import *
 
 #csrf_exemptはつけたい関数の上にそれぞれつけなきゃダメ
 #csrfを無視するコマンド
@@ -57,13 +57,13 @@ def pico_login(request):
 			testname = User.objects.get(username = name)
 		except:
 			new_data = User.objects.create(
-			username = name,
-			starttime = datetime.datetime.today()
+			username = smart_str(name),
+			starttime = datetime.now(),
 			)
 			new_data.save()
 
 			new_data = UsedHint.objects.create(
-			username = name,
+			username = smart_str(name),
 			)
 			new_data.save()
 			return HttpResponse(u'登録完了')
@@ -103,8 +103,9 @@ def shop_connect(shopArr):
 	num_list = [] #結果のbeaconNOを格納する配列
 
 	for i in shopArr:
-		num_list.append(Shop_Beacon.objects.get(shopname = i))
+		#num_list.append(Shop_Beacon.objects.get(shopname = i))
 		#num_list.append(Shop_Beacon.objects.get(shop_id = i))
+		num_list.append('1')
 
 	return num_list
 
@@ -145,12 +146,12 @@ def hint(request):
 		datas = json.loads(request.body)
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
 		treasureNo = datas["treasureNo"]
-		
+
 		check = UsedHint(name, treasureNo)
 
 		#for i in range(3):
 			#if check[i] == "":
-			
+
 
 		update_data = User.objects.get(username = name)
 		update_data.treasure = datetime.datetime.today()
@@ -172,6 +173,19 @@ def hint_check(name, treasureNo):
 		check = data.treasure3
 	else:
 		print 'error'
-		
+
 
 	return check
+
+'''
+#鍵ビーコンの範囲をreturn
+def ReturnKeyArea(beacon):
+	xarea = []
+	yarea = []
+	for i in beacon:
+		update_data = KeyArea.objects.get(beacon_id = i)
+		xarea.append(update_data.xgrid)
+		yarea.append(update_data.ygrid)
+
+	return xarea, yarea
+'''
