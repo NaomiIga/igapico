@@ -66,51 +66,51 @@ class Hint(models.Model):
 
 # Not Changed: Shop List(ladies)
 class Shop_ladies(models.Model):
-	shop_name = models.CharField('shop_name', default = 'NAME')
+	shop_name = models.CharField('shop_name', max_length = 255, default = 'NAME')
 
 # Not Changed: Shop List(mens)
 class Shop_mens(models.Model):
-	shop_name = models.CharField('shop_name', default = 'NAME')
+	shop_name = models.CharField('shop_name', max_length = 255, default = 'NAME')
 
 # Not Changed: Shop List(ladies/mens)
 class Shop_ladiesmens(models.Model):
-	shop_name = models.CharField('shop_name', default = 'NAME')
+	shop_name = models.CharField('shop_name', max_length = 255, default = 'NAME')
 
 # Not Changed: Shop List(kids)
 class Shop_kids(models.Model):
-	shop_name = models.CharField('shop_name', default = 'NAME')
+	shop_name = models.CharField('shop_name', max_length = 255, default = 'NAME')
 
 # Not Changed: Shop List(sports/outdor)
 class Shop_sports(models.Model):
-	shop_name = models.CharField('shop_name', default = 'NAME')
+	shop_name = models.CharField('shop_name', max_length = 255, default = 'NAME')
 
 # Not Changed: Shop List(shoes/bag)
 class Shop_shoesbag(models.Model):
-	shop_name = models.CharField('shop_name', default = 'NAME')
+	shop_name = models.CharField('shop_name', max_length = 255, default = 'NAME')
 
 # Not Changed: Shop List(fassiongooss)
 class Shop_fassiongoods(models.Model):
-	shop_name = models.CharField('shop_name', default = 'NAME')
+	shop_name = models.CharField('shop_name', max_length = 255, default = 'NAME')
 
 # Not Changed: Shop List(goods/variety)
 class Shop_goodsvariety(models.Model):
-	shop_name = models.CharField('shop_name', default = 'NAME')
+	shop_name = models.CharField('shop_name', max_length = 255, default = 'NAME')
 
 # Not Changed: Shop List(watch/accessory)
 class Shop_accessory(models.Model):
-	shop_name = models.CharField('shop_name', default = 'NAME')
+	shop_name = models.CharField('shop_name', max_length = 255, default = 'NAME')
 
 # Not Changed: Shop List(food)
 class Shop_food(models.Model):
-	shop_name = models.CharField('shop_name', default = 'NAME')
+	shop_name = models.CharField('shop_name', max_length = 255, default = 'NAME')
 
 # Not Changed: Shop List(service)
 class Shop_service(models.Model):
-	shop_name = models.CharField('shop_name', default = 'NAME')
+	shop_name = models.CharField('shop_name', max_length = 255, default = 'NAME')
 
 # Not Changed: Shop List(limited)
 class Shop_limited(models.Model):
-	shop_name = models.CharField('shop_name', default = 'NAME')
+	shop_name = models.CharField('shop_name', max_length = 255, default = 'NAME')
 # test
 class Data(models.Model):
 	userdata = models.CharField('username', max_length = 255, default = 'NAME')
