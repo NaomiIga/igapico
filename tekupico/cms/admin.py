@@ -32,8 +32,8 @@ class DataAdmin(admin.ModelAdmin):
 	list_display_links = ('userdata',)
 
 class KeyAreaAdmin(admin.ModelAdmin):
-	list_display = ('beacon_id', 'xgrid', 'ygrid')
-	list_display_links = ('beacon_id')
+	list_display = ('beacon_id', 'xgrid', 'ygrid',)
+	list_display_links = ('beacon_id',)
 
 admin.site.register(User, UserAdmin)
 admin.site.register(UsedHint, UsedHintAdmin)
