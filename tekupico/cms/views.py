@@ -60,7 +60,7 @@ def pico_login(request):
 		except:
 			new_data = User.objects.create(
 			username = name,
-			starttime = timezone.now
+			starttime = timezone.now,
 			)
 			new_data.save()
 
