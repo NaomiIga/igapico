@@ -91,13 +91,13 @@ def shoplog(request):
 		update_data.save()
 
 		num_list = shop_connect(shops)   #ショップとビーコンを紐づけるshop_connect関数に飛ぶ
-		num_list = json.dumps(num_list, ensure_ascii=False)  #json形式にする
+		num_list = json.dumps(num_list)  #json形式にする
 		return JsonResponse(num_list, content_type='application/json')  #json返す
 
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
-	return name
+	#return name
 
 #飛んできた店ID(店名？)の配列からBeaconIDに変換する関数
 def shop_connect(shopArr):
