@@ -188,4 +188,6 @@ def ReturnKeyArea(beacon):
 		update_data = KeyArea.objects.get(beacon_id = i)
 		xarea.append(update_data.xgrid)
 		yarea.append(update_data.ygrid)
+
+	return xarea, yarea
 '''
