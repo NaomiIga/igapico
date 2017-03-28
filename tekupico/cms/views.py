@@ -65,7 +65,7 @@ def pico_login(request):
 			new_data.save()
 
 			new_data = UsedHint.objects.create(
-			username = name,
+			username = smart_unicode(name),
 			)
 			new_data.save()
 			return HttpResponse(u'登録完了')
@@ -178,3 +178,14 @@ def hint_check(name, treasureNo):
 
 
 	return check
+
+'''
+#鍵ビーコンの範囲をreturn
+def ReturnKeyArea(beacon):
+	xarea = []
+	yarea = []
+	for i in beacon:
+		update_data = KeyArea.objects.get(beacon_id = i)
+		xarea.append(update_data.xgrid)
+		yarea.append(update_data.ygrid)
+'''

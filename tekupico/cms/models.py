@@ -68,3 +68,8 @@ class Hint(models.Model):
 class Data(models.Model):
 	userdata = models.CharField('username', max_length = 255, default = 'NAME')
 	datavalue = models.CharField('shop', max_length = 255, default = 'SHOP')
+
+class KeyArea(models.Model):
+	beacon_id = models.IntegerField('beacon', default = 0)
+	xgrid = models.IntegerField('x', default = 0)
+	ygrid = models.IntegerField('y', default = 0)

@@ -30,6 +30,11 @@ class HintAdmin(admin.ModelAdmin):
 class DataAdmin(admin.ModelAdmin):
 	list_display = ('userdata', 'datavalue',)
 	list_display_links = ('userdata',)
+
+class KeyAreaAdmin(admin.ModelAdmin):
+	list_display = ('beacon_id', 'xgrid', 'ygrid')
+	list_display_links = ('beacon_id')
+
 admin.site.register(User, UserAdmin)
 admin.site.register(UsedHint, UsedHintAdmin)
 admin.site.register(Beacon, BeaconAdmin)
@@ -37,3 +42,4 @@ admin.site.register(Shop_Beacon, ShopAdmin)
 admin.site.register(Treasure_Beacon, TreasureAdmin)
 admin.site.register(Hint, HintAdmin)
 admin.site.register(Data, DataAdmin)
+admin.site.register(KeyArea, KeyAreaAdmin)
