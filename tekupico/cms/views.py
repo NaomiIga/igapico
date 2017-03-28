@@ -57,13 +57,13 @@ def pico_login(request):
 			testname = User.objects.get(username = name)
 		except:
 			new_data = User.objects.create(
-			username = name,
+			username = smart_unicode(name),
 			starttime = datetime.now(),
 			)
 			new_data.save()
 
 			new_data = UsedHint.objects.create(
-			username = name,
+			username = smart_unicode(name),
 			)
 			new_data.save()
 			return HttpResponse(u'登録完了')
