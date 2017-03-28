@@ -17,7 +17,7 @@ from datetime import datetime
 import json
 import numpy
 import time
-from django.utils.encoding import smart_unicode
+from django.utils.encoding import *
 
 #csrf_exemptはつけたい関数の上にそれぞれつけなきゃダメ
 #csrfを無視するコマンド
@@ -57,13 +57,13 @@ def pico_login(request):
 			testname = User.objects.get(username = name)
 		except:
 			new_data = User.objects.create(
-			username = smart_unicode(name),
+			username = smart_str(name),
 			starttime = datetime.now(),
 			)
 			new_data.save()
 
 			new_data = UsedHint.objects.create(
-			username = smart_unicode(name),
+			username = smart_str(name),
 			)
 			new_data.save()
 			return HttpResponse(u'登録完了')
