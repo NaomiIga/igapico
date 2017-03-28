@@ -91,7 +91,7 @@ def shoplog(request):
 		update_data.save()
 
 		num_list = shop_connect(shops)   #ショップとビーコンを紐づけるshop_connect関数に飛ぶ
-		num_list = json.dumps(num_list)  #json形式にする
+		num_list = json.dumps("datas":num_list)  #json形式にする
 		return JsonResponse(num_list, content_type='application/json')  #json返す
 
 	else:
