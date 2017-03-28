@@ -13,11 +13,12 @@ from django.db.models import Q
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth import logout
-from datetime import datetime
+import datetime
 import json
 import numpy
 import time
 from django.utils.encoding import *
+from django.http.response import JsonResponse
 
 #csrf_exemptはつけたい関数の上にそれぞれつけなきゃダメ
 #csrfを無視するコマンド
@@ -57,13 +58,13 @@ def pico_login(request):
 			testname = User.objects.get(username = name)
 		except:
 			new_data = User.objects.create(
-			username = smart_str(name),
-			starttime = datetime.now(),
+			username = smart_str(name, encoding='unicode'),
+			starttime = datetime.datetime.now(),
 			)
 			new_data.save()
 
 			new_data = UsedHint.objects.create(
-			username = smart_str(name),
+			username = smart_str(name, encoding='unicode'),
 			)
 			new_data.save()
 			return HttpResponse(u'登録完了')
