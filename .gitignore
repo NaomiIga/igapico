@@ -1,0 +1,4 @@
+*.pyc
+tekupico/cms/migrations/__init__.pyc
+tekupico/cms/migrations/0002_auto_20170224_1555.pyc
+tekupico/cms/migrations/0001_initial.pyc
