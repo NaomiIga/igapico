@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.utils import timezone
+from django.utils.encoding import smart_unicode
 
 # Create your models here.
 #default ha nyuuryoku ga kara no toki ni hyouji sareru moji
