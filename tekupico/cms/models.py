@@ -20,7 +20,7 @@ class User(models.Model):
 	shopname = models.CharField('shopname', max_length = 255, default = 'SHOP')
 
 	def __unicode__(self):
-        return smart_unicode(self.username)
+		return smart_unicode(self.username)
 
 # User no hint siyou jyoukyou
 class UsedHint(models.Model):
