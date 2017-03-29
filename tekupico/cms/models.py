@@ -19,6 +19,9 @@ class User(models.Model):
 	treasure3 = models.DateTimeField('3time', null=True, blank=True)
 	shopname = models.CharField('shopname', max_length = 255, default = 'SHOP')
 
+	def __unicode__(self):
+        return smart_unicode(self.username)
+
 # User no hint siyou jyoukyou
 class UsedHint(models.Model):
 	username = models.CharField('username', max_length = 255, default = 'NAME')
