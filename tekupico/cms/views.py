@@ -106,12 +106,11 @@ def shop_connect(shopArr):
 	num_list = [] #結果のbeaconNOを格納する配列
 
 	for i in shopArr:
-		#num_list.append(Shop_Beacon.objects.get(shopname = i))
-		#num_list.append(Shop_Beacon.objects.get(shop_id = i))
-		num_list.append('1')
+		datas = Shop_Beacon.objects.get(shopname = i)
+		beacon_datas = Beacon.objects.get(beacon_id = datas.beacon_id)
+		num_list.append([beacon_datas.major, beacon_datas.minor])
 
 	return num_list
-
 
 
 #宝ゲットのときにそれを反映
