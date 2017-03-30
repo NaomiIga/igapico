@@ -50,7 +50,7 @@ def post_test(request):
 @csrf_exempt
 def pico_login(request):
 	if request.method == 'POST':
-		datas = json.loads(request.body, object_hook=ascii_encode_dict)  #追記
+		datas = json.loads(request.body)  #追記
 		#name = datas["name"]
 		name = datas
 
@@ -58,7 +58,7 @@ def pico_login(request):
 			testname = User.objects.get(username = name)
 		except:
 			new_data = User.objects.create(
-			username = name,
+			username = name[0],
 			starttime = datetime.datetime.now(),
 			)
 			new_data.save()
