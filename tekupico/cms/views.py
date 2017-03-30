@@ -50,7 +50,7 @@ def post_test(request):
 @csrf_exempt
 def pico_login(request):
 	if request.method == 'POST':
-		datas = json.loads(request.body)  #追記
+		datas = json.loads(request.body, object_hook=ascii_encode_dict)  #追記
 		#name = datas["name"]
 		name = datas
 
