@@ -15,7 +15,7 @@ class BeaconAdmin(admin.ModelAdmin):
 	list_display = ('beacon_id', 'uuid', 'major', 'minor', 'category',)
 	list_display_links = ('beacon_id',)
 
-class ShopAdmin(admin.ModelAdmin):
+class Shop_BeaconAdmin(admin.ModelAdmin):
 	list_display = ('shopname', 'shop_id', 'beacon_id',)
 	list_display_links = ('shopname', 'shop_id', 'beacon_id',)
 
@@ -75,7 +75,7 @@ class Shop_limitedAdmin(admin.ModelAdmin):
 admin.site.register(User, UserAdmin)
 admin.site.register(UsedHint, UsedHintAdmin)
 admin.site.register(Beacon, BeaconAdmin)
-admin.site.register(Shop_Beacon, ShopAdmin)
+admin.site.register(Shop_Beacon, Shop_BeaconAdmin)
 admin.site.register(Treasure_Beacon, TreasureAdmin)
 admin.site.register(Hint, HintAdmin)
 admin.site.register(Data, DataAdmin)
