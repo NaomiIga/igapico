@@ -52,8 +52,6 @@ class Shop_Beacon(models.Model):
 	shopname = models.CharField('shopname', max_length = 255, default = 'SHOPNAME')
 	shop_id = models.IntegerField('shop_id', default = 0)
 	beacon_id = models.IntegerField('beacon', default = 0)
-	major = models.IntegerField('major', default = 0)
-	minor = models.IntegerField('minor', default = 0)
 
 # Not Change: beacon list
 class Beacon(models.Model):
