@@ -199,8 +199,12 @@ def shop_loading(request):
 		datas = json.loads(request.body)
 		category = datas["category"]   # ダブルクオート内はディクショナリーのキー
 
+		shops = []
+
 		if category == "ladies":
-			shops = Shop_ladies.objects.get(shop_name = "NOMA")
+			for i in Shop_ladies
+				arr = Shop_ladies.objects.get()
+				shops.append = arr.shop_name
 
 		return JsonResponse({"data":shops})
 	else:
