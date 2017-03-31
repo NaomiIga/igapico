@@ -203,22 +203,46 @@ def shop_loading(request):
 
 		if category == "ladies":
 			for i in Shop_ladies.objects.all():
-				#arr = Shop_ladies.objects.get()
 				shops.append(i.shop_name)
-			#shops = Shop_ladies.objects.all()
-
+		elif category == "mens":
+			for i in Shop_mens.objects.all():
+				shops.append(i.shop_name)
+		elif category == "ladiesmens":
+			for i in Shop_ladiesmens.objects.all():
+				shops.append(i.shop_name)
+		elif category == "kids":
+			for i in Shop_kids.objects.all():
+				shops.append(i.shop_name)
+		elif category == "sports":
+			for i in Shop_sports.objects.all():
+				shops.append(i.shop_name)
+		elif category == "shoesbag":
+			for i in Shop_shoesbag.objects.all():
+				shops.append(i.shop_name)
+		elif category == "fassiongoods":
+			for i in Shop_fassiongoods.objects.all():
+				shops.append(i.shop_name)
+		elif category == "goodsvariety":
+			for i in Shop_goodsvariety.objects.all():
+				shops.append(i.shop_name)
+		elif category == "accessory":
+			for i in Shop_accessory.objects.all():
+				shops.append(i.shop_name)
+		elif category == "food":
+			for i in Shop_food.objects.all():
+				shops.append(i.shop_name)
+		elif category == "service":
+			for i in Shop_service.objects.all():
+				shops.append(i.shop_name)
+		elif category == "limited":
+			for i in Shop_limited.objects.all():
+				shops.append(i.shop_name)
+		else:
+			print 'error'
 		return JsonResponse(shops, safe = False)
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
 
-	'''if request.method == 'GET':
-		shops = []
-		for i in Shop_ladies.objects.all():
-			shops.append(i.shop_name)
-		return JsonResponse(shops, safe = False)
-	else:
-		response = HttpResponse()
-		response['msg'] = 'NG' '''
 
 
