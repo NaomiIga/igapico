@@ -200,7 +200,7 @@ def shop_loading(request):
 		category = datas["category"]   # ダブルクオート内はディクショナリーのキー
 
 		if category == "ladies":
-			shops = shop_ledies.objects.get()
+			shops = Shop_ladies.objects.get()
 
 		return JsonResponse({"data":shops})
 	else:
