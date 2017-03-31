@@ -206,6 +206,7 @@ def shop_loading(request):
 				arr = Shop_ladies.objects.get()
 				shops.append = arr.shop_name
 			#shops = Shop_ladies.objects.all()
+			print Shop_ladies.objects.all()
 
 		return JsonResponse({"data":shops})
 	else:
