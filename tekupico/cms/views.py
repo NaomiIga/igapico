@@ -191,3 +191,19 @@ def ReturnKeyArea(beacon):
 
 	return xarea, yarea
 '''
+
+#ショップリスト送る
+@csrf_exempt
+def shop_loading(request):
+	if request.method == 'POST':
+		datas = json.loads(request.body)
+		category = datas["category"]   # ダブルクオート内はディクショナリーのキー
+
+		if category == "ladies":
+			shops = shop_ledies.objects.get()
+
+		return JsonResponse({"data":shops})
+	else:
+		response = HttpResponse()
+		response['msg'] = 'NG'
+
