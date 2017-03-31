@@ -195,7 +195,7 @@ def ReturnKeyArea(beacon):
 #ショップリスト送る
 @csrf_exempt
 def shop_loading(request):
-	if request.method == 'POST':
+	'''if request.method == 'POST':
 		datas = json.loads(request.body)
 		category = datas["category"]   # ダブルクオート内はディクショナリーのキー
 
@@ -210,5 +210,15 @@ def shop_loading(request):
 		return JsonResponse(shops, safe = False)
 	else:
 		response = HttpResponse()
+		response['msg'] = 'NG' '''
+
+	if request.method == 'GET':
+		shops = []
+		for i in Shop_ladies.objects.all():
+			shops.append(i.shop_name)
+		return JsonResponse(shops, safe = False)
+	else:
+		response = HttpResponse()
 		response['msg'] = 'NG'
+		pass
 
