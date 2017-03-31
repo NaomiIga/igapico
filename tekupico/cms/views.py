@@ -50,7 +50,7 @@ def post_test(request):
 @csrf_exempt
 def pico_login(request):
 	if request.method == 'POST':
-		datas = json.loads(request.body, object_hook=ascii_encode_dict)  #追記
+		datas = json.loads(request.body)  #追記
 		#name = datas["name"]
 		name = datas
 
@@ -58,13 +58,13 @@ def pico_login(request):
 			testname = User.objects.get(username = name)
 		except:
 			new_data = User.objects.create(
-			username = name,
+			username = name[0],
 			starttime = datetime.datetime.now(),
 			)
 			new_data.save()
 
 			new_data = UsedHint.objects.create(
-			username = name,
+			username = name[0],
 			)
 			new_data.save()
 			return HttpResponse(u'登録完了')
@@ -86,11 +86,11 @@ def shoplog(request):
 		shops = datas.values()
 		#datavalue = float(datas[x].values()),
 
-		update_data = User.objects.get(username = name)
-		update_data.shopname = shops
+		update_data = User.objects.get(username = name[0])
+		update_data.shopname = shops[0]
 		update_data.save()
 
-		num_list = shop_connect(shops)   #ショップとビーコンを紐づけるshop_connect関数に飛ぶ
+		num_list = shop_connect(shops[0])   #ショップとビーコンを紐づけるshop_connect関数に飛ぶ
 		##ここはdictionaly型にしてからじゃないとjsondumpしてください
 		#num_list = json.dumps({"datas":num_list})  #json形式にする
 		#return JsonResponse({num_list}, content_type='application/json)  #json返す
