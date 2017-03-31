@@ -220,5 +220,5 @@ def shop_loading(request):
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
-		pass
+
 
