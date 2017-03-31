@@ -216,7 +216,7 @@ def shop_loading(request):
 		shops = []
 		for i in Shop_ladies.objects.all():
 			shops.append(i.shop_name)
-		return JsonResponse({"data":shops})
+		return JsonResponse(shops, safe = False)
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
