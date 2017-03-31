@@ -199,6 +199,7 @@ def shop_loading(request):
 		datas = json.loads(request.body)
 		category = datas["category"]   # ダブルクオート内はディクショナリーのキー
 
+		print Shop_ladies.objects.all()
 		shops = []
 
 		if category == "ladies":
