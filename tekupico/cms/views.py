@@ -203,8 +203,8 @@ def shop_loading(request):
 
 		if category == "ladies":
 			for i in Shop_ladies.objects.all():
-				arr = Shop_ladies.objects.get()
-				shops.append = arr.shop_name
+				#arr = Shop_ladies.objects.get()
+				shops.append(i.shop_name)
 			#shops = Shop_ladies.objects.all()
 
 		return JsonResponse({"data":shops})
