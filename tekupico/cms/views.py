@@ -202,11 +202,12 @@ def shop_loading(request):
 		shops = []
 
 		if category == "ladies":
-			for i in len(Shop_ladies):
+			'''for i in Shop_ladies:
 				arr = Shop_ladies.objects.get()
-				shops.append = arr.shop_name
+				shops.append = arr.shop_name'''
+			shops = Shop_ladies.objects.all()
 
-		return JsonResponse({"data":shops})
+		return JsonResponse({shops})
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
