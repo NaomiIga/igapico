@@ -202,7 +202,7 @@ def shop_loading(request):
 		shops = []
 
 		if category == "ladies":
-			for i in Shop_ladies
+			for i in Shop_ladies.objects
 				arr = Shop_ladies.objects.get()
 				shops.append = arr.shop_name
 
