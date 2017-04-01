@@ -247,65 +247,137 @@ def shop_loading(request):
 	'''
 	if request.method == 'POST':
 		#shops = {}
-		shop_list = []
+		count = 0
+		#shop_list = []
 		for i in Shop_ladies.objects.all():
-			shop_list.append(i.shop_name)
-			shops{"Shop_ladies"} = {shop_list}
+			if count == 0:
+				shops["Shop_ladies"] = {i.shop_name}
+				count += 1
+			else:
+				shops.update({"Shop_ladies":i.shop_name})
+			#shop_list.append(i.shop_name)
+			#shops["Shop_ladies"] = {shop_list}
 
-		shop_list = []
+		#shop_list = []
+		count = 0
 		for i in Shop_mens.objects.all():
-			shop_list.append(i.shop_name)
-			shops{"Shop_mens"} = {shop_list}
+			if count == 0:
+				shops["Shop_mens"] = {i.shop_name}
+				count += 1
+			else:
+				shops.update({"Shop_mens":i.shop_name})
+			#shop_list.append(i.shop_name)
+			#shops["Shop_mens"] = {shop_list}
 
-		shop_list = []
+		#shop_list = []
+		count = 0
 		for i in Shop_ladiesmens.objects.all():
-			shop_list.append(i.shop_name)
-			shops{"Shop_ladiesmens"} = {shop_list}
+			if count == 0:
+				shops["Shop_ladiesmens"] = {i.shop_name}
+				count += 1
+			else:
+				shops.update({"Shop_ladiesmens":i.shop_name})
+			#shop_list.append(i.shop_name)
+			#shops["Shop_ladiesmens"] = {shop_list}
 
-		shop_list = []
+		#shop_list = []
+		count = 0
 		for i in Shop_kids.objects.all():
-			shop_list.append(i.shop_name)
-			shops{"Shop_kids"} = {shop_list}
+			if count == 0:
+				shops["Shop_kids"] = {i.shop_name}
+				count += 1
+			else:
+				shops.update({"Shop_kids":i.shop_name})
+			#shop_list.append(i.shop_name)
+			#shops["Shop_kids"] = {shop_list}
 
-		shop_list = []
+		#shop_list = []
+		count = 0
 		for i in Shop_sports.objects.all():
-			shop_list.append(i.shop_name)
-			shops{"Shop_sports"} = {shop_list}
+			if count == 0:
+				shops["Shop_sports"] = {i.shop_name}
+				count += 1
+			else:
+				shops.update({"Shop_sports":i.shop_name})
+			#shop_list.append(i.shop_name)
+			#shops["Shop_sports"] = {shop_list}
 
-		shop_list = []
+		#shop_list = []
+		count = 0
 		for i in Shop_shoesbag.objects.all():
-			shop_list.append(i.shop_name)
-			shops{"Shop_shoesbag"} = {shop_list}
+			if count == 0:
+				shops["Shop_shoesbag"] = {i.shop_name}
+				count += 1
+			else:
+				shops.update({"Shop_shoesbag":i.shop_name})
+			#shop_list.append(i.shop_name)
+			#shops["Shop_shoesbag"] = {shop_list}
 
-		shop_list = []
+		#shop_list = []
+		count = 0
 		for i in Shop_fassiongoods.objects.all():
-			shop_list.append(i.shop_name)
-			shops{"Shop_fassiongoods"} = {shop_list}
+			if count == 0:
+				shops["Shop_fassiongoods"] = {i.shop_name}
+				count += 1
+			else:
+				shops.update({"Shop_fassiongoods":i.shop_name})
+			#shop_list.append(i.shop_name)
+			#shops["Shop_fassiongoods"] = {shop_list}
 
-		shop_list = []
+		#shop_list = []
+		count = 0
 		for i in Shop_goodsvariety.objects.all():
-			shop_list.append(i.shop_name)
-			shops{"Shop_goodsvariety"} = {shop_list}
+			if count == 0:
+				shops["Shop_goodsvariety"] = {i.shop_name}
+				count += 1
+			else:
+				shops.update({"Shop_goodsvariety":i.shop_name})
+			#shop_list.append(i.shop_name)
+			#shops["Shop_goodsvariety"] = {shop_list}
 
-		shop_list = []
+		#shop_list = []
+		count = 0
 		for i in Shop_accessory.objects.all():
-			shop_list.append(i.shop_name)
-			shops{"Shop_accessory"} = {shop_list}
+			if count == 0:
+				shops["Shop_accessory"] = {i.shop_name}
+				count += 1
+			else:
+				shops.update({"Shop_accessory":i.shop_name})
+			#shop_list.append(i.shop_name)
+			#shops["Shop_accessory"] = {shop_list}
 
-		shop_list = []
+		#shop_list = []
+		count = 0
 		for i in Shop_food.objects.all():
-			shop_list.append(i.shop_name)
-			shops{"Shop_food"} = {shop_list}
+			if count == 0:
+				shops["Shop_food"] = {i.shop_name}
+				count += 1
+			else:
+				shops.update({"Shop_food":i.shop_name})
+			#shop_list.append(i.shop_name)
+			#shops["Shop_food"] = {shop_list}
 
-		shop_list = []
+		#shop_list = []
+		count = 0
 		for i in Shop_service.objects.all():
-			shop_list.append(i.shop_name)
-			shops{"Shop_service"} = {shop_list}
+			if count == 0:
+				shops["Shop_service"] = {i.shop_name}
+				count += 1
+			else:
+				shops.update({"Shop_service":i.shop_name})
+			#shop_list.append(i.shop_name)
+			#shops["Shop_service"] = {shop_list}
 
-		shop_list = []
+		#shop_list = []
+		count = 0
 		for i in Shop_limited.objects.all():
-			shop_list.append(i.shop_name)
-			shops{"Shop_limited"} = {shop_list}
+			if count == 0:
+				shops["Shop_limited"] = {i.shop_name}
+				count += 1
+			else:
+				shops.update({"Shop_limited":i.shop_name})
+			#shop_list.append(i.shop_name)
+			#shops["Shop_limited"] = {shop_list}
 
 		return JsonResponse(shops, safe = False)
 
