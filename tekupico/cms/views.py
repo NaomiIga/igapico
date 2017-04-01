@@ -396,55 +396,45 @@ def shop_loading(request):
 		shops["Shop_ladies"] = shop_list
 
 		shop_list = []
-		count = 0
 		for i in Shop_mens.objects.all():
 			shop_list.append(i.shop_name)
 		shops["Shop_mens"] = shop_list
 
 		shop_list = []
-		count = 0
 		for i in Shop_ladiesmens.objects.all():
 			shop_list.append(i.shop_name)
 		shops["Shop_ladiesmens"] = shop_list
 
 		shop_list = []
-		count = 0
 		for i in Shop_kids.objects.all():
 			shop_list.append(i.shop_name)
 		shops["Shop_kids"] = shop_list
 
 		shop_list = []
-		count = 0
 		for i in Shop_sports.objects.all():
 			shop_list.append(i.shop_name)
 		shops["Shop_sports"] = shop_list
 
 		shop_list = []
-		count = 0
 		for i in Shop_shoesbag.objects.all():
 			shop_list.append(i.shop_name)
 		shops["Shop_shoesbag"] = shop_list
 
 		shop_list = []
-		count = 0
 		for i in Shop_fassiongoods.objects.all():
 			shop_list.append(i.shop_name)
 		shops["Shop_fassiongoods"] = shop_list
 
 		shop_list = []
-		count = 0
 		for i in Shop_goodsvariety.objects.all():
 			shop_list.append(i.shop_name)
 		shops["Shop_goodsvariety"] = shop_list
 
 		shop_list = []
-		count = 0
 		for i in Shop_accessory.objects.all():
 			shop_list.append(i.shop_name)
 		shops["Shop_accessory"] = shop_list
 
-		shop_list = []
-		count = 0
 		for i in Shop_food.objects.all():
 			shop_list.append(i.shop_name)
 		shops["Shop_food"] = shop_list
