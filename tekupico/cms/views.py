@@ -379,7 +379,7 @@ def shop_loading(request):
 			#shop_list.append(i.shop_name)
 			#shops["Shop_limited"] = {shop_list}
 
-		return JsonResponse(shops, safe = False)
+		return shops
 
 	else:
 		response = HttpResponse()
