@@ -246,7 +246,7 @@ def shop_loading(request):
 		response['msg'] = 'NG'
 	'''
 	if request.method == 'POST':
-		#shops = {}
+		shops = {}
 		count = 0
 		#shop_list = []
 		for i in Shop_ladies.objects.all():
