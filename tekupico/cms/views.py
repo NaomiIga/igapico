@@ -254,7 +254,7 @@ def shop_loading(request):
 				shops["Shop_ladies"] = {i.shop_name}
 				count += 1
 			else:
-				shops.update({"Shop_ladies":i.shop_name})
+				shops["Shop_ladies"].update(i.shop_name)
 			#shop_list.append(i.shop_name)
 			#shops["Shop_ladies"] = {shop_list}
 
@@ -265,7 +265,7 @@ def shop_loading(request):
 				shops["Shop_mens"] = {i.shop_name}
 				count += 1
 			else:
-				shops.update({"Shop_mens":i.shop_name})
+				shops["Shop_mens"].update(i.shop_name)
 			#shop_list.append(i.shop_name)
 			#shops["Shop_mens"] = {shop_list}
 
@@ -276,7 +276,7 @@ def shop_loading(request):
 				shops["Shop_ladiesmens"] = {i.shop_name}
 				count += 1
 			else:
-				shops.update({"Shop_ladiesmens":i.shop_name})
+				shops["Shop_ladiesmens"].update(i.shop_name)
 			#shop_list.append(i.shop_name)
 			#shops["Shop_ladiesmens"] = {shop_list}
 
@@ -287,7 +287,7 @@ def shop_loading(request):
 				shops["Shop_kids"] = {i.shop_name}
 				count += 1
 			else:
-				shops.update({"Shop_kids":i.shop_name})
+				shops["Shop_kids"].update(i.shop_name)
 			#shop_list.append(i.shop_name)
 			#shops["Shop_kids"] = {shop_list}
 
@@ -298,7 +298,7 @@ def shop_loading(request):
 				shops["Shop_sports"] = {i.shop_name}
 				count += 1
 			else:
-				shops.update({"Shop_sports":i.shop_name})
+				shops["Shop_sports"].update(i.shop_name)
 			#shop_list.append(i.shop_name)
 			#shops["Shop_sports"] = {shop_list}
 
@@ -309,7 +309,7 @@ def shop_loading(request):
 				shops["Shop_shoesbag"] = {i.shop_name}
 				count += 1
 			else:
-				shops.update({"Shop_shoesbag":i.shop_name})
+				shops["Shop_shoesbag"].update(i.shop_name)
 			#shop_list.append(i.shop_name)
 			#shops["Shop_shoesbag"] = {shop_list}
 
@@ -320,7 +320,7 @@ def shop_loading(request):
 				shops["Shop_fassiongoods"] = {i.shop_name}
 				count += 1
 			else:
-				shops.update({"Shop_fassiongoods":i.shop_name})
+				shops["Shop_fassiongoods"].update(i.shop_name)
 			#shop_list.append(i.shop_name)
 			#shops["Shop_fassiongoods"] = {shop_list}
 
@@ -331,7 +331,7 @@ def shop_loading(request):
 				shops["Shop_goodsvariety"] = {i.shop_name}
 				count += 1
 			else:
-				shops.update({"Shop_goodsvariety":i.shop_name})
+				shops["Shop_goodsvariety"].update(i.shop_name)
 			#shop_list.append(i.shop_name)
 			#shops["Shop_goodsvariety"] = {shop_list}
 
@@ -342,7 +342,7 @@ def shop_loading(request):
 				shops["Shop_accessory"] = {i.shop_name}
 				count += 1
 			else:
-				shops.update({"Shop_accessory":i.shop_name})
+				shops["Shop_accessory"].update(i.shop_name)
 			#shop_list.append(i.shop_name)
 			#shops["Shop_accessory"] = {shop_list}
 
@@ -353,7 +353,7 @@ def shop_loading(request):
 				shops["Shop_food"] = {i.shop_name}
 				count += 1
 			else:
-				shops.update({"Shop_food":i.shop_name})
+				shops["Shop_food"].update(i.shop_name)
 			#shop_list.append(i.shop_name)
 			#shops["Shop_food"] = {shop_list}
 
@@ -364,7 +364,7 @@ def shop_loading(request):
 				shops["Shop_service"] = {i.shop_name}
 				count += 1
 			else:
-				shops.update({"Shop_service":i.shop_name})
+				shops["Shop_service"].update(i.shop_name)
 			#shop_list.append(i.shop_name)
 			#shops["Shop_service"] = {shop_list}
 
@@ -375,7 +375,7 @@ def shop_loading(request):
 				shops["Shop_limited"] = {i.shop_name}
 				count += 1
 			else:
-				shops.update({"Shop_limited":i.shop_name})
+				shops["Shop_limited"].update(i.shop_name)
 			#shop_list.append(i.shop_name)
 			#shops["Shop_limited"] = {shop_list}
 
