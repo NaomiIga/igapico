@@ -19,6 +19,7 @@ import numpy
 import time
 from django.utils.encoding import *
 from django.http.response import JsonResponse
+from django.core import serializers
 
 #csrf_exemptはつけたい関数の上にそれぞれつけなきゃダメ
 #csrfを無視するコマンド
@@ -379,7 +380,8 @@ def shop_loading(request):
 			#shop_list.append(i.shop_name)
 			#shops["Shop_limited"] = {shop_list}
 
-		return shops
+		shops['message'] = serializers.serialize('json', shops)
+		return JsonResponse(shops)
 
 	else:
 		response = HttpResponse()
