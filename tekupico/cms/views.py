@@ -250,62 +250,74 @@ def shop_loading(request):
 		shop_list = []
 		for i in Shop_ladies.objects.all():
 			shop_list.append(i.shop_name)
-			shops["Shop_ladies"] = {shop_list}
+			#shops["Shop_ladies"] = {shop_list}
+			shops = shops.update({"Shop_ladies":shop_list})
 
 		shop_list = []
 		for i in Shop_mens.objects.all():
 			shop_list.append(i.shop_name)
-			shops["Shop_mens"] = {shop_list}
+			#shops["Shop_mens"] = {shop_list}
+			shops = shops.update({"Shop_mens":shop_list})
 
 		shop_list = []
 		for i in Shop_ladiesmens.objects.all():
 			shop_list.append(i.shop_name)
-			shops["Shop_ladiesmens"] = {shop_list}
+			#shops["Shop_ladiesmens"] = {shop_list}
+			shops = shops.update({"Shop_ladiesmens":shop_list})
 
 		shop_list = []
 		for i in Shop_kids.objects.all():
 			shop_list.append(i.shop_name)
-			shops["Shop_kids"] = {shop_list}
+			#shops["Shop_kids"] = {shop_list}
+			shops = shops.update({"Shop_kids":shop_list})
 
 		shop_list = []
 		for i in Shop_sports.objects.all():
 			shop_list.append(i.shop_name)
-			shops["Shop_sports"] = {shop_list}
+			#shops["Shop_sports"] = {shop_list}
+			shops = shops.update({"Shop_sports":shop_list})
 
 		shop_list = []
 		for i in Shop_shoesbag.objects.all():
 			shop_list.append(i.shop_name)
-			shops["Shop_shoesbag"] = {shop_list}
+			#shops["Shop_shoesbag"] = {shop_list}
+			shops = shops.update({"Shop_shoesbag":shop_list})
 
 		shop_list = []
 		for i in Shop_fassiongoods.objects.all():
 			shop_list.append(i.shop_name)
-			shops["Shop_fassiongoods"] = {shop_list}
+			#shops["Shop_fassiongoods"] = {shop_list}
+			shops = shops.update({"Shop_fassiongoods":shop_list})
 
 		shop_list = []
 		for i in Shop_goodsvariety.objects.all():
 			shop_list.append(i.shop_name)
-			shops["Shop_goodsvariety"] = {shop_list}
+			#shops["Shop_goodsvariety"] = {shop_list}
+			shops = shops.update({"Shop_goodsvariety":shop_list})
 
 		shop_list = []
 		for i in Shop_accessory.objects.all():
 			shop_list.append(i.shop_name)
-			shops["Shop_accessory"] = {shop_list}
+			#shops["Shop_accessory"] = {shop_list}
+			shops = shops.update({"Shop_accessory":shop_list})
 
 		shop_list = []
 		for i in Shop_food.objects.all():
 			shop_list.append(i.shop_name)
-			shops["Shop_food"] = {shop_list}
+			#shops["Shop_food"] = {shop_list}
+			shops = shops.update({"Shop_food":shop_list})
 
 		shop_list = []
 		for i in Shop_service.objects.all():
 			shop_list.append(i.shop_name)
-			shops["Shop_service"] = {shop_list}
+			#shops["Shop_service"] = {shop_list}
+			shops = shops.update({"Shop_service":shop_list})
 
 		shop_list = []
 		for i in Shop_limited.objects.all():
 			shop_list.append(i.shop_name)
-			shops["Shop_limited"] = {shop_list}
+			#shops["Shop_limited"] = {shop_list}
+			shops = shops.update({"Shop_limited":shop_list})
 
 		return JsonResponse(shops, safe = False)
 
