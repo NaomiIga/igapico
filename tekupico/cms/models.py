@@ -63,7 +63,8 @@ class Beacon(models.Model):
 
 # Not Change: Hint list
 class Hint(models.Model):
-	hint_num = models.IntegerField('hint_number', default = 0)
+	treasure_num = models.IntegerField('treasure_num', default = 0)
+	hint_num = models.IntegerField('hint_num', default = 0)
 	hint_sent = models.CharField('hint_sentence', max_length = 255, default = 'HINT')
 
 # Not Changed: Shop List(ladies)
