@@ -70,7 +70,7 @@ def pico_login(request):
 			new_data.save()
 			return HttpResponse(u'登録完了')
 		else:
-			return JsonResponse({"error":"This name already sign up..."})
+			return JsonResponse({"error":"error"})
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
