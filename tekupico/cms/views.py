@@ -57,8 +57,8 @@ def pico_login(request):
 
 		try:
 			testname = User.objects.get(username = name)
-			return HttpResponse(u'error')
-		except:
+			return JsonResponse("error")
+		except Exception:
 			new_data = User.objects.create(
 			username = name[0],
 			starttime = datetime.datetime.now(),
@@ -210,7 +210,7 @@ def hint_first(request):
 		check = hintDatas(name, treasureNo)
 		check.xxxxxxxxxxxx = datetime.datetime.now()   #ヒントのDBの構造によって変化
 		check.save()
-		
+
 
 		treasure_hint = treasureNo + "-1"
 		first_hint = Hint.objects.get(treasure_hint)
@@ -219,7 +219,7 @@ def hint_first(request):
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
-	
+
 
 
 #ショップリスト送る
