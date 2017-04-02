@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^pico_login', views.pico_login, name="pico_login"),
     url(r'^shoplog', views.shoplog, name="shoplog"),
     url(r'^shop_loading', views.shop_loading, name="shop_loading"),
+    url(r'^hint', views.hint, name="hint"),
 ]
