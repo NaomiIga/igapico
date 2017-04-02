@@ -127,7 +127,7 @@ def treasure_check(request):
 		minor = datas["minor"]
 		treasure_num = treasure_num(major,minor)
 
-		treasure = 'treasure' + treasure_num
+		treasure = 'treasure' + str([treasure_num])
 
 		update_data = User.objects.get(username = name)
 		update_data.treasure = datetime.datetime.today()
@@ -181,7 +181,7 @@ def hint(request):
 		datas = json.loads(request.body)
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
 		tag = datas["treasureNo"]
-		treasureNo = 'treasure' + tag
+		treasureNo = 'treasure' + str([tag])
 
 		hint = hint_check(name, treasureNo)
 
