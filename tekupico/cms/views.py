@@ -102,7 +102,7 @@ def shoplog(request):
 		response['msg'] = 'NG'
 	#return name
 
-#飛んできた店ID(店名？)の配列からBeaconIDに変換する関数
+#飛んできた店名の配列からBeaconIDに変換する関数
 def shop_connect(shopArr):
 	num_list = [] #結果のbeaconNOを格納する配列
 
@@ -192,6 +192,32 @@ def ReturnKeyArea(beacon):
 
 	return xarea, yarea
 '''
+
+@csrf_exempt
+def hint_first(request):
+	if request.method == 'POST':
+		datas = json.loads(request.body)
+		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
+		treasureNo = datas["treasureNo"]
+
+		check = UsedHint(name, treasureNo)
+
+		#for i in range(3):
+			#if check[i] == "":
+
+
+		update_data = User.objects.get(username = name)
+		update_data.treasure = datetime.datetime.today()
+		update_data.save()
+
+		first_hint = Hint.objects.get(xxxxxxxxxxxx)
+
+		return 
+	else:
+		response = HttpResponse()
+		response['msg'] = 'NG'
+	
+
 
 #ショップリスト送る
 @csrf_exempt
