@@ -57,10 +57,7 @@ def pico_login(request):
 		name = datas["name"]
 		#name = datas
 
-		try:
-			testname = User.objects.get(username = name)
-			return JsonResponse("error")
-		except Exception:
+		if User.objects.get(username = name) is None:
 			new_data = User.objects.create(
 			username = name[0],
 			starttime = datetime.datetime.now(),
@@ -71,7 +68,9 @@ def pico_login(request):
 			username = name[0],
 			)
 			new_data.save()
-			return HttpResponse(u'登録完了')
+			return HttpResponse(u'登録完了')			
+		else:
+			return JsonResponse("error")
 		'''else:
 			return JsonResponse({"error":"error"})'''
 	else:
@@ -169,7 +168,7 @@ def hint_first(request):
 
 		hintdatas = Hint.objects.get(treasure_num = tag, hint_num = 1)
 		first_hint = hintdatas.hint_sent
-		first_hint = 'ヒント1\n' + first_hint 
+		first_hint = 'ヒント1\n' + first_hint
 		return JsonResponse({"hint1":first_hint})
 	else:
 		response = HttpResponse()
@@ -223,7 +222,7 @@ def hint_check(name, treasureNo):
 			data.save()
 			hint = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
 	else:
-		print 'error' 
+		print 'error'
 
 	return hint
 
