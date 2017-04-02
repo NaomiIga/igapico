@@ -58,7 +58,7 @@ def pico_login(request):
 		try:
 			testname = User.objects.get(username = name)
 			return JsonResponse("error")
-		except:
+		except Exception:
 			new_data = User.objects.create(
 			username = name[0],
 			starttime = datetime.datetime.now(),
