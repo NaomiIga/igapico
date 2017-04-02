@@ -130,6 +130,10 @@ def treasure_check(request):
 		update_data = User.objects.get(username = name)
 		update_data.treasure = datetime.datetime.today()
 		update_data.save()
+
+		#ここにポイント計算のこと書く
+
+
 		return treasure_num
 	else:
 		response = HttpResponse()
@@ -156,11 +160,12 @@ def hint(request):
 		#for i in range(3):
 			#if check[i] == "":
 
-
-		update_data = User.objects.get(username = name)
-		update_data.treasure = datetime.datetime.today()
+		check.treasure = datetime.datetime.today()
 		update_data.save()
-		return treasure_num
+
+		hint = Hint.xxxxxxxxxxxx
+
+		return JsonResponse({"hint":hint})
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
