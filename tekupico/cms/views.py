@@ -57,7 +57,7 @@ def pico_login(request):
 
 		try:
 			testname = User.objects.get(username = name)
-			return JsonResponse({"error":"error"})
+			return HttpResponse(u'error')
 		except:
 			new_data = User.objects.create(
 			username = name[0],
