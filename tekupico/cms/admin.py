@@ -8,7 +8,7 @@ class UserAdmin(admin.ModelAdmin):
 	list_display_links = ('username',)
 
 class UsedHintAdmin(admin.ModelAdmin):
-	list_display = ('username', 'treasure1_1', 'treasure1_2', 'treasure1_3', 'treasure2_1', 'treasure2_2', 'treasure2_3', 'treasure3_1', 'treasure3_2', 'treasure3_3', 'treasure4_1', 'treasure4_2', 'treasure4_3', 'treasure5_1', 'treasure5_2', 'treasure5_3', 'treasure6_1', 'treasure6_2', 'treasure6_3', 'treasure7_1', 'treasure7_2', 'treasure7_3', 'treasure8_1', 'treasure8_2', 'treasure8_3', 'treasure9_1', 'treasure9_2', 'treasure9_3', 'treasure10_1', 'treasure10_2', 'treasure10_3',)
+	list_display = ('username',)
 	list_display_links = ('username',)
 
 class BeaconAdmin(admin.ModelAdmin):
