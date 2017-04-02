@@ -53,6 +53,7 @@ def pico_login(request):
 	if request.method == 'POST':
 		datas = json.loads(request.body)  #追記
 		name = datas["name"]
+		return HttpResponse(name)
 		#name = datas
 
 		try:
