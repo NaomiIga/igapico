@@ -70,7 +70,7 @@ def pico_login(request):
 			new_data.save()
 			return HttpResponse(u'登録完了')
 		else:
-			return HttpResponse(u'This name already sign up...')
+			return JsonResponse({"error":"This name already sign up..."})
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
@@ -193,6 +193,7 @@ def ReturnKeyArea(beacon):
 	return xarea, yarea
 '''
 
+# 初めてヒント見たときに呼ばれる
 @csrf_exempt
 def hint_first(request):
 	if request.method == 'POST':
@@ -200,19 +201,15 @@ def hint_first(request):
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
 		treasureNo = datas["treasureNo"]
 
-		check = UsedHint(name, treasureNo)
+		check = hintDatas(name, treasureNo)
+		check.xxxxxxxxxxxx = datetime.datetime.now()   #ヒントのDBの構造によって変化
+		check.save()
+		
 
-		#for i in range(3):
-			#if check[i] == "":
+		treasure_hint = treasureNo + "-1"
+		first_hint = Hint.objects.get(treasure_hint)
 
-
-		update_data = User.objects.get(username = name)
-		update_data.treasure = datetime.datetime.today()
-		update_data.save()
-
-		first_hint = Hint.objects.get(xxxxxxxxxxxx)
-
-		return 
+		return JsonResponse({"hint1":first_hint})
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
