@@ -29,4 +29,5 @@ urlpatterns = [
     url(r'^shoplog', views.shoplog, name="shoplog"),
     url(r'^shop_loading', views.shop_loading, name="shop_loading"),
     url(r'^hint', views.hint, name="hint"),
+    url(r'^hint', views.hint_first, name="hint_first"),
 ]
