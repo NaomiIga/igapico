@@ -57,6 +57,7 @@ def pico_login(request):
 
 		try:
 			testname = User.objects.get(username = name)
+			return JsonResponse({"error":"error"})
 		except:
 			new_data = User.objects.create(
 			username = name[0],
@@ -69,8 +70,8 @@ def pico_login(request):
 			)
 			new_data.save()
 			return HttpResponse(u'登録完了')
-		else:
-			return JsonResponse({"error":"error"})
+		'''else:
+			return JsonResponse({"error":"error"})'''
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
