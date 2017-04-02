@@ -23,6 +23,8 @@ from django.core import serializers
 
 #csrf_exemptはつけたい関数の上にそれぞれつけなきゃダメ
 #csrfを無視するコマンド
+
+#テスト用
 @csrf_exempt
 def post_test(request):
 	if request.method == 'POST':
@@ -147,23 +149,41 @@ def treasure_num(get_major, get_minor):
 		treasure_num = data.treasure
 	return treasure_num
 
-#ヒント使うときによばれる
+# 初めてヒント見たときに呼ばれる
+@csrf_exempt
+def hint_first(request):
+	if request.method == 'POST':
+		datas = json.loads(request.body)
+		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
+		tag = datas["treasureNo"]
+
+		# DBに使用時間を格納
+		usedhintdatas = UsedHint.objects.get(username = name)
+		if tag == 1:
+			usedhintdatas.hint1_1 = datetime.datetime.now()
+		elif tag == 2:
+			usedhintdatas.hint2_1 = datetime.datetime.now()
+		elif tag == 3:
+			usedhintdatas.hint3_1 = datetime.datetime.now()
+		usedhintdatas.save()
+
+		hintdatas = Hint.objects.get(treasure_num = tag, hint_num = 1)
+		first_hint = hintdatas.hint_sent
+		return JsonResponse({"hint1":first_hint})
+	else:
+		response = HttpResponse()
+		response['msg'] = 'NG'
+
+# 2個目以降のヒント使うときによばれる
 @csrf_exempt
 def hint(request):
 	if request.method == 'POST':
 		datas = json.loads(request.body)
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
-		treasureNo = datas["treasureNo"]
+		tag = datas["treasureNo"]
+		treasureNo = 'treasure' + tag
 
-		check = UsedHint(name, treasureNo)
-
-		#for i in range(3):
-			#if check[i] == "":
-
-		check.treasure = datetime.datetime.today()
-		update_data.save()
-
-		hint = Hint.xxxxxxxxxxxx
+		hint = hint_check(name, treasureNo)
 
 		return JsonResponse({"hint":hint})
 	else:
@@ -175,16 +195,36 @@ def hint_check(name, treasureNo):
 	data = UsedHint.objects.get(username = name)
 
 	if treasureNo == "treasure1":
-		check = data.treasure1
+		if data.hint1_2 == None:
+			data.hint1_2 = datetime.datetime.now()
+			data.save()
+			hint = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+		elif data.hint1_3 == None:
+			data.hint1_3 = datetime.datetime.now()
+			data.save()
+			hint = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
 	elif treasureNo == "treasure2":
-		check = data.treasure2
+		if data.hint2_2 == None:
+			data.hint2_2 = datetime.datetime.now()
+			data.save()
+			hint = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+		elif data.hint2_3 == None:
+			data.hint2_3 = datetime.datetime.now()
+			data.save()
+			hint = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
 	elif treasureNo == "treasure3":
-		check = data.treasure3
+		if data.hint3_2 == None:
+			data.hint3_2 = datetime.datetime.now()
+			data.save()
+			hint = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+		elif data.hint3_3 == None:
+			data.hint3_3 = datetime.datetime.now()
+			data.save()
+			hint = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
 	else:
-		print 'error'
+		print 'error' 
 
-
-	return check
+	return hint
 
 '''
 #鍵ビーコンの範囲をreturn
@@ -199,26 +239,7 @@ def ReturnKeyArea(beacon):
 	return xarea, yarea
 '''
 
-# 初めてヒント見たときに呼ばれる
-@csrf_exempt
-def hint_first(request):
-	if request.method == 'POST':
-		datas = json.loads(request.body)
-		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
-		treasureNo = datas["treasureNo"]
 
-		check = hintDatas(name, treasureNo)
-		check.xxxxxxxxxxxx = datetime.datetime.now()   #ヒントのDBの構造によって変化
-		check.save()
-
-
-		treasure_hint = treasureNo + "-1"
-		first_hint = Hint.objects.get(treasure_hint)
-
-		return JsonResponse({"hint1":first_hint})
-	else:
-		response = HttpResponse()
-		response['msg'] = 'NG'
 
 
 
