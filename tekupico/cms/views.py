@@ -127,16 +127,32 @@ def treasure_check(request):
 		minor = datas["minor"]
 		treasure_num = treasure_num(major,minor)
 
-		treasure = 'treasure' + str(treasure_num)
-
+		#treasure = 'treasure' + str(treasure_num)
 		update_data = User.objects.get(username = name)
-		update_data.treasure = datetime.datetime.today()
+		if treasure_num == 1:
+			update_data.treasure1 = datetime.datetime.now()
+		elif treasure_num == 2:
+			update_data.treasure2 = datetime.datetime.now()
+		elif treasure_num == 3:
+			update_data.treasure3 = datetime.datetime.now()
+		elif treasure_num == 4:
+			update_data.treasure4 = datetime.datetime.now()
+		elif treasure_num == 5:
+			update_data.treasure5 = datetime.datetime.now()
+		elif treasure_num == 6:
+			update_data.treasure6 = datetime.datetime.now()
+		elif treasure_num == 7:
+			update_data.treasure7 = datetime.datetime.now()
+		elif treasure_num == 8:
+			update_data.treasure8 = datetime.datetime.now()
+		elif treasure_num == 9:
+			update_data.treasure9 = datetime.datetime.now()
+		elif treasure_num == 10:
+			update_data.treasure10 = datetime.datetime.now()
 		update_data.save()
 
-		#ここにポイント計算のこと書く
-
-
-		return treasure_num
+		#ここにポイント計算のこと書く？
+		return HttpResponse(u'%d番の宝げっと', treasure_num)
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
@@ -144,9 +160,8 @@ def treasure_check(request):
 #とんできたビーコンの番号から、どの宝かを識別
 def treasure_num(get_major, get_minor):
 	#data = Treasure_Beacon.objects.get(major = get_major and minor = get_minor)
-	data = Treasure_Beacon.objects.get(major = get_major)
-	if data.minor == get_minor:
-		treasure_num = data.treasure
+	data = Treasure_Beacon.objects.get(major=get_major, minor=get_minor)
+	treasure_num = data.treasure
 	return treasure_num
 
 # 初めてヒント見たときに呼ばれる
