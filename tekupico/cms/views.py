@@ -87,7 +87,7 @@ def pico_login(request):
 			username = name[0],
 			)
 			new_data.save()
-			return HttpResponse(u'登録完了')
+			return HttpResponse(name)
 
 	else:
 		response = HttpResponse()
