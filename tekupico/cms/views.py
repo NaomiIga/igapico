@@ -54,22 +54,22 @@ def post_test(request):
 def pico_login(request):
 	if request.method == 'POST':
 		datas = json.loads(request.body)  #追記
-		#name = datas["name"]
-		name = datas
+		name = datas["name"]
+		#name = datas
 
 		
 		try:
-			testname = User.objects.get(username = name[0])
+			testname = User.objects.get(username = name)
 			return HttpResponse(u'error')
 		except User.DoesNotExist:
 			new_data = User.objects.create(
-			username = name[0],
+			username = name,
 			starttime = datetime.datetime.now(),
 			)
 			new_data.save()
 
 			new_data = UsedHint.objects.create(
-			username = name[0],
+			username = name,
 			)
 			new_data.save()
 			return HttpResponse(name)
