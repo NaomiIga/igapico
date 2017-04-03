@@ -195,33 +195,39 @@ def hint(request):
 def hint_check(name, treasureNo):
 	data = UsedHint.objects.get(username = name)
 
-	if treasureNo == "treasure1":
+	if treasureNo == 1:
 		if data.hint1_2 == None:
 			data.hint1_2 = datetime.datetime.now()
 			data.save()
-			hint = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hint = hintdatas.hint_sent
 		elif data.hint1_3 == None:
 			data.hint1_3 = datetime.datetime.now()
 			data.save()
-			hint = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
-	elif treasureNo == "treasure2":
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+			hint = hintdatas.hint_sent
+	elif treasureNo == 2:
 		if data.hint2_2 == None:
 			data.hint2_2 = datetime.datetime.now()
 			data.save()
-			hint = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hint = hintdatas.hint_sent
 		elif data.hint2_3 == None:
 			data.hint2_3 = datetime.datetime.now()
 			data.save()
-			hint = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
-	elif treasureNo == "treasure3":
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+			hint = hintdatas.hint_sent
+	elif treasureNo == 3:
 		if data.hint3_2 == None:
 			data.hint3_2 = datetime.datetime.now()
 			data.save()
-			hint = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hint = hintdatas.hint_sent
 		elif data.hint3_3 == None:
 			data.hint3_3 = datetime.datetime.now()
 			data.save()
-			hint = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+			hint = hintdatas.hint_sent
 	else:
 		print 'error'
 
