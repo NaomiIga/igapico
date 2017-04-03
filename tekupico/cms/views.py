@@ -129,8 +129,17 @@ def treasure_check(request):
 
 		#treasure = 'treasure' + str(treasure_num)
 		update_data = User.objects.get(username = name)
+		watched_hint = UsedHint.objects.get(username = name)
 		if treasure_num == 1:
 			update_data.treasure1 = datetime.datetime.now()
+			'''
+			if watched_hint.hint1_3 != None:
+				update_data.point += 1
+			elif watched_hint.hint1_2 != None:
+				update_data.point += 2
+			else:
+				update_data.point += 3
+			'''
 		elif treasure_num == 2:
 			update_data.treasure2 = datetime.datetime.now()
 		elif treasure_num == 3:
@@ -153,6 +162,7 @@ def treasure_check(request):
 
 		#ここにポイント計算のこと書く？
 		return HttpResponse(u'%d番の宝げっと', treasure_num)
+		#return JsonResponse({"treasure":treasure_num, "point":point})
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
