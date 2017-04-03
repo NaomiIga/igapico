@@ -184,7 +184,7 @@ def first(request):
 
 		hintdatas = Hint.objects.get(treasure_num = tag, hint_num = 1)
 		first_hint = hintdatas.hint_sent
-		first_hint = u'ヒント1\n' + first_hint
+		first_hint = u'ヒント1\n' + first_hint + u'\n'
 		return JsonResponse({"hint1":first_hint})
 	else:
 		response = HttpResponse()
@@ -199,9 +199,9 @@ def hint(request):
 		tag = datas["treasureNo"]
 		treasureNo = 'treasure' + str(tag)
 
-		hint = hint_check(name, tag)
+		hint, hint_num = hint_check(name, tag)
 
-		return JsonResponse({"hint":hint})
+		return JsonResponse({"hint":hint, "hint_num":hint_num})
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
@@ -212,41 +212,47 @@ def hint_check(name, treasureNo):
 
 	if treasureNo == 1:
 		if data.hint1_2 == None:
+			hint_num = 2
 			data.hint1_2 = datetime.datetime.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
-			hint = hintdatas.hint_sent
+			hint = u'ヒント2\n' + hintdatas.hint_sent + u'\n'
 		elif data.hint1_3 == None:
+			hint_num = 3
 			data.hint1_3 = datetime.datetime.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
-			hint = hintdatas.hint_sent
+			hint = u'ヒント3\n' + hintdatas.hint_sent + u'\n' 
 	elif treasureNo == 2:
 		if data.hint2_2 == None:
+			hint_num = 2
 			data.hint2_2 = datetime.datetime.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
-			hint = hintdatas.hint_sent
+			hint = u'ヒント2\n' + hintdatas.hint_sent + u'\n'
 		elif data.hint2_3 == None:
+			hint_num = 3
 			data.hint2_3 = datetime.datetime.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
-			hint = hintdatas.hint_sent
+			hint = u'ヒント3\n' + hintdatas.hint_sent + u'\n'
 	elif treasureNo == 3:
 		if data.hint3_2 == None:
+			hint_num = 2
 			data.hint3_2 = datetime.datetime.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
-			hint = hintdatas.hint_sent
+			hint = u'ヒント2\n' + hintdatas.hint_sent + u'\n'
 		elif data.hint3_3 == None:
+			hint_num = 3
 			data.hint3_3 = datetime.datetime.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
-			hint = hintdatas.hint_sent
+			hint = u'ヒント3\n' + hintdatas.hint_sent + u'\n'
 	else:
 		print 'error'
 
-	return hint
+	return hint, hint_num
 
 '''
 #鍵ビーコンの範囲をreturn
