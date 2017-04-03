@@ -10,6 +10,7 @@ from django.utils.encoding import smart_unicode
 # User log wo tameru
 class User(models.Model):
 	username = models.CharField('username', max_length = 255, default = 'NAME')
+	points = models.IntegerField('points', default = 0)
 	starttime = models.DateTimeField('starttime', null=True, blank=True)
 	finishtime = models.DateTimeField('finishtime', null=True, blank=True)
 	treasure1 = models.DateTimeField('treasure1', null=True, blank=True)
