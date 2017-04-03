@@ -201,7 +201,7 @@ def hint(request):
 		tag = datas["treasureNo"]
 		treasureNo = 'treasure' + str(tag)
 
-		hint = hint_check(name, treasureNo)
+		hint = hint_check(name, tag)
 
 		return JsonResponse({"hint":hint})
 	else:
