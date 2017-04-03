@@ -216,7 +216,7 @@ def hint_check(name, treasureNo):
 			data.hint1_2 = datetime.datetime.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
-			hint = u'ヒント2\n' + hintdatas.hint_sent + u'\n'
+			hint = u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
 		elif data.hint1_3 == None:
 			hint_num = 3
 			data.hint1_3 = datetime.datetime.now()
@@ -229,7 +229,7 @@ def hint_check(name, treasureNo):
 			data.hint2_2 = datetime.datetime.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
-			hint = u'ヒント2\n' + hintdatas.hint_sent + u'\n'
+			hint = u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
 		elif data.hint2_3 == None:
 			hint_num = 3
 			data.hint2_3 = datetime.datetime.now()
@@ -242,7 +242,7 @@ def hint_check(name, treasureNo):
 			data.hint3_2 = datetime.datetime.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
-			hint = u'ヒント2\n' + hintdatas.hint_sent + u'\n'
+			hint = u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
 		elif data.hint3_3 == None:
 			hint_num = 3
 			data.hint3_3 = datetime.datetime.now()
