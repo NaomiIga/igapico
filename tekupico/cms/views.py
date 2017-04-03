@@ -169,7 +169,7 @@ def first(request):
 
 		hintdatas = Hint.objects.get(treasure_num = tag, hint_num = 1)
 		first_hint = hintdatas.hint_sent
-		first_hint = u'ヒント1\n' + first_hint
+		first_hint = "ヒント1\n" + first_hint
 		return JsonResponse({"hint1":first_hint})
 	else:
 		response = HttpResponse()
