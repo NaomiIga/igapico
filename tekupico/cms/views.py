@@ -72,11 +72,11 @@ def pico_login(request):
 			return HttpResponse(u'登録完了')
 		else:
 			return JsonResponse("error")
-		#else:
-			#return JsonResponse({"error":"error"})
 		'''
 		try:
 			testname = User.objects.get(username = name)
+			return JsonResponse("error")
+		except User.DoesNotExist:
 			new_data = User.objects.create(
 			username = name[0],
 			starttime = datetime.datetime.now(),
@@ -88,8 +88,6 @@ def pico_login(request):
 			)
 			new_data.save()
 			return HttpResponse(u'登録完了')
-		except User.DoesNotExist:
-			return JsonResponse("error")
 
 	else:
 		response = HttpResponse()
