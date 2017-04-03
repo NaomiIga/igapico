@@ -151,7 +151,7 @@ def treasure_num(get_major, get_minor):
 
 # 初めてヒント見たときに呼ばれる
 @csrf_exempt
-def hint_first(request):
+def first(request):
 	return HttpResponse(u'hint_first入った')
 	if request.method == 'POST':
 		datas = json.loads(request.body)
