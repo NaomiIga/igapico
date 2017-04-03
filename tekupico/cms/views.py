@@ -59,7 +59,7 @@ def pico_login(request):
 
 		
 		try:
-			testname = User.objects.get(username = name)
+			testname = User.objects.get(username = name[0])
 			return HTTPResponse(u'error')
 		except User.DoesNotExist:
 			new_data = User.objects.create(
