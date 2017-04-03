@@ -1,5 +1,6 @@
 from django.contrib import admin
 from cms.models import *
+from csvutils.admin import export_csv
 # Register your models here.
 #admin.site.register(Data)
 
@@ -7,6 +8,7 @@ class UserAdmin(admin.ModelAdmin):
 	list_display = ('username', 'starttime', 'finishtime', 'treasure1', 'treasure2', 'treasure3', 'treasure4', 'treasure5', 'treasure6', 'treasure7', 'treasure8', 'treasure9', 'treasure10')
 	list_display_links = ('username',)
 	search_fields = ['username',]
+	actions = [export_csv]
 
 class UsedHintAdmin(admin.ModelAdmin):
 	list_display = ('username',)
