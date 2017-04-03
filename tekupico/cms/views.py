@@ -152,7 +152,6 @@ def treasure_num(get_major, get_minor):
 # 初めてヒント見たときに呼ばれる
 @csrf_exempt
 def first(request):
-	return HttpResponse(u'hint_first入った')
 	if request.method == 'POST':
 		datas = json.loads(request.body)
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
