@@ -57,7 +57,7 @@ def pico_login(request):
 		name = datas["name"]
 		#name = datas
 
-		'''
+		
 		if User.objects.get(username = name) is None:
 			new_data = User.objects.create(
 			username = name[0],
@@ -71,9 +71,9 @@ def pico_login(request):
 			new_data.save()
 			return HttpResponse(u'登録完了')
 		else:
-			return JsonResponse("error")
-		'''
-		try:
+			return HttpResponse(u'error')
+		
+		'''try:
 			testname = User.objects.get(username = name)
 			return HTTPResponse(u'error')
 		except User.DoesNotExist:
@@ -87,7 +87,7 @@ def pico_login(request):
 			username = name[0],
 			)
 			new_data.save()
-			return HttpResponse(name)
+			return HttpResponse(name)'''
 
 	else:
 		response = HttpResponse()
