@@ -339,9 +339,9 @@ def hint_check(name, treasureNo, next_watch):
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
 			hint = u'ヒント3\n' + hintdatas.hint_sent + u'\n'
 	else:
-		print 'error'
+		print 'error' '''
 
-	return hint, hint_num'''
+	return hint, hint_num
 
 '''
 #鍵ビーコンの範囲をreturn
