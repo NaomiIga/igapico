@@ -125,13 +125,13 @@ def treasure_check(request):
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
 		major = datas["major"]
 		minor = datas["minor"]
-		treasure_num = treasure_num(major,minor)
+		treasure_number = treasure_num(major,minor)
 
 		#treasure = 'treasure' + str(treasure_num)
 		update_data = User.objects.get(username = name)
 		watched_hint = UsedHint.objects.get(username = name)
 
-		if treasure_num == 1:
+		if treasure_number == 1:
 			update_data.treasure1 = datetime.datetime.now()
 			if watched_hint.hint1_3 != None:
 				update_data.points += 1
@@ -142,23 +142,23 @@ def treasure_check(request):
 			else:
 				update_data.points += 3
 				getpointnow = 3
-		elif treasure_num == 2:
+		elif treasure_number == 2:
 			update_data.treasure2 = datetime.datetime.now()
-		elif treasure_num == 3:
+		elif treasure_number == 3:
 			update_data.treasure3 = datetime.datetime.now()
-		elif treasure_num == 4:
+		elif treasure_number == 4:
 			update_data.treasure4 = datetime.datetime.now()
-		elif treasure_num == 5:
+		elif treasure_number == 5:
 			update_data.treasure5 = datetime.datetime.now()
-		elif treasure_num == 6:
+		elif treasure_number == 6:
 			update_data.treasure6 = datetime.datetime.now()
-		elif treasure_num == 7:
+		elif treasure_number == 7:
 			update_data.treasure7 = datetime.datetime.now()
-		elif treasure_num == 8:
+		elif treasure_number == 8:
 			update_data.treasure8 = datetime.datetime.now()
-		elif treasure_num == 9:
+		elif treasure_number == 9:
 			update_data.treasure9 = datetime.datetime.now()
-		elif treasure_num == 10:
+		elif treasure_number == 10:
 			update_data.treasure10 = datetime.datetime.now()
 		update_data.save()
 
@@ -174,8 +174,8 @@ def treasure_check(request):
 def treasure_num(get_major, get_minor):
 	#data = Treasure_Beacon.objects.get(major = get_major and minor = get_minor)
 	data = Treasure_Beacon.objects.get(major=get_major, minor=get_minor)
-	treasure_num = data.treasure
-	return treasure_num
+	treasure_number = data.treasure
+	return treasure_number
 
 # 初めてヒント見たときに呼ばれる
 @csrf_exempt
