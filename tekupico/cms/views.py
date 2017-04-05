@@ -227,7 +227,7 @@ def hint(request):
 def hint_check(name, treasureNo, next_watch):
 	data = UsedHint.objects.get(username = name)
 
-	
+
 	#次を見るがtrueかfalseかを受け取るnext_watch
 	if treasureNo == 1:
 		#とりあえず飛んできた瞬間にhintにhint1を追加
@@ -245,8 +245,9 @@ def hint_check(name, treasureNo, next_watch):
 			hint_num = 3
 			data.hint1_3 = datetime.datetime.now()
 			data.save()
-			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
 			hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n'
 		#hint_2にすでに時間入っているとき
 		elif data.hint1_2 != None:
@@ -255,6 +256,18 @@ def hint_check(name, treasureNo, next_watch):
 			#もしhint_3にも値入ってたら
 			if data.hint1_3 != None:
 				hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n'
+		elif next_watch == False:
+			if data.hint1_2 == None:
+				hint = hint
+			elif data.hint1_3 == None:
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			else:
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+				hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n\n'
+
 	elif treasureNo == 2:
 		hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 1)
 		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
@@ -268,13 +281,26 @@ def hint_check(name, treasureNo, next_watch):
 			hint_num = 3
 			data.hint2_3 = datetime.datetime.now()
 			data.save()
-			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
 			hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n'
 		elif data.hint2_2 != None:
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
 			if data.hint2_3 != None:
 				hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n'
+		elif next_watch == False:
+			if data.hint2_2 == None:
+				hint = hint
+			elif data.hint2_3 == None:
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			else:
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+				hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n\n'
+
 	elif treasureNo == 3:
 		hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 1)
 		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
@@ -288,16 +314,28 @@ def hint_check(name, treasureNo, next_watch):
 			hint_num = 3
 			data.hint3_3 = datetime.datetime.now()
 			data.save()
-			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
 			hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n'
 		elif data.hint2_2 != None:
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
 			if data.hint2_3 != None:
 				hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n'
+		elif next_watch == False:
+			if data.hint3_2 == None:
+				hint = hint
+			elif data.hint3_3 == None:
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			else:
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+				hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n\n'
 	else:
 		print 'error'
-	
+
 	'''
 	if treasureNo == 1:
 		if data.hint1_2 == None:
