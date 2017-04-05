@@ -132,6 +132,7 @@ def treasure_check(request):
 		watched_hint = UsedHint.objects.get(username = name)
 
 		if treasure_number == 1:
+			#if treasure1 == None:
 			update_data.treasure1 = datetime.datetime.now()
 			if watched_hint.hint1_3 != None:
 				update_data.points += 1
@@ -142,6 +143,8 @@ def treasure_check(request):
 			else:
 				update_data.points += 3
 				getpointnow = 3
+			#else:
+				#getpointnow = 0
 		elif treasure_number == 2:
 			update_data.treasure2 = datetime.datetime.now()
 		elif treasure_number == 3:
