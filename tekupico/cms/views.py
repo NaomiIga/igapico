@@ -214,8 +214,9 @@ def hint(request):
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
 		tag = datas["treasureNo"]
 		treasureNo = 'treasure' + str(tag)
+		next_watch = datas["next_watch"]
 
-		hint, hint_num = hint_check(name, tag)
+		hint, hint_num = hint_check(name, tag, next_watch)
 
 		return JsonResponse({"hint":hint, "hint_num":hint_num})
 	else:
@@ -223,10 +224,10 @@ def hint(request):
 		response['msg'] = 'NG'
 
 #どれだけヒント使ってきたかをチェック まだ未完成　書き換え必須
-def hint_check(name, treasureNo):
+def hint_check(name, treasureNo, next_watch):
 	data = UsedHint.objects.get(username = name)
 
-	'''
+	
 	#次を見るがtrueかfalseかを受け取るnext_watch
 	if treasureNo == 1:
 		#とりあえず飛んできた瞬間にhintにhint1を追加
@@ -296,6 +297,7 @@ def hint_check(name, treasureNo):
 				hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n'
 	else:
 		print 'error'
+	
 	'''
 	if treasureNo == 1:
 		if data.hint1_2 == None:
@@ -339,7 +341,7 @@ def hint_check(name, treasureNo):
 	else:
 		print 'error'
 
-	return hint, hint_num
+	return hint, hint_num'''
 
 '''
 #鍵ビーコンの範囲をreturn
