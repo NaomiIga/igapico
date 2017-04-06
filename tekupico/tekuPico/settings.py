@@ -58,7 +58,7 @@ ROOT_URLCONF = 'tekuPico.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['cms/templates/'],
+        'DIRS': ['/home/niga/igapico/tekupico/cms/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
