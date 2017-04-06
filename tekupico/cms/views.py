@@ -546,6 +546,6 @@ def export_csv(request):
 			'%Y/%m/%d/ %H:%M:%S' % i.treasure9,
 			'%Y/%m/%d/ %H:%M:%S' % i.treasure10,
 			'%s' % i.shopname,
-			])
+		])
 
     return response
