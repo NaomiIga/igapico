@@ -519,7 +519,6 @@ def shop_loading(request):
 		response = HttpResponse()
 		response['msg'] = 'NG'
 
-'''
 #csvとして出力する
 def export_csv(request):
 
@@ -550,4 +549,3 @@ def export_csv(request):
 		])
 
     return response
-'''

@@ -58,7 +58,7 @@ ROOT_URLCONF = 'tekuPico.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['cms/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
