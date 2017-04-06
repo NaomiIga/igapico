@@ -61,7 +61,7 @@ class UsedHint(models.Model):
 	hint10_1 = models.DateTimeField('hint10-1', null=True, blank=True)
 	hint10_2 = models.DateTimeField('hint10-2', null=True, blank=True)
 	hint10_3 = models.DateTimeField('hint10-3', null=True, blank=True)
-	
+
 
 
 # Not Change: treasure and beaconNo wo himoduke
