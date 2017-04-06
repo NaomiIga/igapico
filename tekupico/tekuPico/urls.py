@@ -31,4 +31,5 @@ urlpatterns = [
     url(r'^hint', views.hint, name="hint"),
     url(r'^first', views.first, name="first"),
     url(r'^treasure_check', views.treasure_check, name="treasure_check"),
+    url(r'^export_csv', views.export_csv, name="export_csv"),
 ]
