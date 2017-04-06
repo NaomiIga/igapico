@@ -531,21 +531,21 @@ def export_csv(request):
 
 	for i in userdata:
     	writer.writerow([
-			'%s' % i.username,
-			'%d' % i.points,
-			'%Y/%m/%d/ %H:%M:%S' % i.starttime,
-			'%Y/%m/%d/ %H:%M:%S' % i.finishtime,
-			'%Y/%m/%d/ %H:%M:%S' % i.treasure1,
-			'%Y/%m/%d/ %H:%M:%S' % i.treasure2,
-			'%Y/%m/%d/ %H:%M:%S' % i.treasure3,
-			'%Y/%m/%d/ %H:%M:%S' % i.treasure4,
-			'%Y/%m/%d/ %H:%M:%S' % i.treasure5,
-			'%Y/%m/%d/ %H:%M:%S' % i.treasure6,
-			'%Y/%m/%d/ %H:%M:%S' % i.treasure7,
-			'%Y/%m/%d/ %H:%M:%S' % i.treasure8,
-			'%Y/%m/%d/ %H:%M:%S' % i.treasure9,
-			'%Y/%m/%d/ %H:%M:%S' % i.treasure10,
-			'%s' % i.shopname,
+			"%s" % i.username,
+			"%d" % i.points,
+			"%Y/%m/%d/ %H:%M:%S" % i.starttime,
+			"%Y/%m/%d/ %H:%M:%S" % i.finishtime,
+			"%Y/%m/%d/ %H:%M:%S" % i.treasure1,
+			"%Y/%m/%d/ %H:%M:%S" % i.treasure2,
+			"%Y/%m/%d/ %H:%M:%S" % i.treasure3,
+			"%Y/%m/%d/ %H:%M:%S" % i.treasure4,
+			"%Y/%m/%d/ %H:%M:%S" % i.treasure5,
+			"%Y/%m/%d/ %H:%M:%S" % i.treasure6,
+			"%Y/%m/%d/ %H:%M:%S" % i.treasure7,
+			"%Y/%m/%d/ %H:%M:%S" % i.treasure8,
+			"%Y/%m/%d/ %H:%M:%S" % i.treasure9,
+			"%Y/%m/%d/ %H:%M:%S" % i.treasure10,
+			"%s" % i.shopname,
 		])
 
     return response
