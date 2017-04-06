@@ -2,7 +2,6 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.utils import timezone
-from django.utils.encoding import smart_unicode
 
 # Create your models here.
 #default ha nyuuryoku ga kara no toki ni hyouji sareru moji
@@ -24,9 +23,6 @@ class User(models.Model):
 	treasure9 = models.DateTimeField('treasure9', null=True, blank=True)
 	treasure10 = models.DateTimeField('treasure10', null=True, blank=True)
 	shopname = models.CharField('shopname', max_length = 255, default = 'SHOP')
-
-	def __unicode__(self):
-		return smart_unicode(self.username)
 
 # User no hint siyou jyoukyou
 class UsedHint(models.Model):
