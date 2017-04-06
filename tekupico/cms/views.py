@@ -134,7 +134,7 @@ def treasure_check(request):
 
 		if treasure_number == 1:
 			if treasure1 == None:
-			update_data.treasure1 = datetime.datetime.now()
+				update_data.treasure1 = datetime.datetime.now()
 				if watched_hint.hint1_3 != None:
 					update_data.points += 1
 					getpointnow = 1
