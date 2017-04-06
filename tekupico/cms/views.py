@@ -20,6 +20,7 @@ import time
 from django.utils.encoding import *
 from django.http.response import JsonResponse
 from django.core import serializers
+import csv
 
 #csrf_exemptはつけたい関数の上にそれぞれつけなきゃダメ
 #csrfを無視するコマンド
@@ -517,3 +518,36 @@ def shop_loading(request):
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
+
+'''
+#csvとして出力する
+def export_csv(request):
+
+	userdata = User.objects.all()
+
+	response = HttpResponse(mimetype='text/csv')
+	response['Content-Disposition'] = 'attachment; filename=userdata.csv'
+
+	writer = csv.writer(response)
+
+	for i in userdata:
+    	writer.writerow([
+			'%s' % i.username,
+			'%d' % i.points,
+			'%Y/%m/%d/ %H:%M:%S' % i.starttime,
+			'%Y/%m/%d/ %H:%M:%S' % i.finishtime,
+			'%Y/%m/%d/ %H:%M:%S' % i.treasure1,
+			'%Y/%m/%d/ %H:%M:%S' % i.treasure2,
+			'%Y/%m/%d/ %H:%M:%S' % i.treasure3,
+			'%Y/%m/%d/ %H:%M:%S' % i.treasure4,
+			'%Y/%m/%d/ %H:%M:%S' % i.treasure5,
+			'%Y/%m/%d/ %H:%M:%S' % i.treasure6,
+			'%Y/%m/%d/ %H:%M:%S' % i.treasure7,
+			'%Y/%m/%d/ %H:%M:%S' % i.treasure8,
+			'%Y/%m/%d/ %H:%M:%S' % i.treasure9,
+			'%Y/%m/%d/ %H:%M:%S' % i.treasure10,
+			'%s' % i.shopname,
+			])
+
+    return response
+'''
