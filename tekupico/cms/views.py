@@ -499,4 +499,4 @@ def export_csv(request):
 			"%s" % i.shopname,
 		])
 
-    return response
+		return response
