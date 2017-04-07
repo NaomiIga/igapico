@@ -475,7 +475,7 @@ def export_csv(request):
 
 	userdata = User.objects.all()
 
-	response = HttpResponse(mimetype='text/csv')
+	response = HttpResponse(content_type='text/csv')
 	response['Content-Disposition'] = 'attachment; filename="userdata.csv"'
 
 	writer = csv.writer(response)
