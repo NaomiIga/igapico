@@ -536,14 +536,13 @@ def shop_loading(request):
 		response = HttpResponse()
 		response['msg'] = 'NG'
 
-'''
 #csvとして出力する
 def export_csv(request):
 
 	userdata = User.objects.all()
 
 	response = HttpResponse(mimetype='text/csv')
-	response['Content-Disposition'] = 'attachment; filename=userdata.csv'
+	response['Content-Disposition'] = 'attachment; filename="userdata.csv"'
 
 	writer = csv.writer(response)
 
@@ -567,4 +566,3 @@ def export_csv(request):
 		])
 
     return response
-'''
