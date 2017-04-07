@@ -481,7 +481,7 @@ def export_csv(request):
 	writer = csv.writer(response)
 
 	for i in userdata:
-    	writer.writerow([
+		writer.writerow([
 			"%s" % i.username,
 			"%d" % i.points,
 			"%Y/%m/%d/ %H:%M:%S" % i.starttime,
