@@ -228,7 +228,6 @@ def hint(request):
 def hint_check(name, treasureNo, next_watch):
 	data = UsedHint.objects.get(username = name)
 
-
 	#次を見るがtrueかfalseかを受け取るnext_watch
 	if treasureNo == 1:
 		#とりあえず飛んできた瞬間にhintにhint1を追加
@@ -484,18 +483,18 @@ def export_csv(request):
 		writer.writerow([
 			"%s" % i.username,
 			"%d" % i.points,
-			"%Y/%m/%d/ %H:%M:%S" % i.starttime,
-			"%Y/%m/%d/ %H:%M:%S" % i.finishtime,
-			"%Y/%m/%d/ %H:%M:%S" % i.treasure1,
-			"%Y/%m/%d/ %H:%M:%S" % i.treasure2,
-			"%Y/%m/%d/ %H:%M:%S" % i.treasure3,
-			"%Y/%m/%d/ %H:%M:%S" % i.treasure4,
-			"%Y/%m/%d/ %H:%M:%S" % i.treasure5,
-			"%Y/%m/%d/ %H:%M:%S" % i.treasure6,
-			"%Y/%m/%d/ %H:%M:%S" % i.treasure7,
-			"%Y/%m/%d/ %H:%M:%S" % i.treasure8,
-			"%Y/%m/%d/ %H:%M:%S" % i.treasure9,
-			"%Y/%m/%d/ %H:%M:%S" % i.treasure10,
+			"%%Y/%%m/%%d/ %%H:%%M:%%S" % i.starttime,
+			"%%Y/%%m/%%d/ %%H:%%M:%%S" % i.finishtime,
+			"%%Y/%%m/%%d/ %%H:%%M:%%S" % i.treasure1,
+			"%%Y/%%m/%%d/ %%H:%%M:%%S" % i.treasure2,
+			"%%Y/%%m/%%d/ %%H:%%M:%%S" % i.treasure3,
+			"%%Y/%%m/%%d/ %%H:%%M:%%S" % i.treasure4,
+			"%%Y/%%m/%%d/ %%H:%%M:%%S" % i.treasure5,
+			"%%Y/%%m/%%d/ %%H:%%M:%%S" % i.treasure6,
+			"%%Y/%%m/%%d/ %%H:%%M:%%S" % i.treasure7,
+			"%%Y/%%m/%%d/ %%H:%%M:%%S" % i.treasure8,
+			"%%Y/%%m/%%d/ %%H:%%M:%%S" % i.treasure9,
+			"%%Y/%%m/%%d/ %%H:%%M:%%S" % i.treasure10,
 			"%s" % i.shopname,
 		])
 
