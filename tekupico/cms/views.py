@@ -484,7 +484,7 @@ def export_csv(request):
 		writer.writerow([
 			"%s" % i.username,
 			"%d" % i.points,
-			"%s" % i.starttime('%%Y/%%m/%%d/ %%H:%%M:%%S'),
+			"%s" % i.starttime,
 			"%s" % i.finishtime('%%Y/%%m/%%d/ %%H:%%M:%%S'),
 			"%s" % i.treasure1('%%Y/%%m/%%d/ %%H:%%M:%%S'),
 			"%s" % i.treasure2('%%Y/%%m/%%d/ %%H:%%M:%%S'),
