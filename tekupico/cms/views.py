@@ -21,6 +21,7 @@ from django.utils.encoding import *
 from django.http.response import JsonResponse
 from django.core import serializers
 import csv
+import datetime
 
 #csrf_exemptはつけたい関数の上にそれぞれつけなきゃダメ
 #csrfを無視するコマンド
