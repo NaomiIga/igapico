@@ -22,6 +22,7 @@ from django.http.response import JsonResponse
 from django.core import serializers
 import csv
 import datetime
+import unicodedata
 
 #csrf_exemptはつけたい関数の上にそれぞれつけなきゃダメ
 #csrfを無視するコマンド
@@ -482,7 +483,8 @@ def export_csv(request):
 
 	for i in userdata:
 		writer.writerow([
-			"%s" % i.username.encode('utf-8'),
+			#"%s" % i.username.encode('utf-8'),
+			"%s" % unicodedata.normalize('NFKC', i.username).encode('sjis','ignore'),
 			"%d" % i.points,
 			"%s" % i.starttime,
 			"%s" % i.finishtime,
@@ -496,7 +498,8 @@ def export_csv(request):
 			"%s" % i.treasure8,
 			"%s" % i.treasure9,
 			"%s" % i.treasure10,
-			"%s" % i.shopname.encode('utf-8'),
+			#"%s" % i.shopname.encode('utf-8'),
+			"%s" % unicodedata.normalize('NFKC', i.shopname).encode('sjis','ignore'),
 		])
 
 	return response
