@@ -482,7 +482,7 @@ def export_csv(request):
 
 	for i in userdata:
 		writer.writerow([
-			"%s" % i.username,
+			"%s" % i.username.encode('utf-8'),
 			"%d" % i.points,
 			"%s" % i.starttime,
 			"%s" % i.finishtime,
