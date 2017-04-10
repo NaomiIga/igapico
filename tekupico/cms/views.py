@@ -242,7 +242,7 @@ def hint_check(name, treasureNo, next_watch):
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
 		#次を見るって押されてかつ3つ目のhintがNoneなら時間追加してhint_2とhint_3を返す
-	elif next_watch == True and data.hint1_3 == None:
+		elif next_watch == True and data.hint1_3 == None:
 			hint_num = 3
 			data.hint1_3 = datetime.datetime.now()
 			data.save()
