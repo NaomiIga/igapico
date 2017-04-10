@@ -483,7 +483,6 @@ def export_csv(request):
 
 	for i in userdata:
 		writer.writerow([
-			#"%s" % i.username.encode('utf-8'),
 			"%s" % unicodedata.normalize('NFKC', i.username).encode('sjis','ignore'),
 			"%d" % i.points,
 			"%s" % i.starttime,
@@ -498,7 +497,6 @@ def export_csv(request):
 			"%s" % i.treasure8,
 			"%s" % i.treasure9,
 			"%s" % i.treasure10,
-			#"%s" % i.shopname.encode('utf-8'),
 			"%s" % unicodedata.normalize('NFKC', i.shopname).encode('sjis','ignore'),
 		])
 
