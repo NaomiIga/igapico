@@ -34,7 +34,7 @@ class DataAdmin(admin.ModelAdmin):
 
 class KeyAreaAdmin(admin.ModelAdmin):
 	list_display = ('major', 'minor', 'xgrid', 'ygrid',)
-	list_display_links = ('beacon_id',)
+	list_display_links = ('major', 'minor',)
 
 class Shop_ladiesAdmin(admin.ModelAdmin):
 	list_display = ('shop_name',)
