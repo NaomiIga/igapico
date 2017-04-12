@@ -140,6 +140,7 @@ class Data(models.Model):
 	datavalue = models.CharField('shop', max_length = 255, default = 'SHOP')
 
 class KeyArea(models.Model):
-	beacon_id = models.IntegerField('beacon', default = 0)
+	major = models.IntegerField('major', default = 0)
+	minor = models.IntegerField('minor', default = 0)
 	xgrid = models.IntegerField('x', default = 0)
 	ygrid = models.IntegerField('y', default = 0)
