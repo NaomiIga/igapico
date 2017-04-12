@@ -33,7 +33,7 @@ class DataAdmin(admin.ModelAdmin):
 	list_display_links = ('userdata',)
 
 class KeyAreaAdmin(admin.ModelAdmin):
-	list_display = ('beacon_id', 'xgrid', 'ygrid',)
+	list_display = ('major', 'minor', 'xgrid', 'ygrid',)
 	list_display_links = ('beacon_id',)
 
 class Shop_ladiesAdmin(admin.ModelAdmin):
