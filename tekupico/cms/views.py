@@ -23,6 +23,7 @@ from django.core import serializers
 import csv
 import datetime
 import unicodedata
+from PIL import Image
 
 #csrf_exemptはつけたい関数の上にそれぞれつけなきゃダメ
 #csrfを無視するコマンド
@@ -86,22 +87,18 @@ def pico_login(request):
 def shoplog(request):
 	if request.method == 'POST':
 		datas = json.loads(request.body)
-		#name = datas["name"]
 
 		name = datas.keys()
-		#whatdata = datas[x].keys(),
 		shops = datas.values()
-		#datavalue = float(datas[x].values()),
 
 		update_data = User.objects.get(username = name[0])
 		update_data.shopname = shops[0]
 		update_data.save()
 
-		num_list = shop_connect(shops[0])   #ショップとビーコンを紐づけるshop_connect関数に飛ぶ
-		##ここはdictionaly型にしてからじゃないとjsondumpしてください
-		#num_list = json.dumps({"datas":num_list})  #json形式にする
-		#return JsonResponse({num_list}, content_type='application/json)  #json返す
-		return JsonResponse({"data":num_list})
+		map_pic = []
+		map_pic = make_map(shops[0])   # ショップ名から座標にする関数
+		
+		return JsonResponse({"data":map_pic})
 
 	else:
 		response = HttpResponse()
@@ -109,15 +106,33 @@ def shoplog(request):
 	#return name
 
 #飛んできた店名の配列からBeaconIDに変換する関数
-def shop_connect(shopArr):
+def make_map(shopArr):
 	num_list = [] #結果のbeaconNOを格納する配列
 
 	for i in shopArr:
 		datas = Shop_Beacon.objects.get(shopname = i)
-		beacon_datas = Beacon.objects.get(beacon_id = datas.beacon_id)
-		num_list.append([beacon_datas.major, beacon_datas.minor])
+		beacon_datas = KeyArea.objects.get(major = datas.major, minor = datas.minor)
+		grid.append([beacon_datas.xgrid, beacon_datas.ygrid])
 
-	return num_list
+	#############ここにmap合成するコード
+	#画像を置く座標(左上を指定)
+	#中心指定できるかは要確認
+	ary = [(0, 0), (200, 200)]
+
+	#画像読み込み
+	img = Image.open("/Users/royroy55/Desktop/a.png")
+	#重ねる画像(鍵？)
+	tmp = Image.open("/Users/royroy55/Desktop/tekupico (1).png")
+	#重ねる画像のリサイズ
+	tmp = tmp.resize((100, 100))
+
+	#元画像に重ねる、左上の座標を指定
+	img.paste(tmp, ary[1], tmp)
+
+	#画像上書き
+	img.save("sample.jpg")
+
+	return map1, map2, map3
 
 
 #宝ゲットのときにそれを反映
