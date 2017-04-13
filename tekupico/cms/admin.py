@@ -17,7 +17,7 @@ class BeaconAdmin(admin.ModelAdmin):
 	list_display_links = ('beacon_id',)
 
 class Shop_BeaconAdmin(admin.ModelAdmin):
-	list_display = ('shopname', 'shop_id', 'major', 'minor',)
+	list_display = ('shopname', 'shop_id', 'major', 'minor', 'floor')
 	list_display_links = ('shopname', 'shop_id', 'major', 'minor',)
 
 class TreasureAdmin(admin.ModelAdmin):
