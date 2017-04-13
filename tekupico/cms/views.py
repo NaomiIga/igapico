@@ -107,32 +107,58 @@ def shoplog(request):
 
 #飛んできた店名の配列からBeaconIDに変換する関数
 def make_map(shopArr):
-	num_list = [] #結果のbeaconNOを格納する配列
+	shops1 = []
+	shops2 = []
+	shops3 = []
+
+	#重ねる画像(鍵？)
+	tmp = Image.open("/home/niga/igapico/tekupico/cms/pictures/key.png")
+	#重ねる画像のリサイズ
+	tmp = tmp.resize((100, 100))
 
 	for i in shopArr:
 		datas = Shop_Beacon.objects.get(shopname = i)
 		beacon_datas = KeyArea.objects.get(major = datas.major, minor = datas.minor)
-		grid.append([beacon_datas.xgrid, beacon_datas.ygrid])
+		if datas.floor == 1:
+			shops1.append([beacon_datas.xgrid, beacon_datas.ygrid])
+		elif datas.floor == 2:
+			shops2.append([beacon_datas.xgrid, beacon_datas.ygrid])
+		elif datas.floor == 3:
+			shops3.append([beacon_datas.xgrid, beacon_datas.ygrid])
 
-	#############ここにmap合成するコード
-	#画像を置く座標(左上を指定)
-	#中心指定できるかは要確認
-	ary = [(0, 0), (200, 200)]
+	for i in range(1,4):
+		#############ここにmap合成するコード
+		#画像を置く座標(左上を指定)
+		#中心指定できるかは要確認
 
-	#画像読み込み
-	img = Image.open("/Users/royroy55/Desktop/a.png")
-	#重ねる画像(鍵？)
-	tmp = Image.open("/Users/royroy55/Desktop/tekupico (1).png")
-	#重ねる画像のリサイズ
-	tmp = tmp.resize((100, 100))
-
-	#元画像に重ねる、左上の座標を指定
-	img.paste(tmp, ary[1], tmp)
-
-	#画像上書き
-	img.save("sample.jpg")
-
-	return map1, map2, map3
+		if i == 1:
+			for j in len(shops1):
+				#画像読み込み
+				img = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map1F.png")
+				#元画像に重ねる、左上の座標を指定
+				img.paste(tmp, shops1[j], tmp)
+				#画像上書き
+				#img.save("map1.png")
+				map1 = img
+		elif i == 2:
+			for j in len(shops2):
+				#画像読み込み
+				img = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map2F.png")
+				#元画像に重ねる、左上の座標を指定
+				img.paste(tmp, shops2[j], tmp)
+				#画像上書き
+				#img.save("map2.png")
+				map2 = img
+		elif i == 3:
+			for j in len(shops3):
+				#画像読み込み
+				img = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map3F.png")
+				#元画像に重ねる、左上の座標を指定
+				img.paste(tmp, shops3[j], tmp)
+				#画像上書き
+				img.save("map3.png")
+				map3 = img
+	return JsonResponse({"data":map1, map2, map3})
 
 
 #宝ゲットのときにそれを反映
