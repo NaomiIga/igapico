@@ -537,10 +537,13 @@ def shop_loading(request):
 @csrf_exempt
 def export_csv(request):
 
-	response = HttpResponse(open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read(), content_type='image/png')
-	response['Content-Disposition'] = 'attachment; filename="key.png"'
+	#response = HttpResponse(open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read(), content_type='image/png')
+	#response['Content-Disposition'] = 'attachment; filename="key.png"'
 
-	return response
+	pic_str = open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read()
+
+	#return response
+	return JsonResponse(str(pic_str), safe = False)
 
 	'''
 	userdata = User.objects.all()
