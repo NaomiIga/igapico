@@ -145,30 +145,21 @@ def make_map(shopArr):
 
 		if i == 1:
 			for j in shops1:
-				#画像読み込み
 				#元画像に重ねる、左上の座標を指定
 				#img.paste(tmp, shops1[j], tmp)
 				img1.paste(tmp, j, tmp)
-				#画像上書き
-				#img.save("map1.png")
 				#map1 = img
 		elif i == 2:
 			for j in shops2:
-				#画像読み込み
 				#元画像に重ねる、左上の座標を指定
 				#img.paste(tmp, shops2[j], tmp)
 				img2.paste(tmp, j, tmp)
-				#画像上書き
-				#img.save("map2.png")
 				#map2 = img
 		elif i == 3:
 			for j in shops3:
-				#画像読み込み
 				#元画像に重ねる、左上の座標を指定
 				#img.paste(tmp, shops3[j], tmp)
 				img3.paste(tmp, j, tmp)
-				#画像上書き
-				#img.save("map3.png")
 				#map3 = img
 	img1.save("/home/niga/igapico/tekupico/cms/pictures/1F_last.png")
 	img2.save("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
