@@ -98,7 +98,7 @@ def shoplog(request):
 		#map_pic = []
 		map_pic = make_map(shops[0])   # ショップ名から座標にする関数
 
-		ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
+		ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map1F.png")
 
 		#response = HttpResponse(content_type="image/png")
 		#map_pic.save(response, "PNG")
