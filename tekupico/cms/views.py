@@ -125,11 +125,11 @@ def make_map(shopArr):
 		datas = Shop_Beacon.objects.get(shopname = i)
 		beacon_datas = KeyArea.objects.get(major = datas.major, minor = datas.minor)
 		if datas.floor == 1:
-			shops1.append([beacon_datas.xgrid, beacon_datas.ygrid])
+			shops1.append((beacon_datas.xgrid, beacon_datas.ygrid))
 		elif datas.floor == 2:
-			shops2.append([beacon_datas.xgrid, beacon_datas.ygrid])
+			shops2.append((beacon_datas.xgrid, beacon_datas.ygrid))
 		elif datas.floor == 3:
-			shops3.append([beacon_datas.xgrid, beacon_datas.ygrid])
+			shops3.append((beacon_datas.xgrid, beacon_datas.ygrid))
 
 	for i in range(1,4):
 		#############ここにmap合成するコード
@@ -161,7 +161,7 @@ def make_map(shopArr):
 				#元画像に重ねる、左上の座標を指定
 				img.paste(tmp, shops3[j], tmp)
 				#画像上書き
-				img.save("map3.png")
+				#img.save("map3.png")
 				map3 = img
 	return map1, map2, map3
 
