@@ -100,6 +100,7 @@ def shoplog(request):
 		
 		response = HttpResponse(content_type="image/png")
 		map_pic[1].save(response, "PNG")
+		response['Content-Disposition'] = 'attachment; filename="key.png"'
 
 		return response
 		#JsonResponse({"data":map1, map2, map3})
@@ -518,13 +519,7 @@ def shop_loading(request):
 
 #csvとして出力する
 def export_csv(request):
-
-	tmp = Image.open("/home/niga/igapico/tekupico/cms/pictures/key.png")
-	response = HttpResponse(content_type="image/png")
-	tmp.save(response, "PNG")
-	response['Content-Disposition'] = 'attachment; filename="key.png"'
-	return response
-	'''userdata = User.objects.all()
+	userdata = User.objects.all()
 
 	response = HttpResponse(content_type='text/csv')
 	response['Content-Disposition'] = 'attachment; filename="userdata.csv"'
@@ -550,4 +545,4 @@ def export_csv(request):
 			"%s" % unicodedata.normalize('NFKC', i.shopname).encode('sjis','ignore'),
 		])
 
-	return response'''
+	return response
