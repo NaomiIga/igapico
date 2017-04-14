@@ -537,7 +537,7 @@ def shop_loading(request):
 def export_csv(request):
 
 	#img = Image.open("/home/niga/igapico/tekupico/cms/pictures/key.png")
-	response = HttpResponse(open(‘/home/niga/igapico/tekupico/cms/pictures/key.png’,’rb’).read(), content_type='image/png')
+	response = HttpResponse(open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read(), content_type='image/png')
 	response['Content-Disposition'] = 'attachment; filename="key.png"'
 
 	return response
