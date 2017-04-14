@@ -105,9 +105,9 @@ def shoplog(request):
 		ret_pic.save(response, "/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
 		#response['Content-Disposition'] = 'attachment; filename="key.png"'
 
-		return response
+		#return response
 		#JsonResponse({"data":map1, map2, map3})
-		#JsonResponse({"map":ret_pic}, safe=False)
+		return JsonResponse({"map":ret_pic}, safe=False)
 
 	else:
 		response = HttpResponse()
