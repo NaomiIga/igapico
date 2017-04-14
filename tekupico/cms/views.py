@@ -533,10 +533,9 @@ def shop_loading(request):
 		response = HttpResponse()
 		response['msg'] = 'NG'
 
-#csvとして出力する
+#mapの画像作成
 @csrf_exempt
-def export_csv(request):
-
+def map(request):
 	#response = HttpResponse(open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read(), content_type='image/png')
 	#response['Content-Disposition'] = 'attachment; filename="key.png"'
 
@@ -545,7 +544,9 @@ def export_csv(request):
 	#return response
 	return JsonResponse(str(pic_str.encode('utf_8')), safe=False)
 
-	'''
+#csvとして出力する
+@csrf_exempt
+def export_csv(request):
 	userdata = User.objects.all()
 
 	response = HttpResponse(content_type='text/csv')
@@ -573,4 +574,4 @@ def export_csv(request):
 		])
 
 	return response
-	'''
+
