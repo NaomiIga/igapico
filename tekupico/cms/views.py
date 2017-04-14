@@ -103,10 +103,11 @@ def shoplog(request):
 		response = HttpResponse(content_type="image/png")
 		#map_pic.save(response, "PNG")
 		ret_pic.save(response, "PNG")
-		response['Content-Disposition'] = 'attachment; filename="key.png"'
+		#response['Content-Disposition'] = 'attachment; filename="key.png"'
 
 		return response
 		#JsonResponse({"data":map1, map2, map3})
+		#JsonResponse({"map":ret_pic}, safe=False)
 
 	else:
 		response = HttpResponse()
