@@ -121,21 +121,22 @@ def make_map(shopArr):
 	#重ねる画像のリサイズ
 	tmp = tmp.resize((100, 100))
 
+	img1 = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map1F.png")
+	img2 = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map2F.png")
+	img3 = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map3F.png")
+
 	for i in shopArr:
 		datas = Shop_Beacon.objects.get(shopname = i)
 		beacon_datas = KeyArea.objects.get(major = datas.major, minor = datas.minor)
 		if datas.floor == 1:
-			#shops1.append((beacon_datas.xgrid, beacon_datas.ygrid))
+			shops1.append((beacon_datas.xgrid, beacon_datas.ygrid))
 			#shops1 = numpy.append(shops1, (beacon_datas.xgrid, beacon_datas.ygrid))
-			shops1 = numpy.append(shops1, (50, 50))
 		elif datas.floor == 2:
-			#shops2.append((beacon_datas.xgrid, beacon_datas.ygrid))
+			shops2.append((beacon_datas.xgrid, beacon_datas.ygrid))
 			#shops2 = numpy.append(shops2, (beacon_datas.xgrid, beacon_datas.ygrid))
-			shops2 = numpy.append(shops1, (50, 50))
 		elif datas.floor == 3:
 			#shops3.append((beacon_datas.xgrid, beacon_datas.ygrid))
-			#shops3 = numpy.append(shops3, (beacon_datas.xgrid, beacon_datas.ygrid))
-			shops3 = numpy.append(shops1, (50, 50))
+			shops3 = numpy.append(shops3, (beacon_datas.xgrid, beacon_datas.ygrid))
 
 	for i in range(1,4):
 		#############ここにmap合成するコード
@@ -145,35 +146,35 @@ def make_map(shopArr):
 		if i == 1:
 			for j in shops1:
 				#画像読み込み
-				img = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map1F.png")
 				#元画像に重ねる、左上の座標を指定
 				#img.paste(tmp, shops1[j], tmp)
-				img.paste(tmp, (50, 50), tmp)
+				img1.paste(tmp, j, tmp)
 				#画像上書き
 				#img.save("map1.png")
-				map1 = img
+				#map1 = img
 		elif i == 2:
 			for j in shops2:
 				#画像読み込み
-				img = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map2F.png")
 				#元画像に重ねる、左上の座標を指定
 				#img.paste(tmp, shops2[j], tmp)
-				img.paste(tmp, (50, 50), tmp)
+				img2.paste(tmp, j, tmp)
 				#画像上書き
 				#img.save("map2.png")
-				map2 = img
+				#map2 = img
 		elif i == 3:
 			for j in shops3:
 				#画像読み込み
-				img = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map3F.png")
 				#元画像に重ねる、左上の座標を指定
 				#img.paste(tmp, shops3[j], tmp)
-				img.paste(tmp, (50, 50), tmp)
+				img3.paste(tmp, j, tmp)
 				#画像上書き
 				#img.save("map3.png")
-				map3 = img
+				#map3 = img
+	img1.save("/home/niga/igapico/tekupico/cms/pictures/1F_last.png")
+	img2.save("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
+	img3.save("/home/niga/igapico/tekupico/cms/pictures/3F_last.png")
 	#return map1, map2, map3
-	return map2
+	return img2
 
 
 #宝ゲットのときにそれを反映
