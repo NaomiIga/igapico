@@ -98,7 +98,7 @@ def shoplog(request):
 		update_data.shopname = shops[0]
 		update_data.save()
 
-		for i in shops:
+		for i in shops[0]:
 			shop_data = Shop_Beacon.objects.get(shopname = i)
 			shopbeacon.append(shop_data.major, shop_data.minor)
 
