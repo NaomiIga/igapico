@@ -168,7 +168,7 @@ def make_map(shopArr):
 	ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
 	#return map1, map2, map3
 	#return img2
-	return JsonResponse("map":ret_pic)
+	return JsonResponse({"map":ret_pic}, safe=False)
 
 
 #宝ゲットのときにそれを反映
