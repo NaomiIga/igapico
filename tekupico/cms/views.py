@@ -99,7 +99,7 @@ def shoplog(request):
 		update_data.save()
 
 		for i in shops:
-			shop_data = Shop_Beacon.objects.get(shopname = shops)
+			shop_data = Shop_Beacon.objects.get(shopname = i)
 			shopbeacon.append(shop_data.major, shop_data.minor)
 
 		#map_pic = []
@@ -536,7 +536,6 @@ def shop_loading(request):
 #csvとして出力する
 def export_csv(request):
 
-	#img = Image.open("/home/niga/igapico/tekupico/cms/pictures/key.png")
 	response = HttpResponse(open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read(), content_type='image/png')
 	response['Content-Disposition'] = 'attachment; filename="key.png"'
 
