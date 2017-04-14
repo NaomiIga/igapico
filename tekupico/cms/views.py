@@ -543,7 +543,7 @@ def export_csv(request):
 	pic_str = open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read()
 
 	#return response
-	return JsonResponse(str(pic_str), safe = False)
+	return JsonResponse(str(pic_str).encode('utf_8'), safe=False)
 
 	'''
 	userdata = User.objects.all()
