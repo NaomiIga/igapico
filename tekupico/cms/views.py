@@ -107,7 +107,7 @@ def shoplog(request):
 
 		#return response
 		#JsonResponse({"data":map1, map2, map3})
-		return JsonResponse({"map":map_pic}, safe=False)
+		return JsonResponse({"map":str(map_pic)}, safe=False)
 
 	else:
 		response = HttpResponse()
