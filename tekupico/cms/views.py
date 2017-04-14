@@ -100,7 +100,7 @@ def shoplog(request):
 
 		for i in shops[0]:
 			shop_data = Shop_Beacon.objects.get(shopname = i)
-			shopbeacon.append(shop_data.major, shop_data.minor)
+			shopbeacon.append((shop_data.major, shop_data.minor))
 
 		#map_pic = []
 		#map_pic = make_map(shops[0])   # ショップ名から座標にする関数
