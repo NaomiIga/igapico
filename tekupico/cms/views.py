@@ -172,7 +172,8 @@ def make_map(shopArr):
 				#画像上書き
 				#img.save("map3.png")
 				map3 = img
-	return map1, map2, map3
+	#return map1, map2, map3
+	return map2
 
 
 #宝ゲットのときにそれを反映
