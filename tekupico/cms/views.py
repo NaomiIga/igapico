@@ -95,11 +95,11 @@ def shoplog(request):
 		update_data.shopname = shops[0]
 		update_data.save()
 
-		map_pic = []
+		#map_pic = []
 		map_pic = make_map(shops[0])   # ショップ名から座標にする関数
 
 		response = HttpResponse(content_type="image/png")
-		map_pic[1].save(response, "PNG")
+		map_pic.save(response, "PNG")
 		response['Content-Disposition'] = 'attachment; filename="key.png"'
 
 		return response
