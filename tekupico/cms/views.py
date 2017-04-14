@@ -98,7 +98,11 @@ def shoplog(request):
 		map_pic = []
 		map_pic = make_map(shops[0])   # ショップ名から座標にする関数
 		
-		return JsonResponse({"data":map_pic})
+		response = HttpResponse(content_type="image/png")
+		map_pic[1].save(response, "PNG")
+
+		return response
+		#JsonResponse({"data":map1, map2, map3})
 
 	else:
 		response = HttpResponse()
@@ -158,7 +162,7 @@ def make_map(shopArr):
 				#画像上書き
 				img.save("map3.png")
 				map3 = img
-	return JsonResponse({"data":map1, map2, map3})
+	return map1, map2, map3
 
 
 #宝ゲットのときにそれを反映
