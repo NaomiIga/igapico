@@ -535,6 +535,13 @@ def shop_loading(request):
 
 #csvとして出力する
 def export_csv(request):
+
+	response = HttpResponse(content_type='image/png')
+	response['Content-Disposition'] = 'attachment; filename="./pictures/key.png"'
+
+	return response
+
+	'''
 	userdata = User.objects.all()
 
 	response = HttpResponse(content_type='text/csv')
@@ -562,3 +569,4 @@ def export_csv(request):
 		])
 
 	return response
+	'''
