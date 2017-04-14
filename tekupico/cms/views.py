@@ -98,8 +98,11 @@ def shoplog(request):
 		#map_pic = []
 		map_pic = make_map(shops[0])   # ショップ名から座標にする関数
 
+		ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
+
 		response = HttpResponse(content_type="image/png")
-		map_pic.save(response, "PNG")
+		#map_pic.save(response, "PNG")
+		ret_pic.save(response, "PNG")
 		response['Content-Disposition'] = 'attachment; filename="key.png"'
 
 		return response
@@ -115,8 +118,6 @@ def make_map(shopArr):
 	shops1 = []
 	shops2 = []
 	shops3 = []
-
-	response = HttpResponse(content_type='image/png')
 
 	#重ねる画像(鍵？)
 	tmp = Image.open("/home/niga/igapico/tekupico/cms/pictures/key.png")
@@ -167,11 +168,9 @@ def make_map(shopArr):
 	img2.save("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
 	img3.save("/home/niga/igapico/tekupico/cms/pictures/3F_last.png")
 
-	ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
+	#ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
 	#return map1, map2, map3
-	#return img2
-	ret_pic.save(response, "PNG")
-	return response
+	return img2
 
 
 #宝ゲットのときにそれを反映
