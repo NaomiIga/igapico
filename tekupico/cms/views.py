@@ -147,7 +147,8 @@ def make_map(shopArr):
 				#画像読み込み
 				img = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map1F.png")
 				#元画像に重ねる、左上の座標を指定
-				img.paste(tmp, shops1[j], tmp)
+				#img.paste(tmp, shops1[j], tmp)
+				img.paste(tmp, (50, 50), tmp)
 				#画像上書き
 				#img.save("map1.png")
 				map1 = img
@@ -156,7 +157,8 @@ def make_map(shopArr):
 				#画像読み込み
 				img = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map2F.png")
 				#元画像に重ねる、左上の座標を指定
-				img.paste(tmp, shops2[j], tmp)
+				#img.paste(tmp, shops2[j], tmp)
+				img.paste(tmp, (50, 50), tmp)
 				#画像上書き
 				#img.save("map2.png")
 				map2 = img
@@ -165,7 +167,8 @@ def make_map(shopArr):
 				#画像読み込み
 				img = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map3F.png")
 				#元画像に重ねる、左上の座標を指定
-				img.paste(tmp, shops3[j], tmp)
+				#img.paste(tmp, shops3[j], tmp)
+				img.paste(tmp, (50, 50), tmp)
 				#画像上書き
 				#img.save("map3.png")
 				map3 = img
