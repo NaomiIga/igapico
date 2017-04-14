@@ -86,6 +86,9 @@ def pico_login(request):
 @csrf_exempt
 def shoplog(request):
 	if request.method == 'POST':
+
+		shopbeacon = []
+
 		datas = json.loads(request.body)
 
 		name = datas.keys()
@@ -95,19 +98,24 @@ def shoplog(request):
 		update_data.shopname = shops[0]
 		update_data.save()
 
+		for i in shops:
+			shop_data = Shop_Beacon.objects.get(shopname = shops)
+			shopbeacon.append(shop_data.major, shop_data.minor)
+
 		#map_pic = []
-		map_pic = make_map(shops[0])   # ショップ名から座標にする関数
+		#map_pic = make_map(shops[0])   # ショップ名から座標にする関数
 
 		#ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
 
-		response = HttpResponse(content_type="image/png")
+		#response = HttpResponse(content_type="image/png")
 		#map_pic.save(response, "PNG")
 		#ret_pic.save(response, "PNG")
-		response['Content-Disposition'] = 'attachment; filename="/home/niga/igapico/tekupico/cms/pictures/2F_last.png"'
+		#response['Content-Disposition'] = 'attachment; filename="/home/niga/igapico/tekupico/cms/pictures/2F_last.png"'
 
-		return response
+		#return response
 		#JsonResponse({"data":map1, map2, map3})
 		#return JsonResponse({"map":str(map_pic)}, safe=False)
+		return JsonResponse({"shop_beacon":shopbeacon})
 
 	else:
 		response = HttpResponse()
