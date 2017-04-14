@@ -137,7 +137,7 @@ def make_map(shopArr):
 		#中心指定できるかは要確認
 
 		if i == 1:
-			for j in len(shops1):
+			for j in shops1:
 				#画像読み込み
 				img = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map1F.png")
 				#元画像に重ねる、左上の座標を指定
@@ -146,7 +146,7 @@ def make_map(shopArr):
 				#img.save("map1.png")
 				map1 = img
 		elif i == 2:
-			for j in len(shops2):
+			for j in shops2:
 				#画像読み込み
 				img = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map2F.png")
 				#元画像に重ねる、左上の座標を指定
@@ -155,7 +155,7 @@ def make_map(shopArr):
 				#img.save("map2.png")
 				map2 = img
 		elif i == 3:
-			for j in len(shops3):
+			for j in shops3:
 				#画像読み込み
 				img = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map3F.png")
 				#元画像に重ねる、左上の座標を指定
