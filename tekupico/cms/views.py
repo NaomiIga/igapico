@@ -173,8 +173,11 @@ def make_map(shopArr):
 	img1.save("/home/niga/igapico/tekupico/cms/pictures/1F_last.png")
 	img2.save("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
 	img3.save("/home/niga/igapico/tekupico/cms/pictures/3F_last.png")
+
+	ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
 	#return map1, map2, map3
-	return img2
+	#return img2
+	return JsonResponse("map":ret_pic)
 
 
 #宝ゲットのときにそれを反映
