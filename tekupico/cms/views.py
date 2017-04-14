@@ -522,6 +522,7 @@ def export_csv(request):
 	tmp = Image.open("/home/niga/igapico/tekupico/cms/pictures/key.png")
 	response = HttpResponse(content_type="image/png")
 	tmp.save(response, "PNG")
+	response['Content-Disposition'] = 'attachment; filename="key.png"'
 	return response
 	'''userdata = User.objects.all()
 
