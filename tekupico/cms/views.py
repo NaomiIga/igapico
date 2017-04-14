@@ -534,6 +534,7 @@ def shop_loading(request):
 		response['msg'] = 'NG'
 
 #csvとして出力する
+@csrf_exempt
 def export_csv(request):
 
 	response = HttpResponse(open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read(), content_type='image/png')
