@@ -102,7 +102,7 @@ def shoplog(request):
 
 		response = HttpResponse(content_type="image/png")
 		#map_pic.save(response, "PNG")
-		ret_pic.save(response, "/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
+		ret_pic.save(response, "PNG")
 		#response['Content-Disposition'] = 'attachment; filename="key.png"'
 
 		#return response
