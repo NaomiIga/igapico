@@ -116,6 +116,8 @@ def make_map(shopArr):
 	shops2 = []
 	shops3 = []
 
+	response = HttpResponse(content_type='image/png')
+
 	#重ねる画像(鍵？)
 	tmp = Image.open("/home/niga/igapico/tekupico/cms/pictures/key.png")
 	#重ねる画像のリサイズ
@@ -168,7 +170,8 @@ def make_map(shopArr):
 	ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
 	#return map1, map2, map3
 	#return img2
-	return JsonResponse({"map":ret_pic}, safe=False)
+	ret_pic.save(response, "PNG")
+	return response
 
 
 #宝ゲットのときにそれを反映
