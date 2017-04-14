@@ -100,14 +100,14 @@ def shoplog(request):
 
 		ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map1F.png")
 
-		#response = HttpResponse(content_type="image/png")
+		response = HttpResponse(content_type="image/png")
 		#map_pic.save(response, "PNG")
-		#ret_pic.save(response, "PNG")
+		ret_pic.save(response, "PNG")
 		#response['Content-Disposition'] = 'attachment; filename="key.png"'
 
-		#return response
+		return response
 		#JsonResponse({"data":map1, map2, map3})
-		return JsonResponse({"map":str(ret_pic)}, safe=False)
+		#return JsonResponse({"map":str(ret_pic)}, safe=False)
 
 	else:
 		response = HttpResponse()
