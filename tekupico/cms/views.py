@@ -542,7 +542,7 @@ def map(request):
 	pic_str = open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read()
 
 	#return response
-	return JsonResponse(str(pic_str.encode('utf_8')), safe=False)
+	return JsonResponse(pic_str.encode('utf_8'), safe=False)
 
 #csvとして出力する
 @csrf_exempt
@@ -574,4 +574,3 @@ def export_csv(request):
 		])
 
 	return response
-
