@@ -760,6 +760,7 @@ def shop_loading(request):
 def map(request):
 	#response = HttpResponse(open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read(), content_type='image/png')
 	#response['Content-Disposition'] = 'attachment; filename="key.png"'
+	#pic_ary = []
 
 	pic_str = open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read()
 
@@ -767,6 +768,21 @@ def map(request):
 
 	#return response
 	return JsonResponse({"map":pic_str}, safe=False)
+
+	'''
+	pic_str = open('/home/niga/igapico/tekupico/cms/pictures/1F_last.png','rb').read()
+	pic_ary.append(pic_str)
+	pic_str = open('/home/niga/igapico/tekupico/cms/pictures/2F_last.png','rb').read()
+	pic_ary.append(pic_str)
+	pic_str = open('/home/niga/igapico/tekupico/cms/pictures/3F_last.png','rb').read()
+	pic_ary.append(pic_str)
+
+	for i,pic in enumerate(pic_ary):
+		pic = base64.b64encode(pic)
+		pic_ary[i] = pic
+
+	return JsonResponse({"map":pic_ary}, safe=False)
+	'''
 
 #csvとして出力する
 @csrf_exempt
