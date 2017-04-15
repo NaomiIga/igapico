@@ -191,9 +191,10 @@ def treasure_check(request):
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
 		major = datas["major"]
 		minor = datas["minor"]
-		treasure_number = treasure_num(major,minor)
 
 		return JsonResponse({"treasure":"1", "totalpoint":"1", "getpoint":"1"}, safe=False)
+
+		treasure_number = treasure_num(major,minor)
 
 		#treasure = 'treasure' + str(treasure_num)
 		update_data = User.objects.get(username = name)
