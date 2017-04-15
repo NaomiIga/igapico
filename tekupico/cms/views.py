@@ -193,6 +193,8 @@ def treasure_check(request):
 		minor = datas["minor"]
 		treasure_number = treasure_num(major,minor)
 
+		return JsonResponse({"treasure":"1", "totalpoint":"1", "getpoint":"1"}, safe=False)
+
 		#treasure = 'treasure' + str(treasure_num)
 		update_data = User.objects.get(username = name)
 		watched_hint = UsedHint.objects.get(username = name)
@@ -234,7 +236,7 @@ def treasure_check(request):
 
 		#ここにポイント計算のこと書く？
 		#return HttpResponse(u'%d番の宝げっと', treasure_num)
-		return JsonResponse({"treasure":"1", "totalpoint":"1", "getpoint":"1"}, safe=False)
+		return JsonResponse({"treasure":treasure_number, "totalpoint":update_data.points, "getpoint":getpointnow}, safe=False)
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
