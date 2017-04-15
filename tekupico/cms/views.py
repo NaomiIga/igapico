@@ -229,8 +229,8 @@ def treasure_check(request):
 			update_data.treasure9 = datetime.datetime.now()
 		elif treasure_number == 10:
 			update_data.treasure10 = datetime.datetime.now()
-		update_data.save()
 
+		update_data.save()
 
 		#ここにポイント計算のこと書く？
 		#return HttpResponse(u'%d番の宝げっと', treasure_num)
