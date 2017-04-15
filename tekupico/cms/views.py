@@ -26,7 +26,7 @@ import unicodedata
 from PIL import Image
 import base64
 import logging
-logger = logging.getlogger(__name__)
+logger = logging.getLogger(__name__)
 
 #csrf_exemptはつけたい関数の上にそれぞれつけなきゃダメ
 #csrfを無視するコマンド
