@@ -194,14 +194,14 @@ def treasure_check(request):
 		major = datas["major"]
 		minor = datas["minor"]
 		treasure_number = treasure_num(major,minor)
-		logger.error(treasure_number)
+		logging.error(treasure_number)
 
 		#treasure = 'treasure' + str(treasure_num)
 		update_data = User.objects.get(username = name)
 		watched_hint = UsedHint.objects.get(username = name)
 
 		if treasure_number == 1:
-			logger.error('here')
+			logging.error('here')
 			if update_data.treasure1 == None:
 				update_data.treasure1 = datetime.datetime.now()
 				if watched_hint.hint1_3 != None:
