@@ -391,6 +391,230 @@ def hint_check(name, treasureNo, next_watch):
 				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
 				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
 				hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n\n'
+
+	elif treasureNo == 4:
+		hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 1)
+		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
+		if next_watch == True and data.hint4_2 == None:
+			hint_num = 2
+			data.hint4_2 = datetime.datetime.now()
+			data.save()
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+		elif next_watch == True and data.hint4_3 == None:
+			hint_num = 3
+			data.hint4_3 = datetime.datetime.now()
+			data.save()
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+			hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n'
+		elif next_watch == False:
+			if data.hint4_2 == None:
+				hint_num = 1
+				hint = hint
+			elif data.hint4_3 == None:
+				hint_num = 2
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			else:
+				hint_num = 3
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+				hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n\n'
+
+	elif treasureNo == 5:
+		hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 1)
+		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
+		if next_watch == True and data.hint5_2 == None:
+			hint_num = 2
+			data.hint5_2 = datetime.datetime.now()
+			data.save()
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+		elif next_watch == True and data.hint5_3 == None:
+			hint_num = 3
+			data.hint5_3 = datetime.datetime.now()
+			data.save()
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+			hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n'
+		elif next_watch == False:
+			if data.hint5_2 == None:
+				hint_num = 1
+				hint = hint
+			elif data.hint5_3 == None:
+				hint_num = 2
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			else:
+				hint_num = 3
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+				hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n\n'
+
+	elif treasureNo == 6:
+		hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 1)
+		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
+		if next_watch == True and data.hint6_2 == None:
+			hint_num = 2
+			data.hint6_2 = datetime.datetime.now()
+			data.save()
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+		elif next_watch == True and data.hint6_3 == None:
+			hint_num = 3
+			data.hint6_3 = datetime.datetime.now()
+			data.save()
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+			hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n'
+		elif next_watch == False:
+			if data.hint6_2 == None:
+				hint_num = 1
+				hint = hint
+			elif data.hint6_3 == None:
+				hint_num = 2
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			else:
+				hint_num = 3
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+				hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n\n'
+	
+	elif treasureNo == 7:
+		hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 1)
+		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
+		if next_watch == True and data.hint7_2 == None:
+			hint_num = 2
+			data.hint7_2 = datetime.datetime.now()
+			data.save()
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+		elif next_watch == True and data.hint7_3 == None:
+			hint_num = 3
+			data.hint7_3 = datetime.datetime.now()
+			data.save()
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+			hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n'
+		elif next_watch == False:
+			if data.hint7_2 == None:
+				hint_num = 1
+				hint = hint
+			elif data.hint7_3 == None:
+				hint_num = 2
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			else:
+				hint_num = 3
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+				hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n\n'
+
+	elif treasureNo == 8:
+		hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 1)
+		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
+		if next_watch == True and data.hint8_2 == None:
+			hint_num = 2
+			data.hint8_2 = datetime.datetime.now()
+			data.save()
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+		elif next_watch == True and data.hint8_3 == None:
+			hint_num = 3
+			data.hint8_3 = datetime.datetime.now()
+			data.save()
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+			hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n'
+		elif next_watch == False:
+			if data.hint8_2 == None:
+				hint_num = 1
+				hint = hint
+			elif data.hint8_3 == None:
+				hint_num = 2
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			else:
+				hint_num = 3
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+				hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n\n'
+
+	elif treasureNo == 9:
+		hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 1)
+		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
+		if next_watch == True and data.hint9_2 == None:
+			hint_num = 2
+			data.hint9_2 = datetime.datetime.now()
+			data.save()
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+		elif next_watch == True and data.hint9_3 == None:
+			hint_num = 3
+			data.hint9_3 = datetime.datetime.now()
+			data.save()
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+			hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n'
+		elif next_watch == False:
+			if data.hint9_2 == None:
+				hint_num = 1
+				hint = hint
+			elif data.hint9_3 == None:
+				hint_num = 2
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			else:
+				hint_num = 3
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+				hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n\n'
+
+	elif treasureNo == 10:
+		hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 1)
+		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
+		if next_watch == True and data.hint10_2 == None:
+			hint_num = 2
+			data.hint10_2 = datetime.datetime.now()
+			data.save()
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+		elif next_watch == True and data.hint10_3 == None:
+			hint_num = 3
+			data.hint10_3 = datetime.datetime.now()
+			data.save()
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+			hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n'
+		elif next_watch == False:
+			if data.hint10_2 == None:
+				hint_num = 1
+				hint = hint
+			elif data.hint10_3 == None:
+				hint_num = 2
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+			else:
+				hint_num = 3
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
+				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
+				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
+				hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n\n'
 	else:
 		print 'error'
 
@@ -408,9 +632,6 @@ def ReturnKeyArea(beacon):
 
 	return xarea, yarea
 '''
-
-
-
 
 
 #ショップリスト送る
