@@ -24,6 +24,7 @@ import csv
 import datetime
 import unicodedata
 from PIL import Image
+import base64
 
 #csrf_exemptはつけたい関数の上にそれぞれつけなきゃダメ
 #csrfを無視するコマンド
@@ -762,8 +763,10 @@ def map(request):
 
 	pic_str = open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read()
 
+	pic_str = base64.b64encode(pic_str)
+
 	#return response
-	return JsonResponse(pic_str.encode('base64'), safe=False)
+	return JsonResponse({"map":pic_str}, safe=False)
 
 #csvとして出力する
 @csrf_exempt
