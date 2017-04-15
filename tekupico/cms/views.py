@@ -487,7 +487,7 @@ def hint_check(name, treasureNo, next_watch):
 				hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
 				hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 3)
 				hint = hint + u'ヒント3\n' + hintdatas.hint_sent + u'\n\n'
-	
+
 	elif treasureNo == 7:
 		hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 1)
 		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
@@ -763,7 +763,7 @@ def map(request):
 	pic_str = open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read()
 
 	#return response
-	return JsonResponse(pic_str.encode('utf_8'), safe=False)
+	return JsonResponse(pic_str.encode('base64'), safe=False)
 
 #csvとして出力する
 @csrf_exempt
