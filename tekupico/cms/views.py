@@ -188,6 +188,7 @@ def make_map(shopArr):
 def treasure_check(request):
 	if request.method == 'POST':
 		datas = json.loads(request.body)
+		print "debug"
 		print datas
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
 		major = datas["major"]
