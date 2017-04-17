@@ -25,6 +25,10 @@ import datetime
 import unicodedata
 from PIL import Image
 import base64
+import logging
+logger = logging.getlogger(__name__)
+import sys
+sys.stdout = sys.stderr
 
 #csrf_exemptはつけたい関数の上にそれぞれつけなきゃダメ
 #csrfを無視するコマンド
@@ -188,8 +192,9 @@ def make_map(shopArr):
 def treasure_check(request):
 	if request.method == 'POST':
 		datas = json.loads(request.body)
-		#print "debug"
-		#print datas
+		print "debug"
+		print datas
+		logger.error('Something error was happend')
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
 		major = datas["major"]
 		minor = datas["minor"]
