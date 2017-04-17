@@ -26,7 +26,7 @@ import unicodedata
 from PIL import Image
 import base64
 import logging
-logger = logging.getlogger(__name__)
+logger = logging.getLogger(__name__)
 import sys
 sys.stdout = sys.stderr
 
