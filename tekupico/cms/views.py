@@ -214,23 +214,131 @@ def treasure_check(request):
 			else:
 				getpointnow = 0
 		elif treasure_number == 2:
-			update_data.treasure2 = datetime.datetime.now()
+			if update_data.treasure2 == None:
+				update_data.treasure2 = datetime.datetime.now()
+				if watched_hint.hint2_3 != None:
+					update_data.points += 1
+					getpointnow = 1
+				elif watched_hint.hint2_2 != None:
+					update_data.points += 2
+					getpointnow = 2
+				else:
+					update_data.points += 3
+					getpointnow = 3
+			else:
+				getpointnow = 0
 		elif treasure_number == 3:
-			update_data.treasure3 = datetime.datetime.now()
+			if update_data.treasure3 == None:
+				update_data.treasure3 = datetime.datetime.now()
+				if watched_hint.hint3_3 != None:
+					update_data.points += 1
+					getpointnow = 1
+				elif watched_hint.hint3_2 != None:
+					update_data.points += 2
+					getpointnow = 2
+				else:
+					update_data.points += 3
+					getpointnow = 3
+			else:
+				getpointnow = 0
 		elif treasure_number == 4:
-			update_data.treasure4 = datetime.datetime.now()
+			if update_data.treasure4 == None:
+				update_data.treasure4 = datetime.datetime.now()
+				if watched_hint.hint4_3 != None:
+					update_data.points += 1
+					getpointnow = 1
+				elif watched_hint.hint4_2 != None:
+					update_data.points += 2
+					getpointnow = 2
+				else:
+					update_data.points += 3
+					getpointnow = 3
+			else:
+				getpointnow = 0
 		elif treasure_number == 5:
-			update_data.treasure5 = datetime.datetime.now()
+			if update_data.treasure5 == None:
+				update_data.treasure5 = datetime.datetime.now()
+				if watched_hint.hint5_3 != None:
+					update_data.points += 1
+					getpointnow = 1
+				elif watched_hint.hint5_2 != None:
+					update_data.points += 2
+					getpointnow = 2
+				else:
+					update_data.points += 3
+					getpointnow = 3
+			else:
+				getpointnow = 0
 		elif treasure_number == 6:
-			update_data.treasure6 = datetime.datetime.now()
+			if update_data.treasure6 == None:
+				update_data.treasure6 = datetime.datetime.now()
+				if watched_hint.hint6_3 != None:
+					update_data.points += 1
+					getpointnow = 1
+				elif watched_hint.hint6_2 != None:
+					update_data.points += 2
+					getpointnow = 2
+				else:
+					update_data.points += 3
+					getpointnow = 3
+			else:
+				getpointnow = 0
 		elif treasure_number == 7:
-			update_data.treasure7 = datetime.datetime.now()
+			if update_data.treasure7 == None:
+				update_data.treasure7 = datetime.datetime.now()
+				if watched_hint.hint7_3 != None:
+					update_data.points += 1
+					getpointnow = 1
+				elif watched_hint.hint7_2 != None:
+					update_data.points += 2
+					getpointnow = 2
+				else:
+					update_data.points += 3
+					getpointnow = 3
+			else:
+				getpointnow = 0
 		elif treasure_number == 8:
-			update_data.treasure8 = datetime.datetime.now()
+			if update_data.treasure8 == None:
+				update_data.treasure8 = datetime.datetime.now()
+				if watched_hint.hint8_3 != None:
+					update_data.points += 1
+					getpointnow = 1
+				elif watched_hint.hint8_2 != None:
+					update_data.points += 2
+					getpointnow = 2
+				else:
+					update_data.points += 3
+					getpointnow = 3
+			else:
+				getpointnow = 0
 		elif treasure_number == 9:
-			update_data.treasure9 = datetime.datetime.now()
+			if update_data.treasure9 == None:
+				update_data.treasure9 = datetime.datetime.now()
+				if watched_hint.hint9_3 != None:
+					update_data.points += 1
+					getpointnow = 1
+				elif watched_hint.hint9_2 != None:
+					update_data.points += 2
+					getpointnow = 2
+				else:
+					update_data.points += 3
+					getpointnow = 3
+			else:
+				getpointnow = 0
 		elif treasure_number == 10:
-			update_data.treasure10 = datetime.datetime.now()
+			if update_data.treasure10 == None:
+				update_data.treasure10 = datetime.datetime.now()
+				if watched_hint.hint10_3 != None:
+					update_data.points += 1
+					getpointnow = 1
+				elif watched_hint.hint10_2 != None:
+					update_data.points += 2
+					getpointnow = 2
+				else:
+					update_data.points += 3
+					getpointnow = 3
+			else:
+				getpointnow = 0
 
 		update_data.save()
 
