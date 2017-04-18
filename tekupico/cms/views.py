@@ -101,14 +101,14 @@ def shoplog(request):
 		update_data.shopname = shops[0]
 		update_data.save()
 
-		count = 0
+		#count = 0
 
 		for i in shops[0]:
 			shop_data = Shop_Beacon.objects.get(shopname = i)
 			shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
-			count += 1
+			#count += 1
 
-		print count
+		
 		#map_pic = []
 		#map_pic = make_map(shops[0])   # ショップ名から座標にする関数
 
@@ -122,7 +122,7 @@ def shoplog(request):
 		#return response
 		#JsonResponse({"data":map1, map2, map3})
 		#return JsonResponse({"map":str(map_pic)}, safe=False)
-		return JsonResponse({"shop_beacon":shopbeacon, "count":count})
+		return JsonResponse({"shop_beacon":shopbeacon})
 
 	else:
 		response = HttpResponse()
