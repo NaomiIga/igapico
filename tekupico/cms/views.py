@@ -108,9 +108,9 @@ def shoplog(request):
 			shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
 			count += 1
 
-		
+
 		#map_pic = []
-		#map_pic = make_map(shops[0])   # ショップ名から座標にする関数
+		make_map(name[0], shops[0])   # ショップ名から座標にする関数
 
 		#ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
 
@@ -130,7 +130,7 @@ def shoplog(request):
 	#return name
 
 #飛んできた店名の配列からBeaconIDに変換する関数
-def make_map(shopArr):
+def make_map(username, shopArr):
 	shops1 = []
 	shops2 = []
 	shops3 = []
@@ -180,13 +180,13 @@ def make_map(shopArr):
 				#img.paste(tmp, shops3[j], tmp)
 				img3.paste(tmp, j, tmp)
 				#map3 = img
-	img1.save("/home/niga/igapico/tekupico/cms/pictures/1F_last.png")
-	img2.save("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
-	img3.save("/home/niga/igapico/tekupico/cms/pictures/3F_last.png")
+	img1.save("/home/niga/igapico/tekupico/static/Map_" + username + "_1F.png")
+	img2.save("/home/niga/igapico/tekupico/static/Map_" + username + "_2F.png")
+	img3.save("/home/niga/igapico/tekupico/static/Map_" + username + "_3F.png")
 
 	#ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
 	#return map1, map2, map3
-	return img2
+	#return img2
 
 
 #宝ゲットのときにそれを反映
