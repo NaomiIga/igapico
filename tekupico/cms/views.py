@@ -180,9 +180,9 @@ def make_map(username, shopArr):
 				#img.paste(tmp, shops3[j], tmp)
 				img3.paste(tmp, j, tmp)
 				#map3 = img
-	img1.save("/home/niga/igapico/tekupico/static/Map_" + username + "_1F.png")
-	img2.save("/home/niga/igapico/tekupico/static/Map_" + username + "_2F.png")
-	img3.save("/home/niga/igapico/tekupico/static/Map_" + username + "_3F.png")
+	img1.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username + "_1F.png")
+	img2.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username + "_2F.png")
+	img3.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username + "_3F.png")
 
 	#ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
 	#return map1, map2, map3
@@ -877,13 +877,21 @@ def map(request):
 	#response = HttpResponse(open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read(), content_type='image/png')
 	#response['Content-Disposition'] = 'attachment; filename="key.png"'
 	#pic_ary = []
+	if request.method == 'POST':
+		pic_url = []
+		datas = json.loads(request.body)
 
-	pic_str = open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read()
+		name = datas.values()
 
-	pic_str = base64.b64encode(pic_str)
+		pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username + "_1F.png")
+		pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username + "_2F.png")
+		pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username + "_3F.png")
+		#pic_str = open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read()
 
-	#return response
-	return JsonResponse({"map":pic_str}, safe=False)
+		#pic_str = base64.b64encode(pic_str)
+
+		#return response
+		return JsonResponse({"map":pic_url}, safe=False)
 
 	'''
 	pic_str = open('/home/niga/igapico/tekupico/cms/pictures/1F_last.png','rb').read()
