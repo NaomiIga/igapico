@@ -889,8 +889,8 @@ def map(request):
 		#pic_str = open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read()
 
 		#pic_str = base64.b64encode(pic_str)
-		for i in pic_url:
-			print i.encode('utf_8')
+		#for i in pic_url:
+			#print i.encode('utf_8')
 
 		#return response
 		return JsonResponse({"map":pic_url}, safe=False)
