@@ -180,9 +180,9 @@ def make_map(username, shopArr):
 				#img.paste(tmp, shops3[j], tmp)
 				img3.paste(tmp, j, tmp)
 				#map3 = img
-	img1.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username + "_1F.png")
-	img2.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username + "_2F.png")
-	img3.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username + "_3F.png")
+	img1.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_1F.png")
+	img2.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_2F.png")
+	img3.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_3F.png")
 
 	#ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
 	#return map1, map2, map3
