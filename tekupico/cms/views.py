@@ -884,14 +884,15 @@ def map(request):
 
 		username = datas.values()
 
-		#pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username[0].encode('utf_8') + "_1F.png")
-		#pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username[0].encode('utf_8') + "_2F.png")
-		#pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username[0].encode('utf_8') + "_3F.png")
+		#pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_1F.png")
+		#pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_2F.png")
+		#pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_3F.png")
 		pic_str = ("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/key.png")
 
 		#pic_str = base64.b64encode(pic_str)
 		#for i in pic_url:
 			#print i.encode('utf_8')
+		print pic_str
 
 		#return response
 		return JsonResponse({"map":pic_str}, safe=False)
