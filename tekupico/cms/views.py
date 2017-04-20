@@ -883,9 +883,9 @@ def map(request):
 
 		username = datas.values()
 
-		pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_1F.png")
-		pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_2F.png")
-		pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_3F.png")
+		pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username[0].encode('utf_8') + "_1F.png")
+		pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username[0].encode('utf_8') + "_2F.png")
+		pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username[0].encode('utf_8') + "_3F.png")
 		#pic_str = open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read()
 
 		#pic_str = base64.b64encode(pic_str)
