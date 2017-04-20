@@ -881,7 +881,7 @@ def map(request):
 		pic_url = []
 		datas = json.loads(request.body)
 
-		name = datas.values()
+		username = datas.values()
 
 		pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_1F.png")
 		pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_2F.png")
