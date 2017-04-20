@@ -879,21 +879,22 @@ def map(request):
 	#pic_ary = []
 	if request.method == 'POST':
 		pic_url = []
+		pic_str = []
 		datas = json.loads(request.body)
 
 		username = datas.values()
 
-		pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username[0].encode('utf_8') + "_1F.png")
-		pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username[0].encode('utf_8') + "_2F.png")
-		pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username[0].encode('utf_8') + "_3F.png")
-		#pic_str = open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read()
+		#pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username[0].encode('utf_8') + "_1F.png")
+		#pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username[0].encode('utf_8') + "_2F.png")
+		#pic_url.append("/home/niga/igapico/tekupico/cms/static/img/Map_" + username[0].encode('utf_8') + "_3F.png")
+		pic_str = ("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/key.png")
 
 		#pic_str = base64.b64encode(pic_str)
 		#for i in pic_url:
 			#print i.encode('utf_8')
 
 		#return response
-		return JsonResponse({"map":pic_url}, safe=False)
+		return JsonResponse({"map":pic_str}, safe=False)
 
 	'''
 	pic_str = open('/home/niga/igapico/tekupico/cms/pictures/1F_last.png','rb').read()
