@@ -131,8 +131,6 @@ def shoplog(request):
 
 #飛んできた店名の配列からBeaconIDに変換する関数
 def make_map(username, shopArr):
-	print username
-	print shopArr
 	shops1 = []
 	shops2 = []
 	shops3 = []
