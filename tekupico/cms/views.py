@@ -956,7 +956,7 @@ def finish(request):
 	if request.method == 'POST':
 		datas = json.loads(request.body)
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
-		temp = User.objects.get(name = name)
+		temp = User.objects.get(username = name)
 		UserId = temp.user_id
 		Point = temp.points
 
