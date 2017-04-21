@@ -63,7 +63,7 @@ def pico_login(request):
 		datas = json.loads(request.body)  #追記
 		name = datas["name"]
 		#name = datas
-		temp = Shop_Beacon.objects.get(shopname = COUNTER)
+		temp = Shop_Beacon.objects.get(shopname = "COUNTER")
 		UserId = temp.shop_id + 1
 
 		try:
