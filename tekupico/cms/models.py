@@ -8,6 +8,7 @@ from django.utils import timezone
 
 # User log wo tameru
 class User(models.Model):
+	user_id = models.IntegerField('user_id', default = 0)
 	username = models.CharField('username', max_length = 255, default = 'NAME')
 	points = models.IntegerField('points', default = 0)
 	starttime = models.DateTimeField('starttime', null=True, blank=True)
