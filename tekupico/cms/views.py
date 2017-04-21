@@ -112,17 +112,6 @@ def shoplog(request):
 		#map_pic = []
 		make_map(name[0], shops[0])   # ショップ名から座標にする関数
 
-		'''
-		pic_url = []
-		datas = json.loads(request.body)
-
-		username = datas.values()
-
-		pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_1F.png")
-		pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_2F.png")
-		pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_3F.png")
-		'''
-
 		#ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
 
 		#response = HttpResponse(content_type="image/png")
@@ -196,11 +185,11 @@ def make_map(username, shopArr):
 	#img3.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_3F.png")
 
 	img1.save("/home/niga/igapico/tekupico/cms/static/img/User_Map_1F.png")
-	print "saveok"
+	print 'saveok'
 	img2.save("/home/niga/igapico/tekupico/cms/static/img/User_Map_2F.png")
-	print "saveok"
+	print 'saveok'
 	img3.save("/home/niga/igapico/tekupico/cms/static/img/User_Map_3F.png")
-	print "saveok"
+	print 'saveok'
 
 	#ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
 	#return map1, map2, map3
