@@ -949,3 +949,17 @@ def export_csv(request):
 		])
 
 	return response
+
+@csrf_exempt
+def finish(request):
+	if request.method == 'POST':
+		datas = json.loads(request.body)
+		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
+		temp = User.objects.get(name = name)
+		UserId = temp.user_id
+		Point = temp.points
+
+		return JsonResponse({"id":UserId, "point":Point})
+	else:
+		response = HttpResponse()
+		response['msg'] = 'NG'
