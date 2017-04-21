@@ -71,7 +71,7 @@ def pico_login(request):
 			return HttpResponse(u'error')
 		except User.DoesNotExist:
 			new_data = User.objects.create(
-			user_id = UserId
+			user_id = UserId,
 			username = name,
 			starttime = datetime.datetime.now(),
 			)
