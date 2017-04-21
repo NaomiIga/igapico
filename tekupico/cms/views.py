@@ -63,13 +63,15 @@ def pico_login(request):
 		datas = json.loads(request.body)  #追記
 		name = datas["name"]
 		#name = datas
-
+		temp = Shop_Beacon.objects.get(shopname = COUNTER)
+		UserId = temp.shop_id + 1
 
 		try:
 			testname = User.objects.get(username = name)
 			return HttpResponse(u'error')
 		except User.DoesNotExist:
 			new_data = User.objects.create(
+			user_id = UserId
 			username = name,
 			starttime = datetime.datetime.now(),
 			)
