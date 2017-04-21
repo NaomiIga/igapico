@@ -874,9 +874,6 @@ def shop_loading(request):
 #mapの画像作成
 @csrf_exempt
 def map(request):
-	#response = HttpResponse(open('/home/niga/igapico/tekupico/cms/pictures/key.png','rb').read(), content_type='image/png')
-	#response['Content-Disposition'] = 'attachment; filename="key.png"'
-	#pic_ary = []
 	if request.method == 'POST':
 		pic_url = []
 		pic_str = []
@@ -896,6 +893,10 @@ def map(request):
 
 		#return response
 		return JsonResponse({"map":pic_str}, safe=False)
+
+	else:
+		response = HttpResponse()
+		response['msg'] = 'NG'
 
 	'''
 	pic_str = open('/home/niga/igapico/tekupico/cms/pictures/1F_last.png','rb').read()
