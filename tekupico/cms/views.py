@@ -112,6 +112,17 @@ def shoplog(request):
 		#map_pic = []
 		make_map(name[0], shops[0])   # ショップ名から座標にする関数
 
+		'''
+		pic_url = []
+		datas = json.loads(request.body)
+
+		username = datas.values()
+
+		pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_1F.png")
+		pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_2F.png")
+		pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_3F.png")
+		'''
+
 		#ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
 
 		#response = HttpResponse(content_type="image/png")
@@ -122,7 +133,7 @@ def shoplog(request):
 		#return response
 		#JsonResponse({"data":map1, map2, map3})
 		#return JsonResponse({"map":str(map_pic)}, safe=False)
-		return JsonResponse({"shop_beacon":shopbeacon, "count": count})
+		return JsonResponse({"shop_beacon":shopbeacon, "count": count)
 
 	else:
 		response = HttpResponse()
@@ -180,9 +191,13 @@ def make_map(username, shopArr):
 				#img.paste(tmp, shops3[j], tmp)
 				img3.paste(tmp, j, tmp)
 				#map3 = img
-	img1.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_1F.png")
-	img2.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_2F.png")
-	img3.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_3F.png")
+	#img1.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_1F.png")
+	#img2.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_2F.png")
+	#img3.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_3F.png")
+
+	img1.save("/home/niga/igapico/tekupico/cms/static/img/User_Map_1F.png")
+	img2.save("/home/niga/igapico/tekupico/cms/static/img/User_Map_2F.png")
+	img3.save("/home/niga/igapico/tekupico/cms/static/img/User_Map_3F.png")
 
 	#ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
 	#return map1, map2, map3
@@ -876,15 +891,14 @@ def shop_loading(request):
 def map(request):
 	if request.method == 'POST':
 		pic_url = []
-		pic_str = []
 		datas = json.loads(request.body)
 
 		username = datas.values()
 
-		#pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_1F.png")
-		#pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_2F.png")
-		#pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_3F.png")
-		pic_str = ("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/key.png")
+		pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_1F.png")
+		pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_2F.png")
+		pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_3F.png")
+		#pic_str = ("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/key.png")
 
 		#pic_str = base64.b64encode(pic_str)
 		#for i in pic_url:
@@ -892,7 +906,7 @@ def map(request):
 		print pic_str
 
 		#return response
-		return JsonResponse({"map":pic_str})
+		return JsonResponse({"map":pic_url})
 		#return JsonResponse({"shop_beacon":shopbeacon, "count": count})
 
 	else:
