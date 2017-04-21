@@ -185,11 +185,8 @@ def make_map(username, shopArr):
 	#img3.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_3F.png")
 
 	img1.save("/home/niga/igapico/tekupico/cms/static/img/User_Map_1F.png")
-	print 'saveok'
 	img2.save("/home/niga/igapico/tekupico/cms/static/img/User_Map_2F.png")
-	print 'saveok'
 	img3.save("/home/niga/igapico/tekupico/cms/static/img/User_Map_3F.png")
-	print 'saveok'
 
 	#ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
 	#return map1, map2, map3
