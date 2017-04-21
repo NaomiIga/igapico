@@ -4,7 +4,7 @@ from cms.models import *
 #admin.site.register(Data)
 
 class UserAdmin(admin.ModelAdmin):
-	list_display = ('user_id', 'username', 'starttime', 'finishtime', 'treasure1', 'treasure2', 'treasure3', 'treasure4', 'treasure5', 'treasure6', 'treasure7', 'treasure8', 'treasure9', 'treasure10')
+	list_display = ('user_id', 'username', 'starttime', 'finishtime', 'treasure1', 'treasure2', 'treasure3', 'treasure4', 'treasure5', 'treasure6', 'treasure7', 'treasure8', 'treasure9', 'treasure10',)
 	list_display_links = ('username',)
 	search_fields = ['user_id', 'username',]
 
