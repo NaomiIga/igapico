@@ -892,7 +892,8 @@ def map(request):
 		print pic_str
 
 		#return response
-		return JsonResponse({"map":pic_str}, safe=False)
+		return JsonResponse({"map":pic_str})
+		#return JsonResponse({"shop_beacon":shopbeacon, "count": count})
 
 	else:
 		response = HttpResponse()
