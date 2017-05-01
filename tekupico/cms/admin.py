@@ -19,6 +19,7 @@ class BeaconAdmin(admin.ModelAdmin):
 class Shop_BeaconAdmin(admin.ModelAdmin):
 	list_display = ('shopname', 'shop_id', 'major', 'minor', 'floor')
 	list_display_links = ('shopname', 'shop_id', 'major', 'minor',)
+	search_fields = ['shopname', 'floor']
 
 class TreasureAdmin(admin.ModelAdmin):
 	list_display = ('treasure', 'beacon_id',)
