@@ -143,7 +143,7 @@ def make_map(username, shopArr):
 	#重ねる画像のリサイズ
 	tmp = tmp.resize((100, 100))
 
-	img1 = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map1F.png")
+	img1 = Image.open("/home/niga/igapico/tekupico/cms/static/img/map1F.png")
 	img2 = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map2F.png")
 	img3 = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map3F.png")
 
