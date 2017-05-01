@@ -141,7 +141,7 @@ def make_map(username, shopArr):
 	#重ねる画像(鍵？)
 	tmp = Image.open("/home/niga/igapico/tekupico/cms/pictures/key.png")
 	#重ねる画像のリサイズ
-	tmp = tmp.resize((100, 100))
+	tmp = tmp.resize((20, 20))
 
 	img1 = Image.open("/home/niga/igapico/tekupico/cms/static/img/map1F.png")
 	img2 = Image.open("/home/niga/igapico/tekupico/cms/static/img/MOP_map2F.png")
