@@ -144,8 +144,8 @@ def make_map(username, shopArr):
 	tmp = tmp.resize((100, 100))
 
 	img1 = Image.open("/home/niga/igapico/tekupico/cms/static/img/map1F.png")
-	img2 = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map2F.png")
-	img3 = Image.open("/home/niga/igapico/tekupico/cms/pictures/MOP_map3F.png")
+	img2 = Image.open("/home/niga/igapico/tekupico/cms/static/img/MOP_map2F.png")
+	img3 = Image.open("/home/niga/igapico/tekupico/cms/static/img/MOP_map3F.png")
 
 	for i in shopArr:
 		datas = Shop_Beacon.objects.get(shopname = i)
