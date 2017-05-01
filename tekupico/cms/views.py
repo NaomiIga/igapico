@@ -858,6 +858,7 @@ def shop_loading(request):
 			shop_list.append(i.shop_name)
 		shops["accessory"] = shop_list
 
+		shop_list=[]
 		for i in Shop_food.objects.all():
 			shop_list.append(i.shop_name)
 		shops["food"] = shop_list
