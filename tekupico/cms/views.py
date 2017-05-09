@@ -82,7 +82,6 @@ def pico_login(request):
 			username = name,
 			)
 			new_data.save()
-			print "debug"
 			return JsonResponse({"name":name})
 
 	else:
@@ -818,75 +817,64 @@ def shop_loading(request):
 		shop_list = []
 		for i in Shop_ladies.objects.all():
 			shop_list.append(i.shop_name)
-		#shops["ladies"] = shop_list
-		shops["ladies"] = "aaa"
+		shops["ladies"] = shop_list
 
 		shop_list = []
 		for i in Shop_mens.objects.all():
 			shop_list.append(i.shop_name)
-		#shops["mens"] = shop_list
-		shops["mens"] = "bbb"
+		shops["mens"] = shop_list
 
 		shop_list = []
 		for i in Shop_ladiesmens.objects.all():
 			shop_list.append(i.shop_name)
-		#shops["ladiesmens"] = shop_list
-		shops["ladiesmens"] = "ccc"
+		shops["ladiesmens"] = shop_list
 
 		shop_list = []
 		for i in Shop_kids.objects.all():
 			shop_list.append(i.shop_name)
-		#shops["kids"] = shop_list
-		shops["kids"] = "ddd"
+		shops["kids"] = shop_list
 
 		shop_list = []
 		for i in Shop_sports.objects.all():
 			shop_list.append(i.shop_name)
-		#shops["sports"] = shop_list
-		shops["sports"] = "eee"
+		shops["sports"] = shop_list
 
 		shop_list = []
 		for i in Shop_shoesbag.objects.all():
 			shop_list.append(i.shop_name)
-		#shops["shoesbag"] = shop_list
-		shops["shoesbag"] = "fff"
+		shops["shoesbag"] = shop_list
 
 		shop_list = []
 		for i in Shop_fassiongoods.objects.all():
 			shop_list.append(i.shop_name)
-		#shops["fassiongoods"] = shop_list
-		shops["fassiongoods"] = "ggg"
+		shops["fassiongoods"] = shop_list
 
 		shop_list = []
 		for i in Shop_goodsvariety.objects.all():
 			shop_list.append(i.shop_name)
-		#shops["goodsvariety"] = shop_list
-		shops["goodsvariety"] = "hhh"
+		shops["goodsvariety"] = shop_list
 
 		shop_list = []
 		for i in Shop_accessory.objects.all():
 			shop_list.append(i.shop_name)
-		#shops["accessory"] = shop_list
-		shops["accessory"] = "iii"
+		shops["accessory"] = shop_list
 
 		shop_list=[]
 		for i in Shop_food.objects.all():
 			shop_list.append(i.shop_name)
-		#shops["food"] = shop_list
-		shops["food"] = "jjj"
+		shops["food"] = shop_list
 
 		shop_list = []
 		for i in Shop_service.objects.all():
 			shop_list.append(i.shop_name)
-		#shops["service"] = shop_list
-		shops["service"] = "kkk"
+		shops["service"] = shop_list
 
 		shop_list = []
 		for i in Shop_limited.objects.all():
 			shop_list.append(i.shop_name)
-		#shops["limited"] = shop_list
-		shops["limited"] = "lll"
+		shops["limited"] = shop_list
 
+		print "end_test!!!"
 		return JsonResponse(shops, safe = False)
 
 	else:
