@@ -813,7 +813,7 @@ def shop_loading(request):
 	'''
 	if request.method == 'POST':
 		shops = {}
-
+		'''
 		shop_list = []
 		for i in Shop_ladies.objects.all():
 			shop_list.append(i.shop_name)
@@ -868,7 +868,7 @@ def shop_loading(request):
 		for i in Shop_service.objects.all():
 			shop_list.append(i.shop_name)
 		shops["service"] = shop_list
-
+		'''
 		shop_list = []
 		for i in Shop_limited.objects.all():
 			shop_list.append(i.shop_name)
