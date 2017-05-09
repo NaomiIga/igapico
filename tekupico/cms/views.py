@@ -874,6 +874,7 @@ def shop_loading(request):
 			shop_list.append(i.shop_name)
 		shops["limited"] = shop_list
 
+		print "test!!!"
 		return JsonResponse(shops, safe = False)
 
 	else:
