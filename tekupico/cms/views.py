@@ -83,7 +83,7 @@ def pico_login(request):
 			)
 			new_data.save()
 			print "debug"
-			return JsonResponse(name)
+			return JsonResponse({"name":name})
 
 	else:
 		response = HttpResponse()
