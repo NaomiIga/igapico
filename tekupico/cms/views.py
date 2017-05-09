@@ -817,7 +817,7 @@ def shop_loading(request):
 		for i in Shop_ladies.objects.all():
 			shop_list.append(i.shop_name)
 		shops["ladies"] = shop_list
-
+		'''
 		shop_list = []
 		for i in Shop_mens.objects.all():
 			shop_list.append(i.shop_name)
@@ -872,6 +872,7 @@ def shop_loading(request):
 		for i in Shop_limited.objects.all():
 			shop_list.append(i.shop_name)
 		shops["limited"] = shop_list
+		'''
 
 		return JsonResponse(shops, safe = False)
 
