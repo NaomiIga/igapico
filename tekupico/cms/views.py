@@ -36,18 +36,9 @@ sys.stdout = sys.stderr
 def post_test(request):
 	if request.method == 'POST':
 		datas = json.loads(request.body)
-		#name = "default"
-		#print request.body
-		#print datas
-		#print datas[0]["StartTime"]
-		#print datakeys
-		#count = len(datas)
-		#for x in range(len(datas)):
 		new_data = Data.objects.create(
 			userdata = datas.keys(),
-			#whatdata = datas[x].keys(),
 			datavalue = datas.values(),
-			#datavalue = float(datas[x].values()),
 		)
 		new_data.save() #デーベ保存
 
@@ -62,7 +53,6 @@ def pico_login(request):
 	if request.method == 'POST':
 		datas = json.loads(request.body)  #追記
 		name = datas["name"]
-		#name = datas
 		temp = Shop_Beacon.objects.get(shopname = "COUNTER")
 		temp.shop_id += 1
 		temp.save()
@@ -111,20 +101,8 @@ def shoplog(request):
 			shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
 			count += 1
 
-
-		#map_pic = []
 		make_map(name[0], shops[0])   # ショップ名から座標にする関数
 
-		#ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
-
-		#response = HttpResponse(content_type="image/png")
-		#map_pic.save(response, "PNG")
-		#ret_pic.save(response, "PNG")
-		#response['Content-Disposition'] = 'attachment; filename="/home/niga/igapico/tekupico/cms/pictures/2F_last.png"'
-
-		#return response
-		#JsonResponse({"data":map1, map2, map3})
-		#return JsonResponse({"map":str(map_pic)}, safe=False)
 		return JsonResponse({"shop_beacon":shopbeacon, "count": count})
 
 	else:
@@ -144,7 +122,7 @@ def make_map(username, shopArr):
 	tmp = tmp.resize((20, 20))
 
 	img1 = Image.open("/home/niga/igapico/tekupico/cms/static/img/map1F.png")
-	img2 = Image.open("/home/niga/igapico/tekupico/cms/static/img/MOP_map2F.png")
+	img2 = Image.open("/home/niga/igapico/tekupico/cms/static/img/map2F.png")
 	img3 = Image.open("/home/niga/igapico/tekupico/cms/static/img/MOP_map3F.png")
 
 	for i in shopArr:
@@ -168,32 +146,19 @@ def make_map(username, shopArr):
 		if i == 1:
 			for j in shops1:
 				#元画像に重ねる、左上の座標を指定
-				#img.paste(tmp, shops1[j], tmp)
 				img1.paste(tmp, j, tmp)
-				#map1 = img
 		elif i == 2:
 			for j in shops2:
 				#元画像に重ねる、左上の座標を指定
-				#img.paste(tmp, shops2[j], tmp)
 				img2.paste(tmp, j, tmp)
-				#map2 = img
 		elif i == 3:
 			for j in shops3:
 				#元画像に重ねる、左上の座標を指定
-				#img.paste(tmp, shops3[j], tmp)
 				img3.paste(tmp, j, tmp)
-				#map3 = img
-	#img1.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_1F.png")
-	#img2.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_2F.png")
-	#img3.save("/home/niga/igapico/tekupico/cms/static/img/Map_" + username.encode('utf_8') + "_3F.png")
 
 	img1.save("/home/niga/igapico/tekupico/cms/static/img/User_Map_1F.png")
 	img2.save("/home/niga/igapico/tekupico/cms/static/img/User_Map_2F.png")
 	img3.save("/home/niga/igapico/tekupico/cms/static/img/User_Map_3F.png")
-
-	#ret_pic = Image.open("/home/niga/igapico/tekupico/cms/pictures/2F_last.png")
-	#return map1, map2, map3
-	#return img2
 
 
 #宝ゲットのときにそれを反映
@@ -201,14 +166,11 @@ def make_map(username, shopArr):
 def treasure_check(request):
 	if request.method == 'POST':
 		datas = json.loads(request.body)
-		print "debug"
-		print datas
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
 		major = datas["major"]
 		minor = datas["minor"]
 		treasure_number = treasure_num(major,minor)
 
-		#treasure = 'treasure' + str(treasure_num)
 		update_data = User.objects.get(username = name)
 		watched_hint = UsedHint.objects.get(username = name)
 
@@ -356,7 +318,6 @@ def treasure_check(request):
 		update_data.save()
 
 		#ここにポイント計算のこと書く？
-		#return HttpResponse(u'%d番の宝げっと', treasure_num)
 		return JsonResponse({"treasure":treasure_number, "totalpoint":update_data.points, "getpoint":getpointnow}, safe=False)
 	else:
 		response = HttpResponse()
@@ -364,7 +325,6 @@ def treasure_check(request):
 
 #とんできたビーコンの番号から、どの宝かを識別
 def treasure_num(get_major, get_minor):
-	#data = Treasure_Beacon.objects.get(major = get_major and minor = get_minor)
 	data = Treasure_Beacon.objects.get(major=get_major, minor=get_minor)
 	treasure_number = data.treasure
 	return treasure_number
@@ -744,74 +704,10 @@ def hint_check(name, treasureNo, next_watch):
 
 	return hint, hint_num
 
-'''
-#鍵ビーコンの範囲をreturn
-def ReturnKeyArea(beacon):
-	xarea = []
-	yarea = []
-	for i in beacon:
-		update_data = KeyArea.objects.get(beacon_id = i)
-		xarea.append(update_data.xgrid)
-		yarea.append(update_data.ygrid)
-
-	return xarea, yarea
-'''
-
 
 #ショップリスト送る
 @csrf_exempt
 def shop_loading(request):
-	print 'test!!!'
-	'''
-	if request.method == 'POST':
-		datas = json.loads(request.body)
-		category = datas["category"]   # ダブルクオート内はディクショナリーのキー
-
-		shops = []
-
-		if category == "ladies":
-			for i in Shop_ladies.objects.all():
-				shops.append(i.shop_name)
-		elif category == "mens":
-			for i in Shop_mens.objects.all():
-				shops.append(i.shop_name)
-		elif category == "ladiesmens":
-			for i in Shop_ladiesmens.objects.all():
-				shops.append(i.shop_name)
-		elif category == "kids":
-			for i in Shop_kids.objects.all():
-				shops.append(i.shop_name)
-		elif category == "sports":
-			for i in Shop_sports.objects.all():
-				shops.append(i.shop_name)
-		elif category == "shoesbag":
-			for i in Shop_shoesbag.objects.all():
-				shops.append(i.shop_name)
-		elif category == "fassiongoods":
-			for i in Shop_fassiongoods.objects.all():
-				shops.append(i.shop_name)
-		elif category == "goodsvariety":
-			for i in Shop_goodsvariety.objects.all():
-				shops.append(i.shop_name)
-		elif category == "accessory":
-			for i in Shop_accessory.objects.all():
-				shops.append(i.shop_name)
-		elif category == "food":
-			for i in Shop_food.objects.all():
-				shops.append(i.shop_name)
-		elif category == "service":
-			for i in Shop_service.objects.all():
-				shops.append(i.shop_name)
-		elif category == "limited":
-			for i in Shop_limited.objects.all():
-				shops.append(i.shop_name)
-		else:
-			print 'error'
-		return JsonResponse(shops, safe = False)
-	else:
-		response = HttpResponse()
-		response['msg'] = 'NG'
-	'''
 	if request.method == 'POST':
 		shops = {}
 		shop_list = []
@@ -874,7 +770,6 @@ def shop_loading(request):
 			shop_list.append(i.shop_name)
 		shops["limited"] = shop_list
 
-		print "end_test!!!"
 		return JsonResponse(shops, safe = False)
 
 	else:
@@ -893,35 +788,15 @@ def map(request):
 		pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_1F.png")
 		pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_2F.png")
 		pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_3F.png")
-		#pic_str = ("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/key.png")
-
-		#pic_str = base64.b64encode(pic_str)
-		#for i in pic_url:
-			#print i.encode('utf_8')
+		
 		print pic_str
 
-		#return response
 		return JsonResponse({"map":pic_url})
-		#return JsonResponse({"shop_beacon":shopbeacon, "count": count})
 
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
-
-	'''
-	pic_str = open('/home/niga/igapico/tekupico/cms/pictures/1F_last.png','rb').read()
-	pic_ary.append(pic_str)
-	pic_str = open('/home/niga/igapico/tekupico/cms/pictures/2F_last.png','rb').read()
-	pic_ary.append(pic_str)
-	pic_str = open('/home/niga/igapico/tekupico/cms/pictures/3F_last.png','rb').read()
-	pic_ary.append(pic_str)
-
-	for i,pic in enumerate(pic_ary):
-		pic = base64.b64encode(pic)
-		pic_ary[i] = pic
-
-	return JsonResponse({"map":pic_ary}, safe=False)
-	'''
+		
 
 #csvとして出力する
 @csrf_exempt
