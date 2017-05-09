@@ -761,6 +761,7 @@ def ReturnKeyArea(beacon):
 #ショップリスト送る
 @csrf_exempt
 def shop_loading(request):
+	print 'test!!!'
 	'''
 	if request.method == 'POST':
 		datas = json.loads(request.body)
@@ -885,7 +886,6 @@ def shop_loading(request):
 		#shops["limited"] = shop_list
 		shops["limited"] = "lll"
 
-		print 'test!!!'
 		return JsonResponse(shops, safe = False)
 
 	else:
