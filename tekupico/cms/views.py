@@ -813,66 +813,77 @@ def shop_loading(request):
 	'''
 	if request.method == 'POST':
 		shops = {}
-		'''
 		shop_list = []
 		for i in Shop_ladies.objects.all():
 			shop_list.append(i.shop_name)
-		shops["ladies"] = shop_list
+		#shops["ladies"] = shop_list
+		shops["ladies"] = "aaa"
 
 		shop_list = []
 		for i in Shop_mens.objects.all():
 			shop_list.append(i.shop_name)
-		shops["mens"] = shop_list
+		#shops["mens"] = shop_list
+		shops["mens"] = "bbb"
 
 		shop_list = []
 		for i in Shop_ladiesmens.objects.all():
 			shop_list.append(i.shop_name)
-		shops["ladiesmens"] = shop_list
+		#shops["ladiesmens"] = shop_list
+		shops["ladiesmens"] = "ccc"
 
 		shop_list = []
 		for i in Shop_kids.objects.all():
 			shop_list.append(i.shop_name)
-		shops["kids"] = shop_list
+		#shops["kids"] = shop_list
+		shops["kids"] = "ddd"
 
 		shop_list = []
 		for i in Shop_sports.objects.all():
 			shop_list.append(i.shop_name)
-		shops["sports"] = shop_list
+		#shops["sports"] = shop_list
+		shops["sports"] = "eee"
 
 		shop_list = []
 		for i in Shop_shoesbag.objects.all():
 			shop_list.append(i.shop_name)
-		shops["shoesbag"] = shop_list
+		#shops["shoesbag"] = shop_list
+		shops["shoesbag"] = "fff"
 
 		shop_list = []
 		for i in Shop_fassiongoods.objects.all():
 			shop_list.append(i.shop_name)
-		shops["fassiongoods"] = shop_list
+		#shops["fassiongoods"] = shop_list
+		shops["fassiongoods"] = "ggg"
 
 		shop_list = []
 		for i in Shop_goodsvariety.objects.all():
 			shop_list.append(i.shop_name)
-		shops["goodsvariety"] = shop_list
+		#shops["goodsvariety"] = shop_list
+		shops["goodsvariety"] = "hhh"
 
 		shop_list = []
 		for i in Shop_accessory.objects.all():
 			shop_list.append(i.shop_name)
-		shops["accessory"] = shop_list
+		#shops["accessory"] = shop_list
+		shops["accessory"] = "iii"
 
 		shop_list=[]
 		for i in Shop_food.objects.all():
 			shop_list.append(i.shop_name)
-		shops["food"] = shop_list
+		#shops["food"] = shop_list
+		shops["food"] = "jjj"
 
 		shop_list = []
 		for i in Shop_service.objects.all():
 			shop_list.append(i.shop_name)
-		shops["service"] = shop_list
-		'''
+		#shops["service"] = shop_list
+		shops["service"] = "kkk"
+
 		shop_list = []
 		for i in Shop_limited.objects.all():
 			shop_list.append(i.shop_name)
-		shops["limited"] = shop_list
+		#shops["limited"] = shop_list
+		shops["limited"] = "lll"
 
 		print "test!!!"
 		return JsonResponse(shops, safe = False)
