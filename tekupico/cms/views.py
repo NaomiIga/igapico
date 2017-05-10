@@ -176,7 +176,7 @@ def key_get(request):
 			keys = key
 		else:
 			key_data = update_data.key
-			keys = key_data + key
+			keys = key_data + ", " + key
 		update_data.key = keys
 		update_data.save()
 	return HttpResponse("OK")
