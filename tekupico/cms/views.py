@@ -169,14 +169,14 @@ def key_get(request):
 		beacon = str(major) + "-" + str(minor)
 		get_time = datetime.datetime.now()
 		get_time_str = get_time.strftime("%Y-%m-%d %H:%M")
-		key = {beacon: get_time_str}
+		key = "{" + beacon + ":" + get_time_str + "}"
 
 		update_data = User.objects.get(username = name)
 		if update_data.key == "key":
-			keys = []
+			keys = key
 		else:
-			keys = update_data.key
-		keys.append(key)
+			key_data = update_data.key
+			keys = key_data + key
 		update_data.key = keys
 		update_data.save()
 	return HttpResponse("OK")
