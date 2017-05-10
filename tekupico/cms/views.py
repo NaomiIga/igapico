@@ -168,7 +168,8 @@ def key_get(request):
 		minor = datas["minor"]
 		beacon = str(major) + "-" + str(minor)
 		get_time = datetime.datetime.now()
-		key = {beacon: get_time}
+		get_time_str = get_time.strftime("%Y-%m-%d %H:%M")
+		key = {beacon: get_time_str}
 
 		update_data = User.objects.get(username = name)
 		if update_data.key == "key":
