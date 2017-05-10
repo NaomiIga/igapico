@@ -139,9 +139,7 @@ def make_map(username, shopArr):
 			shops3 = numpy.append(shops3, (beacon_datas.xgrid, beacon_datas.ygrid))
 
 	for i in range(1,4):
-		#############ここにmap合成するコード
 		#画像を置く座標(左上を指定)
-		#中心指定できるかは要確認
 
 		if i == 1:
 			for j in shops1:
@@ -170,13 +168,15 @@ def key_get(request):
 		minor = datas["minor"]
 		beacon = str(major) + "-" + str(minor)
 		get_time = datetime.datetime.now()
-
 		key = {beacon: get_time}
 
 		update_data = User.objects.get(username = name)
-		key_data = update_data.key
-		key_data.append(key)
-		update_data.key = key_data
+		if update_data.key == "key":
+			keys = []
+		else:
+			keys = update_data.key
+		keys.append(key)
+		update_data.key = keys
 		update_data.save()
 	return HttpResponse("OK")
 
