@@ -23,6 +23,7 @@ class User(models.Model):
 	treasure8 = models.DateTimeField('treasure8', null=True, blank=True)
 	treasure9 = models.DateTimeField('treasure9', null=True, blank=True)
 	treasure10 = models.DateTimeField('treasure10', null=True, blank=True)
+	key = models.CharField('key', max_length = 1023, default = 'key')
 	shopname = models.CharField('shopname', max_length = 255, default = 'SHOP')
 
 # User no hint siyou jyoukyou
