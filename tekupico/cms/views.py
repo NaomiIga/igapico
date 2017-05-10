@@ -351,6 +351,7 @@ def treasure_num(get_major, get_minor):
 	return treasure_number
 
 # 初めてヒント見たときに呼ばれる
+'''
 @csrf_exempt
 def first(request):
 	if request.method == 'POST':
@@ -375,6 +376,7 @@ def first(request):
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
+'''
 
 # 2個目以降のヒント使うときによばれる
 @csrf_exempt
@@ -855,9 +857,11 @@ def finish(request):
 	if request.method == 'POST':
 		datas = json.loads(request.body)
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
-		temp = User.objects.get(username = name)
-		UserId = temp.user_id
-		Point = temp.points
+		User_Data = User.objects.get(username = name)
+		UserId = User_Data.user_id
+		Point = User_Data.points
+		User_Data.finishtime = datetime.datetime.now()
+		User_Data.save()
 
 		return JsonResponse({"id":UserId, "point":Point})
 	else:
