@@ -33,5 +33,6 @@ urlpatterns = [
     url(r'^treasure_check', views.treasure_check, name="treasure_check"),
     url(r'^export_csv', views.export_csv, name="export_csv"),
     url(r'^map', views.map, name="map"),
-    url(r'^finish', views.finish, name="finish")
+    url(r'^finish', views.finish, name="finish"),
+    url(r'^key_get', views.key_get, name="key_get")
 ]
