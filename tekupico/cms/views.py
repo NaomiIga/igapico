@@ -160,8 +160,28 @@ def make_map(username, shopArr):
 	img2.save("/home/niga/igapico/tekupico/cms/static/img/User_Map_2F.png")
 	img3.save("/home/niga/igapico/tekupico/cms/static/img/User_Map_3F.png")
 
+#鍵ゲットのとき
+@csrf_exempt
+def key_get(request):
+	if request.method == 'POST':
+		datas = json.loads(request.body)
+		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
+		major = datas["major"]
+		minor = datas["minor"]
+		beacon = str(major) + "-" + str(minor)
+		get_time = datetime.datetime.now()
 
-#宝ゲットのときにそれを反映
+		key = {beacon: get_time}
+
+		update_data = User.objects.get(username = name)
+		key_data = update_data.key
+		key_data.append(key)
+		update_data.key = key_data
+		update_data.save()
+	return HttpResponse("OK")
+
+
+#宝ゲットのとき
 @csrf_exempt
 def treasure_check(request):
 	if request.method == 'POST':
@@ -796,7 +816,7 @@ def map(request):
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
-		
+
 
 #csvとして出力する
 @csrf_exempt
