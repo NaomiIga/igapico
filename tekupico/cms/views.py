@@ -349,9 +349,8 @@ def treasure_num(get_major, get_minor):
 	data = Treasure_Beacon.objects.get(major=get_major, minor=get_minor)
 	treasure_number = data.treasure
 	return treasure_number
-
-# 初めてヒント見たときに呼ばれる
 '''
+# 初めてヒント見たときに呼ばれる
 @csrf_exempt
 def first(request):
 	if request.method == 'POST':
