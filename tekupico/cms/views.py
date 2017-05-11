@@ -846,6 +846,7 @@ def export_csv(request):
 			"%s" % i.treasure8,
 			"%s" % i.treasure9,
 			"%s" % i.treasure10,
+			"%s" % i.key,
 			"%s" % unicodedata.normalize('NFKC', i.shopname).encode('sjis','ignore'),
 		])
 
