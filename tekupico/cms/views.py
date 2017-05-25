@@ -131,13 +131,10 @@ def make_map(username, shopArr):
 		beacon_datas = KeyArea.objects.get(major = datas.major, minor = datas.minor)
 		if datas.floor == 1:
 			shops1.append((beacon_datas.xgrid, beacon_datas.ygrid))
-			#shops1 = numpy.append(shops1, (beacon_datas.xgrid, beacon_datas.ygrid))
 		elif datas.floor == 2:
 			shops2.append((beacon_datas.xgrid, beacon_datas.ygrid))
-			#shops2 = numpy.append(shops2, (beacon_datas.xgrid, beacon_datas.ygrid))
 		elif datas.floor == 3:
 			shops3.append((beacon_datas.xgrid, beacon_datas.ygrid))
-			#shops3 = numpy.append(shops3, (beacon_datas.xgrid, beacon_datas.ygrid))
 
 	for i in range(1,4):
 		#画像を置く座標(左上を指定)
