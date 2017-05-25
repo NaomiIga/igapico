@@ -155,7 +155,6 @@ def make_map(username, shopArr):
 	img1.save("/home/niga/igapico/tekupico/cms/static/img/User_Map_1F.png")
 	img2.save("/home/niga/igapico/tekupico/cms/static/img/User_Map_2F.png")
 	img3.save("/home/niga/igapico/tekupico/cms/static/img/User_Map_3F.png")
-	print "debug!!!!"
 
 #鍵ゲットのとき
 @csrf_exempt
