@@ -108,6 +108,7 @@ def shoplog(request):
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
+		return response
 	#return name
 
 #飛んできた店名の配列からBeaconIDに変換する関数
