@@ -117,7 +117,7 @@ def make_map(username, shopArr):
 	shops3 = []
 
 	#重ねる画像(鍵？)
-	tmp = Image.open("/home/niga/igapico/tekupico/cms/pictures/key.png")
+	tmp = Image.open("/home/niga/igapico/tekupico/cms/static/img/key.png")
 	#重ねる画像のリサイズ
 	tmp = tmp.resize((50, 50))
 
@@ -129,11 +129,11 @@ def make_map(username, shopArr):
 		datas = Shop_Beacon.objects.get(shopname = i)
 		beacon_datas = KeyArea.objects.get(major = datas.major, minor = datas.minor)
 		if datas.floor == 1:
-			shops1.append((beacon_datas.xgrid, beacon_datas.ygrid))
-			#shops1 = numpy.append(shops1, (beacon_datas.xgrid, beacon_datas.ygrid))
+			#shops1.append((beacon_datas.xgrid, beacon_datas.ygrid))
+			shops1 = numpy.append(shops1, (beacon_datas.xgrid, beacon_datas.ygrid))
 		elif datas.floor == 2:
-			shops2.append((beacon_datas.xgrid, beacon_datas.ygrid))
-			#shops2 = numpy.append(shops2, (beacon_datas.xgrid, beacon_datas.ygrid))
+			#shops2.append((beacon_datas.xgrid, beacon_datas.ygrid))
+			shops2 = numpy.append(shops2, (beacon_datas.xgrid, beacon_datas.ygrid))
 		elif datas.floor == 3:
 			#shops3.append((beacon_datas.xgrid, beacon_datas.ygrid))
 			shops3 = numpy.append(shops3, (beacon_datas.xgrid, beacon_datas.ygrid))
@@ -810,7 +810,7 @@ def map(request):
 		pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_1F.png")
 		pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_2F.png")
 		pic_url.append("https://kinopio.mxd.media.ritsumei.ac.jp/static/img/Map_" + username[0].encode('utf_8') + "_3F.png")
-		
+
 		print pic_str
 
 		return JsonResponse({"map":pic_url})
