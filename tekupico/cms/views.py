@@ -887,52 +887,52 @@ def recover_data(request):
 		datas = json.loads(request.body)
 		name = datas["name"]
 
-	UserData = User.objects.get(username = name)
-	point = UserData.points
-	treasure = UserData.treasures
-	"""
-	if UserData.treasure1 = None:
-		treasure.append(False)
-	else:
-		treasure.append(True)
-	if UserData.treasure2 = None:
-		treasure.append(False)
-	else:
-		treasure.append(True)
-	if UserData.treasure3 = None:
-		treasure.append(False)
-	else:
-		treasure.append(True)
-	if UserData.treasure4 = None:
-		treasure.append(False)
-	else:
-		treasure.append(True)
-	if UserData.treasure5 = None:
-		treasure.append(False)
-	else:
-		treasure.append(True)
-	if UserData.treasure6 = None:
-		treasure.append(False)
-	else:
-		treasure.append(True)
-	if UserData.treasure7 = None:
-		treasure.append(False)
-	else:
-		treasure.append(True)
-	if UserData.treasure8 = None:
-		treasure.append(False)
-	else:
-		treasure.append(True)
-	if UserData.treasure9 = None:
-		treasure.append(False)
-	else:
-		treasure.append(True)
-	if UserData.treasure10 = None:
-		treasure.append(False)
-	else:
-		treasure.append(True)
-	"""
-	return JsonResponse({"point":point, "treasure":treasure})
+		UserData = User.objects.get(username = name)
+		point = UserData.points
+		treasure = UserData.treasures
+		"""
+		if UserData.treasure1 = None:
+			treasure.append(False)
+		else:
+			treasure.append(True)
+		if UserData.treasure2 = None:
+			treasure.append(False)
+		else:
+			treasure.append(True)
+		if UserData.treasure3 = None:
+			treasure.append(False)
+		else:
+			treasure.append(True)
+		if UserData.treasure4 = None:
+			treasure.append(False)
+		else:
+			treasure.append(True)
+		if UserData.treasure5 = None:
+			treasure.append(False)
+		else:
+			treasure.append(True)
+		if UserData.treasure6 = None:
+			treasure.append(False)
+		else:
+			treasure.append(True)
+		if UserData.treasure7 = None:
+			treasure.append(False)
+		else:
+			treasure.append(True)
+		if UserData.treasure8 = None:
+			treasure.append(False)
+		else:
+			treasure.append(True)
+		if UserData.treasure9 = None:
+			treasure.append(False)
+		else:
+			treasure.append(True)
+		if UserData.treasure10 = None:
+			treasure.append(False)
+		else:
+			treasure.append(True)
+		"""
+		return JsonResponse({"point":point, "treasure":treasure})
 
 
 #csvとして出力する
@@ -966,4 +966,3 @@ def export_csv(request):
 		])
 
 	return response
-
