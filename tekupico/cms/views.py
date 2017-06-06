@@ -31,7 +31,7 @@ sys.stdout = sys.stderr
 #csrf_exemptはつけたい関数の上にそれぞれつけなきゃダメ
 #csrfを無視するコマンド
 
-"""
+
 #テスト用
 @csrf_exempt
 def post_test(request):
@@ -47,7 +47,7 @@ def post_test(request):
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
-"""
+
 
 #ユーザ登録(ダブり確認)する関数、今のままだとこの瞬間が開始時刻
 @csrf_exempt
