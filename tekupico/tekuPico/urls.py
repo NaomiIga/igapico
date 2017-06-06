@@ -34,5 +34,7 @@ urlpatterns = [
     url(r'^export_csv', views.export_csv, name="export_csv"),
     url(r'^map', views.map, name="map"),
     url(r'^finish', views.finish, name="finish"),
-    url(r'^key_get', views.key_get, name="key_get")
+    url(r'^key_get', views.key_get, name="key_get"),
+    url(r'^recover_check', views.recover_check, name="recover_check"),
+    url(r'^recover_data', views.recover_data, name="recover_data")
 ]
