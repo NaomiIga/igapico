@@ -31,6 +31,7 @@ sys.stdout = sys.stderr
 #csrf_exemptはつけたい関数の上にそれぞれつけなきゃダメ
 #csrfを無視するコマンド
 
+"""
 #テスト用
 @csrf_exempt
 def post_test(request):
@@ -46,6 +47,7 @@ def post_test(request):
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
+"""
 
 #ユーザ登録(ダブり確認)する関数、今のままだとこの瞬間が開始時刻
 @csrf_exempt
@@ -65,6 +67,7 @@ def pico_login(request):
 			user_id = temp.shop_id,
 			username = name,
 			starttime = datetime.datetime.now(),
+			treasures = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			)
 			new_data.save()
 
@@ -110,6 +113,77 @@ def shoplog(request):
 		response['msg'] = 'NG'
 		return response
 	#return name
+
+#ショップリスト送る
+@csrf_exempt
+def shop_loading(request):
+	if request.method == 'POST':
+		shops = {}
+		shop_list = []
+		for i in Shop_ladies.objects.all():
+			shop_list.append(i.shop_name)
+		shops["ladies"] = shop_list
+
+		shop_list = []
+		for i in Shop_mens.objects.all():
+			shop_list.append(i.shop_name)
+		shops["mens"] = shop_list
+
+		shop_list = []
+		for i in Shop_ladiesmens.objects.all():
+			shop_list.append(i.shop_name)
+		shops["ladiesmens"] = shop_list
+
+		shop_list = []
+		for i in Shop_kids.objects.all():
+			shop_list.append(i.shop_name)
+		shops["kids"] = shop_list
+
+		shop_list = []
+		for i in Shop_sports.objects.all():
+			shop_list.append(i.shop_name)
+		shops["sports"] = shop_list
+
+		shop_list = []
+		for i in Shop_shoesbag.objects.all():
+			shop_list.append(i.shop_name)
+		shops["shoesbag"] = shop_list
+
+		shop_list = []
+		for i in Shop_fassiongoods.objects.all():
+			shop_list.append(i.shop_name)
+		shops["fassiongoods"] = shop_list
+
+		shop_list = []
+		for i in Shop_goodsvariety.objects.all():
+			shop_list.append(i.shop_name)
+		shops["goodsvariety"] = shop_list
+
+		shop_list = []
+		for i in Shop_accessory.objects.all():
+			shop_list.append(i.shop_name)
+		shops["accessory"] = shop_list
+
+		shop_list=[]
+		for i in Shop_food.objects.all():
+			shop_list.append(i.shop_name)
+		shops["food"] = shop_list
+
+		shop_list = []
+		for i in Shop_service.objects.all():
+			shop_list.append(i.shop_name)
+		shops["service"] = shop_list
+
+		shop_list = []
+		for i in Shop_limited.objects.all():
+			shop_list.append(i.shop_name)
+		shops["limited"] = shop_list
+
+		return JsonResponse(shops, safe = False)
+
+	else:
+		response = HttpResponse()
+		response['msg'] = 'NG'
 
 #飛んできた店名の配列からBeaconIDに変換する関数
 def make_map(username, shopArr):
@@ -334,6 +408,7 @@ def treasure_check(request):
 			else:
 				getpointnow = 0
 
+		update_data.treasure[treasure_number - 1] = getpointnow
 		update_data.save()
 
 		#ここにポイント計算のこと書く？
@@ -375,7 +450,7 @@ def first(request):
 		response['msg'] = 'NG'
 '''
 
-# 2個目以降のヒント使うときによばれる
+#ヒント使うときによばれる
 @csrf_exempt
 def hint(request):
 	if request.method == 'POST':
@@ -392,7 +467,7 @@ def hint(request):
 		response = HttpResponse()
 		response['msg'] = 'NG'
 
-#どれだけヒント使ってきたかをチェック まだ未完成　書き換え必須
+#どれだけヒント使ってきたかをチェック
 def hint_check(name, treasureNo, next_watch):
 	data = UsedHint.objects.get(username = name)
 
@@ -754,78 +829,6 @@ def hint_check(name, treasureNo, next_watch):
 
 	return hint, hint_num
 
-
-#ショップリスト送る
-@csrf_exempt
-def shop_loading(request):
-	if request.method == 'POST':
-		shops = {}
-		shop_list = []
-		for i in Shop_ladies.objects.all():
-			shop_list.append(i.shop_name)
-		shops["ladies"] = shop_list
-
-		shop_list = []
-		for i in Shop_mens.objects.all():
-			shop_list.append(i.shop_name)
-		shops["mens"] = shop_list
-
-		shop_list = []
-		for i in Shop_ladiesmens.objects.all():
-			shop_list.append(i.shop_name)
-		shops["ladiesmens"] = shop_list
-
-		shop_list = []
-		for i in Shop_kids.objects.all():
-			shop_list.append(i.shop_name)
-		shops["kids"] = shop_list
-
-		shop_list = []
-		for i in Shop_sports.objects.all():
-			shop_list.append(i.shop_name)
-		shops["sports"] = shop_list
-
-		shop_list = []
-		for i in Shop_shoesbag.objects.all():
-			shop_list.append(i.shop_name)
-		shops["shoesbag"] = shop_list
-
-		shop_list = []
-		for i in Shop_fassiongoods.objects.all():
-			shop_list.append(i.shop_name)
-		shops["fassiongoods"] = shop_list
-
-		shop_list = []
-		for i in Shop_goodsvariety.objects.all():
-			shop_list.append(i.shop_name)
-		shops["goodsvariety"] = shop_list
-
-		shop_list = []
-		for i in Shop_accessory.objects.all():
-			shop_list.append(i.shop_name)
-		shops["accessory"] = shop_list
-
-		shop_list=[]
-		for i in Shop_food.objects.all():
-			shop_list.append(i.shop_name)
-		shops["food"] = shop_list
-
-		shop_list = []
-		for i in Shop_service.objects.all():
-			shop_list.append(i.shop_name)
-		shops["service"] = shop_list
-
-		shop_list = []
-		for i in Shop_limited.objects.all():
-			shop_list.append(i.shop_name)
-		shops["limited"] = shop_list
-
-		return JsonResponse(shops, safe = False)
-
-	else:
-		response = HttpResponse()
-		response['msg'] = 'NG'
-
 #mapの画像作成
 @csrf_exempt
 def map(request):
@@ -846,6 +849,90 @@ def map(request):
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
+
+#終了ページでアンケート用にUserIDとPointを返す
+@csrf_exempt
+def finish(request):
+	if request.method == 'POST':
+		datas = json.loads(request.body)
+		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
+		User_Data = User.objects.get(username = name)
+		UserId = User_Data.user_id
+		Point = User_Data.points
+		User_Data.finishtime = datetime.datetime.now()
+		User_Data.save()
+
+		return JsonResponse({"id":UserId, "point":Point})
+	else:
+		response = HttpResponse()
+		response['msg'] = 'NG'
+
+#復元できるデータがあるかチェック
+@csrf_exempt
+def recover_check(request):
+	if request.method == 'POST':
+		datas = json.loads(request.body)
+		name = datas["name"]
+
+	try:
+		testname = User.objects.get(username = name)
+		return HttpResponse(u'exist')
+	except User.DoesNotExist:
+		return HttpResponse(u'error')
+
+#復元するデータを送る
+@csrf_exempt
+def recover_data(request):
+	if request.method == 'POST':
+		datas = json.loads(request.body)
+		name = datas["name"]
+
+	UserData = User.objects.get(username = name)
+	point = UserData.points
+	treasure = UserData.treasures
+	"""
+	if UserData.treasure1 = None:
+		treasure.append(False)
+	else:
+		treasure.append(True)
+	if UserData.treasure2 = None:
+		treasure.append(False)
+	else:
+		treasure.append(True)
+	if UserData.treasure3 = None:
+		treasure.append(False)
+	else:
+		treasure.append(True)
+	if UserData.treasure4 = None:
+		treasure.append(False)
+	else:
+		treasure.append(True)
+	if UserData.treasure5 = None:
+		treasure.append(False)
+	else:
+		treasure.append(True)
+	if UserData.treasure6 = None:
+		treasure.append(False)
+	else:
+		treasure.append(True)
+	if UserData.treasure7 = None:
+		treasure.append(False)
+	else:
+		treasure.append(True)
+	if UserData.treasure8 = None:
+		treasure.append(False)
+	else:
+		treasure.append(True)
+	if UserData.treasure9 = None:
+		treasure.append(False)
+	else:
+		treasure.append(True)
+	if UserData.treasure10 = None:
+		treasure.append(False)
+	else:
+		treasure.append(True)
+	"""
+	return JsonResponse({"point":point, "treasure":treasure})
 
 
 #csvとして出力する
@@ -880,18 +967,3 @@ def export_csv(request):
 
 	return response
 
-@csrf_exempt
-def finish(request):
-	if request.method == 'POST':
-		datas = json.loads(request.body)
-		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
-		User_Data = User.objects.get(username = name)
-		UserId = User_Data.user_id
-		Point = User_Data.points
-		User_Data.finishtime = datetime.datetime.now()
-		User_Data.save()
-
-		return JsonResponse({"id":UserId, "point":Point})
-	else:
-		response = HttpResponse()
-		response['msg'] = 'NG'
