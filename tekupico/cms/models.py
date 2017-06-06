@@ -13,6 +13,7 @@ class User(models.Model):
 	points = models.IntegerField('points', default = 0)
 	starttime = models.DateTimeField('starttime', null=True, blank=True)
 	finishtime = models.DateTimeField('finishtime', null=True, blank=True)
+	treasures = models.IntegerField('treasures', default = 0)
 	treasure1 = models.DateTimeField('treasure1', null=True, blank=True)
 	treasure2 = models.DateTimeField('treasure2', null=True, blank=True)
 	treasure3 = models.DateTimeField('treasure3', null=True, blank=True)
