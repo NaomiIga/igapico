@@ -932,6 +932,10 @@ def recover_data(request):
 		else:
 			treasure.append(True)
 		"""
+
+		print point
+		print treasure
+		
 		return JsonResponse({"point":point, "treasure":treasure})
 
 
