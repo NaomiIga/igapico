@@ -870,6 +870,7 @@ def finish(request):
 #復元できるデータがあるかチェック
 @csrf_exempt
 def recover_check(request):
+	print "enter"
 	if request.method == 'POST':
 		datas = json.loads(request.body)
 		name = datas["name"]
