@@ -876,13 +876,16 @@ def recover_check(request):
 
 	try:
 		testname = User.objects.get(username = name)
-		return HttpResponse(u'exist')
+		print "exist"
+		return JsonResponse({"result":"exist"})
 	except User.DoesNotExist:
-		return HttpResponse(u'error')
+		print "error"
+		return JsonResponse({"result":"error"})
 
 #復元するデータを送る
 @csrf_exempt
 def recover_data(request):
+
 	if request.method == 'POST':
 		datas = json.loads(request.body)
 		name = datas["name"]
@@ -935,7 +938,7 @@ def recover_data(request):
 
 		print point
 		print treasure
-		
+
 		return JsonResponse({"point":point, "treasure":treasure})
 
 
