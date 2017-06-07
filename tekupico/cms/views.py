@@ -410,10 +410,8 @@ def treasure_check(request):
 
 		#update_data.treasure[treasure_number - 1] = getpointnow
 		treasure_list = update_data.treasures.split(',')
-		print treasure_list
-		treasure_list[treasure_number - 1] = getpointnow
-		print treasure_list
-		update_data.treasure = treasure_list
+		treasure_list[treasure_number - 1] = str(getpointnow)
+		update_data.treasures = treasure_list
 
 		update_data.save()
 
