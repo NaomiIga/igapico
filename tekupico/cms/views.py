@@ -893,6 +893,7 @@ def recover_check(request):
 def recover_data(request):
 
 	if request.method == 'POST':
+		print "enter2"
 		datas = json.loads(request.body)
 		name = datas["name"]
 
