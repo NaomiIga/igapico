@@ -897,56 +897,23 @@ def recover_data(request):
 		UserData = User.objects.get(username = name)
 		point = UserData.points
 		treasure = UserData.treasures
+		treasure_beacon = []
+		for i in range(10):
+			if treasure[i] != 0:
+				temp = Treasure_Beacon.objects.get(treasure = i)
+				treasure_beacon.append([temp.major, temp.minor])
+
+
 		#選んだ店の配列を作る
 		#shop_ = UserData.shopname.split(',')
 		#make_map(name, shop_)
-		'''
-		if UserData.treasure1 = None:
-			treasure.append(False)
-		else:
-			treasure.append(True)
-		if UserData.treasure2 = None:
-			treasure.append(False)
-		else:
-			treasure.append(True)
-		if UserData.treasure3 = None:
-			treasure.append(False)
-		else:
-			treasure.append(True)
-		if UserData.treasure4 = None:
-			treasure.append(False)
-		else:
-			treasure.append(True)
-		if UserData.treasure5 = None:
-			treasure.append(False)
-		else:
-			treasure.append(True)
-		if UserData.treasure6 = None:
-			treasure.append(False)
-		else:
-			treasure.append(True)
-		if UserData.treasure7 = None:
-			treasure.append(False)
-		else:
-			treasure.append(True)
-		if UserData.treasure8 = None:
-			treasure.append(False)
-		else:
-			treasure.append(True)
-		if UserData.treasure9 = None:
-			treasure.append(False)
-		else:
-			treasure.append(True)
-		if UserData.treasure10 = None:
-			treasure.append(False)
-		else:
-			treasure.append(True)
-		'''
+		
 
 		print point
 		print treasure
+		print treasure_beacon
 
-		return JsonResponse({"point":point, "treasure":treasure})
+		return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon})
 
 
 #csvとして出力する
