@@ -876,7 +876,6 @@ def finish(request):
 @csrf_exempt
 def recover_check(request):
 	if request.method == 'POST':
-		print "enter1"
 		datas = json.loads(request.body)
 		name = datas["name"]
 
@@ -890,7 +889,6 @@ def recover_check(request):
 @csrf_exempt
 def recover_data(request):
 	if request.method == 'POST':
-		print "enter2"
 		datas = json.loads(request.body)
 		name = datas["name"]
 
@@ -905,8 +903,8 @@ def recover_data(request):
 
 
 		#選んだ店の配列を作る
-		#shop_ = UserData.shopname.split(',')
-		#make_map(name, shop_)
+		shop_ = UserData.shopname.split(',')
+		make_map(name, shop_)
 		
 
 		print point
