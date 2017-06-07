@@ -875,32 +875,31 @@ def finish(request):
 #復元できるデータがあるかチェック
 @csrf_exempt
 def recover_check(request):
-	print "enter"
+	#print "enter"
 	if request.method == 'POST':
 		datas = json.loads(request.body)
 		name = datas["name"]
 
 	try:
 		testname = User.objects.get(username = name)
-		print "exist"
+		#print "exist"
 		return JsonResponse({"result":"exist"})
 	except User.DoesNotExist:
-		print "error"
+		#print "error"
 		return JsonResponse({"result":"error"})
 
 #復元するデータを送る
 @csrf_exempt
 def recover_data(request):
-
+	print "enter2"
 	if request.method == 'POST':
-		print "enter2"
 		datas = json.loads(request.body)
 		name = datas["name"]
 
 		UserData = User.objects.get(username = name)
 		point = UserData.points
 		treasure = UserData.treasures
-		make_map(name, UserData.shopname)
+		#make_map(name, UserData.shopname)
 		"""
 		if UserData.treasure1 = None:
 			treasure.append(False)
