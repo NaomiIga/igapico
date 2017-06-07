@@ -876,6 +876,7 @@ def finish(request):
 @csrf_exempt
 def recover_check(request):
 	if request.method == 'POST':
+		print "enter1"
 		datas = json.loads(request.body)
 		name = datas["name"]
 
