@@ -408,7 +408,11 @@ def treasure_check(request):
 			else:
 				getpointnow = 0
 
-		update_data.treasure[treasure_number - 1] = getpointnow
+		#update_data.treasure[treasure_number - 1] = getpointnow
+		treasure_list = userdata_data.treasure.split(',')
+		treasure_list[treasure_number - 1] = str(getpointnow)
+		update_data.treasure = treasure_list
+
 		update_data.save()
 
 		#ここにポイント計算のこと書く？
@@ -893,7 +897,7 @@ def recover_data(request):
 
 		UserData = User.objects.get(username = name)
 		point = UserData.points
-		treasure = UserData.treasures
+		treasure = UserData.treasures.split(',')
 		"""
 		if UserData.treasure1 = None:
 			treasure.append(False)
