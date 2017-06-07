@@ -896,7 +896,7 @@ def recover_data(request):
 		point = UserData.points
 		treasure = UserData.treasures
 		treasure_beacon = []
-		for i in range(10):
+		for i in range(1, 11):
 			if treasure[i] != 0:
 				temp = Treasure_Beacon.objects.get(treasure = i)
 				treasure_beacon.append([temp.major, temp.minor])
@@ -905,7 +905,7 @@ def recover_data(request):
 		#選んだ店の配列を作る
 		#shop_ = UserData.shopname.split(',')
 		#make_map(name, shop_)
-		
+
 
 		print point
 		print treasure
