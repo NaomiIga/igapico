@@ -895,9 +895,10 @@ def recover_data(request):
 		UserData = User.objects.get(username = name)
 		point = UserData.points
 		treasure = UserData.treasures
+		check_list = treasure.split(',')
 		treasure_beacon = []
 		for i in range(1, 11):
-			if treasure[i] != 0:
+			if check_list[i] != '0':
 				temp = Treasure_Beacon.objects.get(treasure = i)
 				treasure_beacon.append([temp.major, temp.minor])
 
