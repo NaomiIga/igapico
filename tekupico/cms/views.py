@@ -880,11 +880,11 @@ def recover_check(request):
 		datas = json.loads(request.body)
 		name = datas["name"]
 
-		try:
-			testname = User.objects.get(username = name)
-			return JsonResponse({"result":"exist"})
-		except User.DoesNotExist:
-			return JsonResponse({"result":"error"})
+	try:
+		testname = User.objects.get(username = name)
+		return JsonResponse({"result":"exist"})
+	except User.DoesNotExist:
+		return JsonResponse({"result":"error"})
 
 #復元するデータを送る
 @csrf_exempt
