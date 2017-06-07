@@ -903,8 +903,8 @@ def recover_data(request):
 
 
 		#選んだ店の配列を作る
-		shop_ = UserData.shopname.split(',')
-		make_map(name, shop_)
+		#shop_ = UserData.shopname.split(',')
+		#make_map(name, shop_)
 		
 
 		print point
