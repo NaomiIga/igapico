@@ -875,17 +875,14 @@ def finish(request):
 #復元できるデータがあるかチェック
 @csrf_exempt
 def recover_check(request):
-	#print "enter"
 	if request.method == 'POST':
 		datas = json.loads(request.body)
 		name = datas["name"]
 
 	try:
 		testname = User.objects.get(username = name)
-		#print "exist"
 		return JsonResponse({"result":"exist"})
 	except User.DoesNotExist:
-		#print "error"
 		return JsonResponse({"result":"error"})
 
 #復元するデータを送る
