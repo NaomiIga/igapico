@@ -67,7 +67,7 @@ def pico_login(request):
 			user_id = temp.shop_id,
 			username = name,
 			starttime = datetime.datetime.now(),
-			treasures = ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
+			treasures = '0,0,0,0,0,0,0,0,0,0',
 			)
 			new_data.save()
 
