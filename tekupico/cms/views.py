@@ -891,8 +891,8 @@ def recover_check(request):
 #復元するデータを送る
 @csrf_exempt
 def recover_data(request):
-	print "enter2"
 	if request.method == 'POST':
+		print "enter2"
 		datas = json.loads(request.body)
 		name = datas["name"]
 
@@ -900,7 +900,7 @@ def recover_data(request):
 		point = UserData.points
 		treasure = UserData.treasures
 		#make_map(name, UserData.shopname)
-		"""
+		'''
 		if UserData.treasure1 = None:
 			treasure.append(False)
 		else:
@@ -941,7 +941,7 @@ def recover_data(request):
 			treasure.append(False)
 		else:
 			treasure.append(True)
-		"""
+		'''
 
 		print point
 		print treasure
