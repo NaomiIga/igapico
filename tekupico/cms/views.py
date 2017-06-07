@@ -897,7 +897,7 @@ def recover_data(request):
 
 		UserData = User.objects.get(username = name)
 		point = UserData.points
-		treasure = UserData.treasures.split(',')
+		treasure = UserData.treasures
 		"""
 		if UserData.treasure1 = None:
 			treasure.append(False)
