@@ -898,6 +898,7 @@ def recover_data(request):
 		UserData = User.objects.get(username = name)
 		point = UserData.points
 		treasure = UserData.treasures
+		make_map(name, UserData.shopname)
 		"""
 		if UserData.treasure1 = None:
 			treasure.append(False)
