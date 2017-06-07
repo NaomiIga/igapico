@@ -1,0 +1,87 @@
+<!-- てくPico+サポートサイト -->
+<!-- ルール説明 -->
+
+<!DOCTYPE html>
+<html lang = "ja">
+	<head>
+		<!-- <mata http-equiv="content-type" content="text/html; charset=UTF-8"> -->
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Script-Type" content="text/javascript; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>てくPico+ ルール説明</title>
+
+		<!-- Bootstrap -->
+		<link href="/static/support_site/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Flat UI -->
+  		<link rel="stylesheet" type="text/css" href="/static/support_site/Flat-UI-master/dist/css/flat-ui.css">
+  		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    	<!-- Include all compiled plugins (below), or include individual files as needed -->
+    	<script src="/static/support_site/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    	<!-- my script -->
+    	<script rel="stylesheet" type="text/css" href="/static/support_site/index.css"></script>
+
+    	<!-- スムーズスクロール部分の記述 -->
+		<script>
+		$(function(){
+		   // #で始まるアンカーをクリックした場合に処理
+		   $('a[href^=#]').click(function() {
+		      // スクロールの速度
+		      var speed = 400; // ミリ秒
+		      // アンカーの値取得
+		      var href= $(this).attr("href");
+		      // 移動先を取得
+		      var target = $(href == "#" || href == "" ? 'html' : href);
+		      // 移動先を数値で取得
+		      var position = target.offset().top;
+		      // スムーススクロール
+		      $('body,html').animate({scrollTop:position}, speed, 'swing');
+		      return false;
+		   });
+		});
+		</script>
+	</head>
+
+	<body>
+		<!-- 全体 -->
+		<div id = "wrapper" style="margin-bottom: 50px;">
+			<div class="container-fluid">
+				<!-- TOP -->
+				<div class="row-fluid">
+					<div class="span12" style="padding-top: 30px;">
+						<center><h6>ルール</h6>
+					</div>
+				</div>
+
+				<div>
+					<div class="roe-fluid">
+					<!-- 左 -->
+					<div class="col-sm-3">
+						<!-- 項目 -->
+						<a href="#sec1">section1</a>
+						<a href="#sec2">section2</a>
+						<a href="#sec3">section3</a>
+					</div>
+
+					<!-- 中央 -->
+					<div class="col-sm-6">
+						<div id="sec1">section1の内容</div>
+						<br><br><br><br><br>
+						<div id="sec2">section2の内容</div>
+						<br><br><br><br><br>
+						<div id="sec3">section3の内容</div>
+					</div>
+
+					<!-- 右 -->
+					<div class="col-sm-3"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<footer>
+		<p><center>COPYRIGHT &#169; <a href="http://www.mxdlab.net/">Media Experience Design Lab.</a> ALL RIGHTS RESERVED.</center></p>
+	</footer>
+</html>
