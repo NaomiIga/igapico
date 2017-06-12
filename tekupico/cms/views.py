@@ -94,8 +94,6 @@ def shoplog(request):
 		shops = datas.values()
 
 		update_data = User.objects.get(username = name[0])
-		#update_data.shopname = shops[0]
-		#update_data.save()
 
 		count = 0
 
@@ -906,6 +904,9 @@ def recover_check(request):
 @csrf_exempt
 def recover_data(request):
 	if request.method == 'POST':
+
+		shop_beacon = []
+
 		datas = json.loads(request.body)
 		name = datas["name"]
 
@@ -919,17 +920,19 @@ def recover_data(request):
 				temp = Treasure_Beacon.objects.get(treasure = i)
 				treasure_beacon.append([temp.major, temp.minor])
 
-
 		#選んだ店の配列を作る
 		shop_ = UserData.shopname.split(',')
 		make_map(name, shop_)
 
+		for i in shop_:
+			shop_data = Shop_Beacon.objects.get(shopname = i)
+			shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
 
 		print point
 		print treasure
 		print treasure_beacon
 
-		return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon})
+		return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon, "shop_beacon":shopbeacon})
 
 
 #csvとして出力する
