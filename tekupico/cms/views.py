@@ -929,8 +929,8 @@ def recover_data(request):
 			shop_data = Shop_Beacon.objects.get(shopname = i)
 			shop_beacon.append({"major": shop_data.major, "minor": shop_data.minor})
 
-		print point
-		print treasure
+		#print point
+		#print treasure
 		print treasure_beacon
 
 		return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon, "shop_beacon":shop_beacon})
