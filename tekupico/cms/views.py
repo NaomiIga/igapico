@@ -917,7 +917,7 @@ def recover_data(request):
 		treasure_beacon = []
 		for i in range(1, 10):
 			if check_list[i] != '0':
-				temp = Treasure_Beacon.objects.get(treasure = i)
+				temp = Treasure_Beacon.objects.get(treasure = i+1)
 				treasure_beacon.append([temp.major, temp.minor])
 
 		#選んだ店の配列を作る
