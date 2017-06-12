@@ -94,15 +94,32 @@ def shoplog(request):
 		shops = datas.values()
 
 		update_data = User.objects.get(username = name[0])
-		update_data.shopname = shops[0]
-		update_data.save()
+		#update_data.shopname = shops[0]
+		#update_data.save()
 
 		count = 0
 
+		'''
 		for i in shops[0]:
 			shop_data = Shop_Beacon.objects.get(shopname = i)
 			shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
 			count += 1
+		'''
+
+		for num, i in enumerate(shops[0]):
+			if num == 0:
+				shop_ary = i
+				shop_data = Shop_Beacon.objects.get(shopname = i)
+				shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
+				count += 1
+			else:
+				shop_ary = shop_ary + ',' + i
+				shop_data = Shop_Beacon.objects.get(shopname = i)
+				shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
+				count += 1
+
+		update_data.shopname = shop_ary
+		update_data.save()
 
 		make_map(name[0], shops[0])   # ショップ名から座標にする関数
 
@@ -904,8 +921,8 @@ def recover_data(request):
 
 
 		#選んだ店の配列を作る
-		#shop_ = UserData.shopname.split(',')
-		#make_map(name, shop_)
+		shop_ = UserData.shopname.split(',')
+		make_map(name, shop_)
 
 
 		print point
