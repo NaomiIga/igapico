@@ -926,13 +926,13 @@ def recover_data(request):
 
 		for i in shop_:
 			shop_data = Shop_Beacon.objects.get(shopname = i)
-			shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
+			shop_beacon.append({"major": shop_data.major, "minor": shop_data.minor})
 
 		print point
 		print treasure
 		print treasure_beacon
 
-		return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon, "shop_beacon":shopbeacon})
+		return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon, "shop_beacon":shop_beacon})
 
 
 #csvとして出力する
