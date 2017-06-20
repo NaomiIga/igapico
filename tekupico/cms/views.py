@@ -86,7 +86,7 @@ def pico_login(request):
 def question(request):
 	if request.method =='POST':
 		datas = json.loads(request.body)
-		name = datas.["name"]
+		name = datas["name"]
 		relationship = datas["relationship"]
 		KeyTime = datas["KeyTime"]
 
