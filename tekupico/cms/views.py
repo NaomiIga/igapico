@@ -92,7 +92,7 @@ def question(request):
 
 	userdata = User.objects.get(username = name)
 	userdata.relationship = relationship
-	userdata.KeyTime = KeyTime
+	userdata.key_time = KeyTime
 	userdata.save()
 
 	return HttpResponse(name)
