@@ -81,6 +81,15 @@ def pico_login(request):
 		response = HttpResponse()
 		response['msg'] = 'NG'
 
+@csrf_exempt
+def question(request):
+	if request.method =='POST':
+		datas = json.loads(request.body)
+		relationship = datas["relationship"]
+		KeyTime = datas["KeyTime"]
+
+	
+
 #ユーザが行きたいショップをUserに保存
 @csrf_exempt
 def shoplog(request):
@@ -96,13 +105,6 @@ def shoplog(request):
 		update_data = User.objects.get(username = name[0])
 
 		count = 0
-
-		'''
-		for i in shops[0]:
-			shop_data = Shop_Beacon.objects.get(shopname = i)
-			shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
-			count += 1
-		'''
 
 		for num, i in enumerate(shops[0]):
 			if num == 0:
