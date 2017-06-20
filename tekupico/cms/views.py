@@ -81,14 +81,21 @@ def pico_login(request):
 		response = HttpResponse()
 		response['msg'] = 'NG'
 
+#アプリ内アンケートの内容をUserに保存
 @csrf_exempt
 def question(request):
 	if request.method =='POST':
 		datas = json.loads(request.body)
+		name = datas.["name"]
 		relationship = datas["relationship"]
 		KeyTime = datas["KeyTime"]
 
-	
+	userdata = User.objects.get(username = name)
+	userdata.relationship = relationship
+	userdata.KeyTime = KeyTime
+	userdata.save()
+
+	return HttpResponse(name)
 
 #ユーザが行きたいショップをUserに保存
 @csrf_exempt
