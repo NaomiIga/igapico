@@ -938,7 +938,8 @@ def recover_data(request):
 			shop_data = Shop_Beacon.objects.get(shopname = i)
 			shop_beacon.append({"major": shop_data.major, "minor": shop_data.minor})
 
-		KeyTime = datas[key_time]
+		#KeyTime = datas[key_time]
+		KeyTime = UserData.key_time
 
 		#print point
 		#print treasure
