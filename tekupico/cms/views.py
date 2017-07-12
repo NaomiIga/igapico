@@ -116,11 +116,13 @@ def shoplog(request):
 		for num, i in enumerate(shops[0]):
 			if num == 0:
 				shop_ary = i
+				print(i)
 				shop_data = Shop_Beacon.objects.get(shopname = i)
 				shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
 				count += 1
 			else:
 				shop_ary = shop_ary + ',' + i
+				print(i)
 				shop_data = Shop_Beacon.objects.get(shopname = i)
 				shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
 				count += 1
