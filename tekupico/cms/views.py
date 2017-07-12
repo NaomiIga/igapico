@@ -129,67 +129,68 @@ def shoplog(request):
 	shop_all.append(ssb)
 	shop_all.append(ssp)"""
 
-
+	count = 0
 	for i in sb:
+		count += 1
 		flag = False
 		for j in sl:
 			if i.shopname == j.shop_name:
-				print i.shopname
+				print count
 				flag = True
 				break
 		for j in sa:
 			if i.shopname == j.shop_name:
-				print i.shopname
+				print count
 				flag = True
 				break
 		for j in sf:
 			if i.shopname == j.shop_name:
-				print i.shopname
+				print count
 				flag = True
 				break
 		for j in sfo:
 			if i.shopname == j.shop_name:
-				print i.shopname
+				print count
 				flag = True
 				break
 		for j in sg:
 			if i.shopname == j.shop_name:
-				print i.shopname
+				print count
 				flag = True
 				break
 		for j in sk:
 			if i.shopname == j.shop_name:
-				print i.shopname
+				print count
 				flag = True
 				break
 		for j in slm:
 			if i.shopname == j.shop_name:
-				print i.shopname
+				print count
 				flag = True
 				break
 		for j in sli:
 			if i.shopname == j.shop_name:
-				print i.shopname
+				print count
 				flag = True
 				break
 		for j in sm:
 			if i.shopname == j.shop_name:
-				print i.shopname
+				print count
 				flag = True
 				break
 		for j in ss:
 			if i.shopname == j.shop_name:
-				print i.shopname
+				print count
 				flag = True
 				break
 		for j in ssb:
 			if i.shopname == j.shop_name:
-				print i.shopname
+				print count
 				flag = True
 				break
 		for j in ssp:
 			if i.shopname == j.shop_name:
-				print i.shopname
+				print count
 				flag = True
 				break
 		if flag == False:
