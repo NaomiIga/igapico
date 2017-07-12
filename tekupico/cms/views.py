@@ -134,7 +134,7 @@ def shoplog(request):
 		for j in shop_all:
 			if i.shopname == j.shop_name:
 				print i.shopname
-			else
+			else:
 				print "error"
 
 	
