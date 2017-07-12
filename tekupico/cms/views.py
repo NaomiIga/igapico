@@ -101,7 +101,7 @@ def question(request):
 @csrf_exempt
 def shoplog(request):
 
-	sb = Shop_Beacon.objects.all()
+	"""sb = Shop_Beacon.objects.all()
 	sl = Shop_ladies.objects.all()
 	sa = Shop_accessory.objects.all()
 	sf = Shop_fassiongoods.objects.all()
@@ -115,19 +115,6 @@ def shoplog(request):
 	ssb = Shop_shoesbag.objects.all()
 	ssp = Shop_sports.objects.all()
 
-	"""shop_all = []
-	shop_all.append(sl)
-	shop_all.append(sa)
-	shop_all.append(sf)
-	shop_all.append(sfo)
-	shop_all.append(sg)
-	shop_all.append(sk)
-	shop_all.append(slm)
-	shop_all.append(sli)
-	shop_all.append(sm)
-	shop_all.append(ss)
-	shop_all.append(ssb)
-	shop_all.append(ssp)"""
 
 	count = 0
 	for i in sb:
@@ -195,7 +182,7 @@ def shoplog(request):
 				break
 		if flag == False:
 			print "error"
-	
+	"""
 
 	if request.method == 'POST':
 
