@@ -100,6 +100,13 @@ def question(request):
 #ユーザが行きたいショップをUserに保存
 @csrf_exempt
 def shoplog(request):
+
+	sb = shop_beacon.objects.all
+	for i in sb:
+		print i.shopname
+
+	
+
 	if request.method == 'POST':
 
 		shopbeacon = []
