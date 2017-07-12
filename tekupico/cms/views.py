@@ -101,7 +101,7 @@ def question(request):
 @csrf_exempt
 def shoplog(request):
 
-	sb = shop_beacon.objects.all
+	sb = Shop_Seacon.objects.all
 	for i in sb:
 		print i.shopname
 
