@@ -102,8 +102,40 @@ def question(request):
 def shoplog(request):
 
 	sb = Shop_Beacon.objects.all()
+	sl = Shop_ladies.objects.all()
+	sa = Shop_accessory.objects.all()
+	sf = Shop_fassiongoods.objects.all()
+	sfo = Shop_food.objects.all()
+	sg = Shop_goodsvariety.objects.all()
+	sk = Shop_kids.objects.all()
+	slm = Shop_ladiesmens.objects.all()
+	sli = Shop_limited.objects.all()
+	sm = Shop_mens.objects.all()
+	ss = Shop_service.objects.all()
+	ssb = Shop_shoesbag.objects.all()
+	ssp = Shop_sports.objects.all()
+
+	shop_all = []
+	shop_all.append(sl)
+	shop_all.append(sa)
+	shop_all.append(sf)
+	shop_all.append(sfo)
+	shop_all.append(sg)
+	shop_all.append(sk)
+	shop_all.append(slm)
+	shop_all.append(sli)
+	shop_all.append(sm)
+	shop_all.append(ss)
+	shop_all.append(ssb)
+	shop_all.append(ssp)
+
+
 	for i in sb:
-		print i.shopname
+		for j in shop_all:
+			if i.shopname == j.shop_name:
+				print i.shopname
+			else
+				print "error"
 
 	
 
