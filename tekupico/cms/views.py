@@ -116,23 +116,23 @@ def shoplog(request):
 	ssp = Shop_sports.objects.all()
 
 	shop_all = []
-	shop_all.append(sl)
-	shop_all.append(sa)
-	shop_all.append(sf)
-	shop_all.append(sfo)
-	shop_all.append(sg)
-	shop_all.append(sk)
-	shop_all.append(slm)
-	shop_all.append(sli)
-	shop_all.append(sm)
-	shop_all.append(ss)
-	shop_all.append(ssb)
-	shop_all.append(ssp)
+	shop_all.append(sl.shop_name)
+	shop_all.append(sa.shop_name)
+	shop_all.append(sf.shop_name)
+	shop_all.append(sfo.shop_name)
+	shop_all.append(sg.shop_name)
+	shop_all.append(sk.shop_name)
+	shop_all.append(slm.shop_name)
+	shop_all.append(sli.shop_name)
+	shop_all.append(sm.shop_name)
+	shop_all.append(ss.shop_name)
+	shop_all.append(ssb.shop_name)
+	shop_all.append(ssp.shop_name)
 
 
 	for i in sb:
 		for j in shop_all:
-			if i.shopname == j.shop_name:
+			if i.shopname == j:
 				print i.shopname
 			else:
 				print "error"
