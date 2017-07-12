@@ -115,28 +115,85 @@ def shoplog(request):
 	ssb = Shop_shoesbag.objects.all()
 	ssp = Shop_sports.objects.all()
 
-	shop_all = []
-	shop_all.append(sl.shop_name)
-	shop_all.append(sa.shop_name)
-	shop_all.append(sf.shop_name)
-	shop_all.append(sfo.shop_name)
-	shop_all.append(sg.shop_name)
-	shop_all.append(sk.shop_name)
-	shop_all.append(slm.shop_name)
-	shop_all.append(sli.shop_name)
-	shop_all.append(sm.shop_name)
-	shop_all.append(ss.shop_name)
-	shop_all.append(ssb.shop_name)
-	shop_all.append(ssp.shop_name)
+	"""shop_all = []
+	shop_all.append(sl)
+	shop_all.append(sa)
+	shop_all.append(sf)
+	shop_all.append(sfo)
+	shop_all.append(sg)
+	shop_all.append(sk)
+	shop_all.append(slm)
+	shop_all.append(sli)
+	shop_all.append(sm)
+	shop_all.append(ss)
+	shop_all.append(ssb)
+	shop_all.append(ssp)"""
 
 
 	for i in sb:
-		for j in shop_all:
-			if i.shopname == j:
+		flag = False
+		for j in sl:
+			if i.shopname == j.shop_name:
 				print i.shopname
-			else:
-				print "error"
-
+				flag = True
+				break
+		for j in sa:
+			if i.shopname == j.shop_name:
+				print i.shopname
+				flag = True
+				break
+		for j in sf:
+			if i.shopname == j.shop_name:
+				print i.shopname
+				flag = True
+				break
+		for j in sfo:
+			if i.shopname == j.shop_name:
+				print i.shopname
+				flag = True
+				break
+		for j in sg:
+			if i.shopname == j.shop_name:
+				print i.shopname
+				flag = True
+				break
+		for j in sk:
+			if i.shopname == j.shop_name:
+				print i.shopname
+				flag = True
+				break
+		for j in slm:
+			if i.shopname == j.shop_name:
+				print i.shopname
+				flag = True
+				break
+		for j in sli:
+			if i.shopname == j.shop_name:
+				print i.shopname
+				flag = True
+				break
+		for j in sm:
+			if i.shopname == j.shop_name:
+				print i.shopname
+				flag = True
+				break
+		for j in ss:
+			if i.shopname == j.shop_name:
+				print i.shopname
+				flag = True
+				break
+		for j in ssb:
+			if i.shopname == j.shop_name:
+				print i.shopname
+				flag = True
+				break
+		for j in ssp:
+			if i.shopname == j.shop_name:
+				print i.shopname
+				flag = True
+				break
+		if flag == False:
+			print "error"
 	
 
 	if request.method == 'POST':
