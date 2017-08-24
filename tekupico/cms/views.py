@@ -211,7 +211,9 @@ def shoplog(request):
 
 		update_data.shopname = shop_ary
 		update_data.save()
-		shopbeacon.append({"major": "30", "minor": "40"})
+		#add test key beacon
+		shop_data = Shop_Beacon.objects.get(shopname = "test")
+		shopbeacon.append({"major": '30', "minor": '40'})
 		count += 1
 
 		make_map(name[0], shops[0])   # ショップ名から座標にする関数
