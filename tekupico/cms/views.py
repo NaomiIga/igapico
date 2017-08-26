@@ -1044,7 +1044,10 @@ def recover_data(request):
 
 		for i in shop_:
 			shop_data = Shop_Beacon.objects.get(shopname = i)
-			shop_beacon.append({"major": shop_data.major, "minor": shop_data.minor})
+			## ここから変更 8/26 夜
+			#shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
+			shopbeacon.append(str(shop_data.major) + "-" + str(shop_data.minor))
+			## ここまで
 
 		#KeyTime = datas[key_time]
 		KeyTime = UserData.key_time
