@@ -212,9 +212,9 @@ def shoplog(request):
 		update_data.shopname = shop_ary
 		update_data.save()
 		#add test key beacon
-		#shop_data = Shop_Beacon.objects.get(shopname = "test")
-		#shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
-		#count += 1
+		shop_data = Shop_Beacon.objects.get(shopname = "test")
+		shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
+		count += 1
 
 		make_map(name[0], shops[0])   # ショップ名から座標にする関数
 
@@ -528,8 +528,7 @@ def treasure_check(request):
 		treasure_list = update_data.treasures.split(',')
 		if treasure_list[treasure_number - 1] == '0' and getpointnow != 0:
 			treasure_list[treasure_number - 1] = str(getpointnow)
-		#else:
-			#getpointnow = int(treasure_list[treasure_number - 1])
+
 		print "getpointnow"
 		print getpointnow
 		print treasure_list
