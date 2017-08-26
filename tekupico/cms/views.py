@@ -378,7 +378,7 @@ def treasure_check(request):
 		print major
 		print "minor"
 		print minor
-		treasure_number = treasure_num(major,minor)]
+		treasure_number = treasure_num(major,minor)
 
 		update_data = User.objects.get(username = name)
 		watched_hint = UsedHint.objects.get(username = name)
