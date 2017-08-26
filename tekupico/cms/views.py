@@ -528,8 +528,8 @@ def treasure_check(request):
 		treasure_list = update_data.treasures.split(',')
 		if treasure_list[treasure_number - 1] == '0' and getpointnow != 0:
 			treasure_list[treasure_number - 1] = str(getpointnow)
-		else:
-			getpointnow = int(treasure_list[treasure_number - 1])
+		#else:
+			#getpointnow = int(treasure_list[treasure_number - 1])
 		print "getpointnow"
 		print getpointnow
 		print treasure_list
@@ -1022,7 +1022,7 @@ def recover_data(request):
 		treasure = UserData.treasures
 		check_list = treasure.split(',')
 		treasure_beacon = []
-		for i in range(1, 10):
+		for i in range(0, 10):
 			if check_list[i] != '0':
 				print i
 				temp = Treasure_Beacon.objects.get(treasure = i+1)
