@@ -1056,7 +1056,11 @@ def recover_data(request):
 		print len(UserData.key.split(','))
 		y = [x for x in check_list if x != '0']
 		print len(y)
-		key_num = len(UserData.key.split(',')) - len(y)
+		if UserData.key == 'key':
+			key_num = 0
+		else:
+			key_num = len(UserData.key.split(',')) - len(y)
+
 		print key_num
 
 		## 書き換えここまで
