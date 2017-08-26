@@ -374,7 +374,11 @@ def treasure_check(request):
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
 		major = datas["major"]
 		minor = datas["minor"]
-		treasure_number = treasure_num(major,minor)
+		print "major"
+		print major
+		print "minor"
+		print minor
+		treasure_number = treasure_num(major,minor)]
 
 		update_data = User.objects.get(username = name)
 		watched_hint = UsedHint.objects.get(username = name)
