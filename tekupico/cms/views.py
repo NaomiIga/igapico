@@ -1040,8 +1040,8 @@ def recover_data(request):
 		KeyTime = UserData.key_time
 		## ここから書き換え(8/26)
 		print "debug"
-		print len(UserData.key)
-		print len(treasure_beacon)
+		print len(UserData.key.split(','))
+		print treasure_beacon.shape[0]
 		key_num = len(UserData.key) - len(treasure_beacon)
 		print key_num
 
