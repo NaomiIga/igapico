@@ -523,6 +523,9 @@ def treasure_check(request):
 		#update_data.treasure[treasure_number - 1] = getpointnow
 		treasure_list = update_data.treasures.split(',')
 		treasure_list[treasure_number - 1] = str(getpointnow)
+		print "getpointnow"
+		print getpointnow
+		print treasure_list
 		treasure_list = ','.join(treasure_list)
 		update_data.treasures = treasure_list
 
