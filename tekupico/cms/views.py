@@ -203,7 +203,7 @@ def shoplog(request):
 				shop_data = Shop_Beacon.objects.get(shopname = i)
 				## ここから変更 8/26夜
 				#shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
-				shopbeacon.append(shop_data.major + "-" + shop_data.minor)
+				shopbeacon.append(str(shop_data.major) + "-" + str(shop_data.minor))
 				## ここまで
 				count += 1
 			else:
@@ -211,7 +211,7 @@ def shoplog(request):
 				shop_data = Shop_Beacon.objects.get(shopname = i)
 				## ここから変更 8/26夜
 				#shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
-				shopbeacon.append(shop_data.major + "+" + shop_data.minor)
+				shopbeacon.append(str(shop_data.major) + "+" + str(shop_data.minor))
 				## ここまで
 				count += 1
 
