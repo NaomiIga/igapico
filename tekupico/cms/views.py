@@ -201,12 +201,18 @@ def shoplog(request):
 			if num == 0:
 				shop_ary = i
 				shop_data = Shop_Beacon.objects.get(shopname = i)
-				shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
+				## ここから変更 8/26夜
+				#shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
+				shopbeacon.append(shop_data.major + "-" + shop_data.minor)
+				## ここまで
 				count += 1
 			else:
 				shop_ary = shop_ary + ',' + i
 				shop_data = Shop_Beacon.objects.get(shopname = i)
-				shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
+				## ここから変更 8/26夜
+				#shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
+				shopbeacon.append(shop_data.major + "+" + shop_data.minor)
+				## ここまで
 				count += 1
 
 		update_data.shopname = shop_ary
@@ -214,7 +220,11 @@ def shoplog(request):
 		#add test key beacon
 		### 変更 8/26
 		shop_data = Shop_Beacon.objects.get(shopname = "test")
-		shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
+		## ここまで
+		## ここから変更 8/26 夜
+		#shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
+		shopbeacon.append(shop_data.major + "-" + shop_data.minor)
+		## ここまで
 		count += 1
 
 		make_map(name[0], shops[0])   # ショップ名から座標にする関数
