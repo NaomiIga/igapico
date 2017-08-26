@@ -1038,12 +1038,19 @@ def recover_data(request):
 
 		#KeyTime = datas[key_time]
 		KeyTime = UserData.key_time
+		## ここから書き換え(8/26)
+		print "debug"
+		print len(UserData.key)
+		print len(treasure_beacon)
+		key_num = len(UserData.key) - len(treasure_beacon)
+		print key_num
 
 		#print point
 		#print treasure
 		print treasure_beacon
 
-		return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon, "shop_beacon":shop_beacon, "KeyTime":KeyTime})
+		#return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon, "shop_beacon":shop_beacon, "KeyTime":KeyTime})
+		return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon, "shop_beacon":shop_beacon, "KeyTime":KeyTime, "recover_key":key_num})
 
 
 #csvとして出力する
