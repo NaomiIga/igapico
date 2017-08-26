@@ -526,8 +526,8 @@ def treasure_check(request):
 
 		#update_data.treasure[treasure_number - 1] = getpointnow
 		treasure_list = update_data.treasures.split(',')
-		if treasure_list[treasure_number - 1] is None:
-			treasure_list[treasure_number - 1] = str(getpointnow)
+		#if treasure_list[treasure_number - 1] == None:
+		treasure_list[treasure_number - 1] = str(getpointnow)
 		print "getpointnow"
 		print getpointnow
 		print treasure_list
