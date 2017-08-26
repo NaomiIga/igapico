@@ -528,6 +528,8 @@ def treasure_check(request):
 		treasure_list = update_data.treasures.split(',')
 		if treasure_list[treasure_number - 1] == '0' and getpointnow != 0:
 			treasure_list[treasure_number - 1] = str(getpointnow)
+		else:
+			getpointnow = int(treasure_list[treasure_number - 1])
 		print "getpointnow"
 		print getpointnow
 		print treasure_list
