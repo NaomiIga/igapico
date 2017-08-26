@@ -212,6 +212,7 @@ def shoplog(request):
 		update_data.shopname = shop_ary
 		update_data.save()
 		#add test key beacon
+		### 変更 8/26
 		shop_data = Shop_Beacon.objects.get(shopname = "test")
 		shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
 		count += 1
