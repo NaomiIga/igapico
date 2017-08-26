@@ -1041,8 +1041,9 @@ def recover_data(request):
 		## ここから書き換え(8/26)
 		print "debug"
 		print len(UserData.key.split(','))
-		print treasure_beacon.shape[0]
-		key_num = len(UserData.key) - len(treasure_beacon)
+		y = [x for x in check_list if x != '0']
+		print len(y)
+		key_num = len(UserData.key.split(',')) - len(y)
 		print key_num
 
 		## 書き換えここまで
