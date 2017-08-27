@@ -1113,6 +1113,7 @@ def recover_data2(request):
 		print "debug"
 		print len(UserData.key.split(','))
 		y = [x for x in check_list if x != '0']
+		print y
 		print len(y)
 		if UserData.key == 'key':
 			key_num = 0
