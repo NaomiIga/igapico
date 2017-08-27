@@ -1043,7 +1043,7 @@ def recover_data(request):
 		make_map(name, shop_)
 
 		for i in shop_:
-			print "logging
+			print "logging"
 			print i
 			shop_data = Shop_Beacon.objects.get(shopname = i)
 			## ここから変更 8/26 夜
