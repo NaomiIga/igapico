@@ -1067,6 +1067,7 @@ def recover_data(request):
 			key_num = key_num + 1
 
 		print key_num
+		key_num = key_num - 10
 
 		## 書き換えここまで
 
