@@ -1063,7 +1063,7 @@ def recover_data(request):
 			key_num = 0
 		else:
 			key_num = len(UserData.key.split(',')) - len(y)
-			key_num += 1
+			key_num = key_num + 1
 
 		print key_num
 
