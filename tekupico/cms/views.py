@@ -1061,6 +1061,7 @@ def recover_data(request):
 		print len(y)
 		if UserData.key == 'key':
 			key_num = 0
+			key_num = key_num + 1
 		else:
 			key_num = len(UserData.key.split(',')) - len(y)
 			key_num = key_num + 1
