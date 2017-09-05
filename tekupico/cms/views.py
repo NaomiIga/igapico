@@ -373,6 +373,8 @@ def key_get(request):
 			key_data = update_data.key
 			keys = key_data + ", " + key
 		update_data.key = keys
+		## 9/5追記
+		#update_data.key_num += 1
 		update_data.save()
 	return HttpResponse("OK")
 
@@ -545,6 +547,8 @@ def treasure_check(request):
 		print treasure_list
 		treasure_list = ','.join(treasure_list)
 		update_data.treasures = treasure_list
+		## 9/5追記
+		#update_data.key_num -= 1 
 
 		update_data.save()
 
@@ -1053,6 +1057,7 @@ def recover_data(request):
 
 		#KeyTime = datas[key_time]
 		KeyTime = UserData.key_time
+		'''
 		## ここから書き換え(8/26)
 		print "debug"
 		print len(UserData.key.split(','))
@@ -1070,6 +1075,9 @@ def recover_data(request):
 		key_num = key_num - 10
 
 		## 書き換えここまで
+		'''
+		## 追記9/5
+		#key_num = UserData.key_num + 1
 
 		#print point
 		#print treasure
