@@ -26,6 +26,8 @@ class User(models.Model):
 	treasure10 = models.DateTimeField('treasure10', null=True, blank=True)
 	key_time = models.FloatField('key_time', default = 0)
 	key = models.CharField('key', max_length = 1023, default = 'key')
+	## add 9/5 have number of key
+	#key_num = models.IntegerField('keynum', default = 0)
 	shopname = models.CharField('shopname', max_length = 255, default = 'SHOP')
 	relationship = models.CharField('relationship', max_length = 255, default = 'relationship')
 
