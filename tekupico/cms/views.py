@@ -371,12 +371,10 @@ def key_get(request):
 	if request.method == 'POST':
 		datas = json.loads(request.body)
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
-		major = datas["major"]
-		minor = datas["minor"]
-		beacon = str(major) + "-" + str(minor)
+		beaconMM = str(datas["beaconMM"])
 		get_time = datetime.datetime.now()
 		get_time_str = get_time.strftime("%Y-%m-%d %H:%M")
-		key = "{" + beacon + ":" + get_time_str + "}"
+		key = "{" + beaconMM + ":" + get_time_str + "}"
 
 		update_data = User.objects.get(username = name)
 		if update_data.key == "key":
