@@ -384,6 +384,7 @@ def key_get(request):
 		else:
 			key_data = update_data.key
 			keys = key_data + ", " + key
+		print keys
 		update_data.key = keys
 		## 9/5追記
 		#update_data.key_num += 1
