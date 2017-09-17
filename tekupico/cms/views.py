@@ -566,7 +566,7 @@ def treasure_check(request):
 		update_data.save()
 
 		#ここにポイント計算のこと書く？
-		return JsonResponse({"treasure_number":treasure_number, "totalpoint":update_data.points, "getpoint":getpointnow}, safe=False)
+		return JsonResponse({"treasure_number": treasure_number, "totalpoint": update_data.points, "getpoint": getpointnow}, safe=False)
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
