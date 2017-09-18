@@ -1069,7 +1069,7 @@ def recover_data(request):
 
 		#KeyTime = datas[key_time]
 		KeyTime = UserData.key_time
-		'''
+		
 		## ここから書き換え(8/26)
 		print "debug"
 		print len(UserData.key.split(','))
@@ -1078,16 +1078,16 @@ def recover_data(request):
 		print len(y)
 		if UserData.key == 'key':
 			key_num = 0
-			key_num = key_num + 1
+			#key_num = key_num + 1
 		else:
 			key_num = len(UserData.key.split(',')) - len(y)
-			key_num = key_num + 1
+			#key_num = key_num + 1
 
 		print key_num
-		key_num = key_num - 10
+		#key_num = key_num - 10
 
 		## 書き換えここまで
-		'''
+		
 		## 追記9/5
 		#key_num = UserData.key_num + 1
 
