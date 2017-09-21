@@ -86,18 +86,30 @@ def pico_login(request):
 #アプリ内アンケートの内容をUserに保存
 @csrf_exempt
 def question(request):
+	KeyTime = 300
 	if request.method =='POST':
 		datas = json.loads(request.body)
 		name = datas["name"]
 		relationship = datas["relationship"]
-		KeyTime = datas["KeyTime"]
+		shopping_time = datas["shopping_time"]
+
+	if shopping_time == "5min":
+		KeyTime = 300
+	elif shopping_time == "7min":
+		KeyTime = 420
+	elif shopping_time == "10min":
+		KeyTime = 600
+	elif shopping_time == "15min":
+		KeyTime = 900
+	else:
+		KeyTime = 300
 
 	userdata = User.objects.get(username = name)
 	userdata.relationship = relationship
 	userdata.key_time = KeyTime
 	userdata.save()
 
-	return HttpResponse(name)
+	return JsonResponse({"key_time":KeyTime})
 
 #ユーザが行きたいショップをUserに保存
 @csrf_exempt
@@ -361,12 +373,10 @@ def key_get(request):
 	if request.method == 'POST':
 		datas = json.loads(request.body)
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
-		major = datas["major"]
-		minor = datas["minor"]
-		beacon = str(major) + "-" + str(minor)
+		beaconMM = datas["beaconMM"]
 		get_time = datetime.datetime.now()
 		get_time_str = get_time.strftime("%Y-%m-%d %H:%M")
-		key = "{" + beacon + ":" + get_time_str + "}"
+		key = "{" + beaconMM + ":" + get_time_str + "}"
 
 		update_data = User.objects.get(username = name)
 		if update_data.key == "key":
@@ -374,6 +384,7 @@ def key_get(request):
 		else:
 			key_data = update_data.key
 			keys = key_data + ", " + key
+		print keys
 		update_data.key = keys
 		## 9/5追記
 		#update_data.key_num += 1
@@ -394,6 +405,7 @@ def treasure_check(request):
 		print "minor"
 		print minor
 		treasure_number = treasure_num(major,minor)
+		print treasure_number
 
 		update_data = User.objects.get(username = name)
 		watched_hint = UsedHint.objects.get(username = name)
@@ -555,7 +567,7 @@ def treasure_check(request):
 		update_data.save()
 
 		#ここにポイント計算のこと書く？
-		return JsonResponse({"treasure":treasure_number, "totalpoint":update_data.points, "getpoint":getpointnow}, safe=False)
+		return JsonResponse({"treasure_number": treasure_number, "totalpoint": update_data.points, "getpoint": getpointnow}, safe=False)
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
@@ -1059,7 +1071,7 @@ def recover_data(request):
 
 		#KeyTime = datas[key_time]
 		KeyTime = UserData.key_time
-		'''
+		
 		## ここから書き換え(8/26)
 		print "debug"
 		print len(UserData.key.split(','))
@@ -1068,16 +1080,16 @@ def recover_data(request):
 		print len(y)
 		if UserData.key == 'key':
 			key_num = 0
-			key_num = key_num + 1
+			#key_num = key_num + 1
 		else:
 			key_num = len(UserData.key.split(',')) - len(y)
-			key_num = key_num + 1
+			#key_num = key_num + 1
 
 		print key_num
-		key_num = key_num - 10
+		#key_num = key_num - 10
 
 		## 書き換えここまで
-		'''
+		
 		## 追記9/5
 		#key_num = UserData.key_num + 1
 
