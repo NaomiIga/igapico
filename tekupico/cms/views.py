@@ -27,6 +27,7 @@ from PIL import Image
 import base64
 import sys
 sys.stdout = sys.stderr
+from django.utils import timezone
 
 #csrf_exemptはつけたい関数の上にそれぞれつけなきゃダメ
 #csrfを無視するコマンド
@@ -66,7 +67,8 @@ def pico_login(request):
 			new_data = User.objects.create(
 			user_id = temp.shop_id,
 			username = name,
-			starttime = datetime.datetime.now(),
+			#starttime = datetime.datetime.now(),
+			starttim = timezone.now(),
 			treasures = '0,0,0,0,0,0,0,0,0,0',
 			)
 			new_data.save()
@@ -548,7 +550,7 @@ def treasure_check(request):
 		treasure_list = ','.join(treasure_list)
 		update_data.treasures = treasure_list
 		## 9/5追記
-		#update_data.key_num -= 1 
+		#update_data.key_num -= 1
 
 		update_data.save()
 
