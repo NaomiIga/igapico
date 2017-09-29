@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+timezone.now()#!/usr/bin/env python
 # coding: utf-8
 # Create your views here.
 
@@ -67,7 +67,7 @@ def pico_login(request):
 			new_data = User.objects.create(
 			user_id = temp.shop_id,
 			username = name,
-			#starttime = datetime.datetime.now(),
+			#starttime = timezone.now(),
 			starttime = timezone.now(),
 			treasures = '0,0,0,0,0,0,0,0,0,0',
 			)
@@ -374,7 +374,7 @@ def key_get(request):
 		datas = json.loads(request.body)
 		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
 		beaconMM = datas["beaconMM"]
-		get_time = datetime.datetime.now()
+		get_time = timezone.now()
 		get_time_str = get_time.strftime("%Y-%m-%d %H:%M")
 		key = "{" + beaconMM + ":" + get_time_str + "}"
 
@@ -412,7 +412,7 @@ def treasure_check(request):
 
 		if treasure_number == 1:
 			if update_data.treasure1 == None:
-				update_data.treasure1 = datetime.datetime.now()
+				update_data.treasure1 = timezone.now()
 				if watched_hint.hint1_3 != None:
 					update_data.points += 1
 					getpointnow = 1
@@ -426,7 +426,7 @@ def treasure_check(request):
 				getpointnow = 0
 		elif treasure_number == 2:
 			if update_data.treasure2 == None:
-				update_data.treasure2 = datetime.datetime.now()
+				update_data.treasure2 = timezone.now()
 				if watched_hint.hint2_3 != None:
 					update_data.points += 1
 					getpointnow = 1
@@ -440,7 +440,7 @@ def treasure_check(request):
 				getpointnow = 0
 		elif treasure_number == 3:
 			if update_data.treasure3 == None:
-				update_data.treasure3 = datetime.datetime.now()
+				update_data.treasure3 = timezone.now()
 				if watched_hint.hint3_3 != None:
 					update_data.points += 1
 					getpointnow = 1
@@ -454,7 +454,7 @@ def treasure_check(request):
 				getpointnow = 0
 		elif treasure_number == 4:
 			if update_data.treasure4 == None:
-				update_data.treasure4 = datetime.datetime.now()
+				update_data.treasure4 = timezone.now()
 				if watched_hint.hint4_3 != None:
 					update_data.points += 1
 					getpointnow = 1
@@ -468,7 +468,7 @@ def treasure_check(request):
 				getpointnow = 0
 		elif treasure_number == 5:
 			if update_data.treasure5 == None:
-				update_data.treasure5 = datetime.datetime.now()
+				update_data.treasure5 = timezone.now()
 				if watched_hint.hint5_3 != None:
 					update_data.points += 1
 					getpointnow = 1
@@ -482,7 +482,7 @@ def treasure_check(request):
 				getpointnow = 0
 		elif treasure_number == 6:
 			if update_data.treasure6 == None:
-				update_data.treasure6 = datetime.datetime.now()
+				update_data.treasure6 = timezone.now()
 				if watched_hint.hint6_3 != None:
 					update_data.points += 1
 					getpointnow = 1
@@ -496,7 +496,7 @@ def treasure_check(request):
 				getpointnow = 0
 		elif treasure_number == 7:
 			if update_data.treasure7 == None:
-				update_data.treasure7 = datetime.datetime.now()
+				update_data.treasure7 = timezone.now()
 				if watched_hint.hint7_3 != None:
 					update_data.points += 1
 					getpointnow = 1
@@ -510,7 +510,7 @@ def treasure_check(request):
 				getpointnow = 0
 		elif treasure_number == 8:
 			if update_data.treasure8 == None:
-				update_data.treasure8 = datetime.datetime.now()
+				update_data.treasure8 = timezone.now()
 				if watched_hint.hint8_3 != None:
 					update_data.points += 1
 					getpointnow = 1
@@ -524,7 +524,7 @@ def treasure_check(request):
 				getpointnow = 0
 		elif treasure_number == 9:
 			if update_data.treasure9 == None:
-				update_data.treasure9 = datetime.datetime.now()
+				update_data.treasure9 = timezone.now()
 				if watched_hint.hint9_3 != None:
 					update_data.points += 1
 					getpointnow = 1
@@ -538,7 +538,7 @@ def treasure_check(request):
 				getpointnow = 0
 		elif treasure_number == 10:
 			if update_data.treasure10 == None:
-				update_data.treasure10 = datetime.datetime.now()
+				update_data.treasure10 = timezone.now()
 				if watched_hint.hint10_3 != None:
 					update_data.points += 1
 					getpointnow = 1
@@ -589,11 +589,11 @@ def first(request):
 		# DBに使用時間を格納
 		usedhintdatas = UsedHint.objects.get(username = name)
 		if tag == 1:
-			usedhintdatas.hint1_1 = datetime.datetime.now()
+			usedhintdatas.hint1_1 = timezone.now()
 		elif tag == 2:
-			usedhintdatas.hint2_1 = datetime.datetime.now()
+			usedhintdatas.hint2_1 = timezone.now()
 		elif tag == 3:
-			usedhintdatas.hint3_1 = datetime.datetime.now()
+			usedhintdatas.hint3_1 = timezone.now()
 		usedhintdatas.save()
 
 		hintdatas = Hint.objects.get(treasure_num = tag, hint_num = 1)
@@ -634,14 +634,14 @@ def hint_check(name, treasureNo, next_watch):
 		#次を見るって押されてかつ2つ目のhintがNoneなら時間追加してhint_2を返す
 		if next_watch == True and data.hint1_2 == None:
 			hint_num = 2
-			data.hint1_2 = datetime.datetime.now()
+			data.hint1_2 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
 		#次を見るって押されてかつ3つ目のhintがNoneなら時間追加してhint_2とhint_3を返す
 		elif next_watch == True and data.hint1_3 == None:
 			hint_num = 3
-			data.hint1_3 = datetime.datetime.now()
+			data.hint1_3 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
@@ -650,7 +650,7 @@ def hint_check(name, treasureNo, next_watch):
 		elif next_watch == False:
 			if data.hint1_2 == None:
 				if data.hint1_1 == None:
-					data.hint1_1 = datetime.datetime.now()
+					data.hint1_1 = timezone.now()
 					data.save()
 				hint_num = 1
 				hint = hint
@@ -670,13 +670,13 @@ def hint_check(name, treasureNo, next_watch):
 		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
 		if next_watch == True and data.hint2_2 == None:
 			hint_num = 2
-			data.hint2_2 = datetime.datetime.now()
+			data.hint2_2 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
 		elif next_watch == True and data.hint2_3 == None:
 			hint_num = 3
-			data.hint2_3 = datetime.datetime.now()
+			data.hint2_3 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
@@ -685,7 +685,7 @@ def hint_check(name, treasureNo, next_watch):
 		elif next_watch == False:
 			if data.hint2_2 == None:
 				if data.hint2_1 == None:
-					data.hint2_1 = datetime.datetime.now()
+					data.hint2_1 = timezone.now()
 					data.save()
 				hint_num = 1
 				hint = hint
@@ -705,13 +705,13 @@ def hint_check(name, treasureNo, next_watch):
 		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
 		if next_watch == True and data.hint3_2 == None:
 			hint_num = 2
-			data.hint3_2 = datetime.datetime.now()
+			data.hint3_2 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
 		elif next_watch == True and data.hint3_3 == None:
 			hint_num = 3
-			data.hint3_3 = datetime.datetime.now()
+			data.hint3_3 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
@@ -720,7 +720,7 @@ def hint_check(name, treasureNo, next_watch):
 		elif next_watch == False:
 			if data.hint3_2 == None:
 				if data.hint3_1 == None:
-					data.hint3_1 = datetime.datetime.now()
+					data.hint3_1 = timezone.now()
 					data.save()
 				hint_num = 1
 				hint = hint
@@ -740,13 +740,13 @@ def hint_check(name, treasureNo, next_watch):
 		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
 		if next_watch == True and data.hint4_2 == None:
 			hint_num = 2
-			data.hint4_2 = datetime.datetime.now()
+			data.hint4_2 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
 		elif next_watch == True and data.hint4_3 == None:
 			hint_num = 3
-			data.hint4_3 = datetime.datetime.now()
+			data.hint4_3 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
@@ -755,7 +755,7 @@ def hint_check(name, treasureNo, next_watch):
 		elif next_watch == False:
 			if data.hint4_2 == None:
 				if data.hint4_1 == None:
-					data.hint4_1 = datetime.datetime.now()
+					data.hint4_1 = timezone.now()
 					data.save()
 				hint_num = 1
 				hint = hint
@@ -775,13 +775,13 @@ def hint_check(name, treasureNo, next_watch):
 		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
 		if next_watch == True and data.hint5_2 == None:
 			hint_num = 2
-			data.hint5_2 = datetime.datetime.now()
+			data.hint5_2 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
 		elif next_watch == True and data.hint5_3 == None:
 			hint_num = 3
-			data.hint5_3 = datetime.datetime.now()
+			data.hint5_3 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
@@ -790,7 +790,7 @@ def hint_check(name, treasureNo, next_watch):
 		elif next_watch == False:
 			if data.hint5_2 == None:
 				if data.hint5_1 == None:
-					data.hint5_1 = datetime.datetime.now()
+					data.hint5_1 = timezone.now()
 					data.save()
 				hint_num = 1
 				hint = hint
@@ -810,13 +810,13 @@ def hint_check(name, treasureNo, next_watch):
 		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
 		if next_watch == True and data.hint6_2 == None:
 			hint_num = 2
-			data.hint6_2 = datetime.datetime.now()
+			data.hint6_2 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
 		elif next_watch == True and data.hint6_3 == None:
 			hint_num = 3
-			data.hint6_3 = datetime.datetime.now()
+			data.hint6_3 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
@@ -825,7 +825,7 @@ def hint_check(name, treasureNo, next_watch):
 		elif next_watch == False:
 			if data.hint6_2 == None:
 				if data.hint6_1 == None:
-					data.hint6_1 = datetime.datetime.now()
+					data.hint6_1 = timezone.now()
 					data.save()
 				hint_num = 1
 				hint = hint
@@ -845,13 +845,13 @@ def hint_check(name, treasureNo, next_watch):
 		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
 		if next_watch == True and data.hint7_2 == None:
 			hint_num = 2
-			data.hint7_2 = datetime.datetime.now()
+			data.hint7_2 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
 		elif next_watch == True and data.hint7_3 == None:
 			hint_num = 3
-			data.hint7_3 = datetime.datetime.now()
+			data.hint7_3 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
@@ -860,7 +860,7 @@ def hint_check(name, treasureNo, next_watch):
 		elif next_watch == False:
 			if data.hint7_2 == None:
 				if data.hint7_1 == None:
-					data.hint7_1 = datetime.datetime.now()
+					data.hint7_1 = timezone.now()
 					data.save()
 				hint_num = 1
 				hint = hint
@@ -880,13 +880,13 @@ def hint_check(name, treasureNo, next_watch):
 		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
 		if next_watch == True and data.hint8_2 == None:
 			hint_num = 2
-			data.hint8_2 = datetime.datetime.now()
+			data.hint8_2 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
 		elif next_watch == True and data.hint8_3 == None:
 			hint_num = 3
-			data.hint8_3 = datetime.datetime.now()
+			data.hint8_3 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
@@ -895,7 +895,7 @@ def hint_check(name, treasureNo, next_watch):
 		elif next_watch == False:
 			if data.hint8_2 == None:
 				if data.hint8_1 == None:
-					data.hint8_1 = datetime.datetime.now()
+					data.hint8_1 = timezone.now()
 					data.save()
 				hint_num = 1
 				hint = hint
@@ -915,13 +915,13 @@ def hint_check(name, treasureNo, next_watch):
 		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
 		if next_watch == True and data.hint9_2 == None:
 			hint_num = 2
-			data.hint9_2 = datetime.datetime.now()
+			data.hint9_2 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
 		elif next_watch == True and data.hint9_3 == None:
 			hint_num = 3
-			data.hint9_3 = datetime.datetime.now()
+			data.hint9_3 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
@@ -930,7 +930,7 @@ def hint_check(name, treasureNo, next_watch):
 		elif next_watch == False:
 			if data.hint9_2 == None:
 				if data.hint9_1 == None:
-					data.hint9_1 = datetime.datetime.now()
+					data.hint9_1 = timezone.now()
 					data.save()
 				hint_num = 1
 				hint = hint
@@ -950,13 +950,13 @@ def hint_check(name, treasureNo, next_watch):
 		hint = u'ヒント1\n' + hintdatas.hint_sent + u'\n\n'
 		if next_watch == True and data.hint10_2 == None:
 			hint_num = 2
-			data.hint10_2 = datetime.datetime.now()
+			data.hint10_2 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
 		elif next_watch == True and data.hint10_3 == None:
 			hint_num = 3
-			data.hint10_3 = datetime.datetime.now()
+			data.hint10_3 = timezone.now()
 			data.save()
 			hintdatas = Hint.objects.get(treasure_num = treasureNo, hint_num = 2)
 			hint = hint + u'ヒント2\n' + hintdatas.hint_sent + u'\n\n'
@@ -965,7 +965,7 @@ def hint_check(name, treasureNo, next_watch):
 		elif next_watch == False:
 			if data.hint10_2 == None:
 				if data.hint10_1 == None:
-					data.hint10_1 = datetime.datetime.now()
+					data.hint10_1 = timezone.now()
 					data.save()
 				hint_num = 1
 				hint = hint
@@ -1014,7 +1014,7 @@ def finish(request):
 		User_Data = User.objects.get(username = name)
 		UserId = User_Data.user_id
 		Point = User_Data.points
-		User_Data.finishtime = datetime.datetime.now()
+		User_Data.finishtime = timezone.now()
 		User_Data.save()
 
 		return JsonResponse({"id":UserId, "point":Point})
