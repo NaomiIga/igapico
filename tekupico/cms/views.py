@@ -387,9 +387,9 @@ def key_get(request):
 		print keys
 		update_data.key = keys
 		## 9/5追記
-		#update_data.key_num += 1
+		update_data.key_num += 1
 		update_data.save()
-	return HttpResponse("OK")
+	return JsonResponse({"key_num": update_data.key_num}, safe=False)
 
 
 #宝ゲットのとき
@@ -562,12 +562,12 @@ def treasure_check(request):
 		treasure_list = ','.join(treasure_list)
 		update_data.treasures = treasure_list
 		## 9/5追記
-		#update_data.key_num -= 1
+		update_data.key_num -= 1
 
 		update_data.save()
 
-		#ここにポイント計算のこと書く？
-		return JsonResponse({"treasure_number": treasure_number, "totalpoint": update_data.points, "getpoint": getpointnow}, safe=False)
+		#ここにポイント計算のこと書く?
+		return JsonResponse({"treasure_number": treasure_number, "totalpoint": update_data.points, "getpoint": getpointnow, "key_num": update_data.key_num}, safe=False)
 	else:
 		response = HttpResponse()
 		response['msg'] = 'NG'
@@ -577,33 +577,6 @@ def treasure_num(get_major, get_minor):
 	data = Treasure_Beacon.objects.get(major=get_major, minor=get_minor)
 	treasure_number = data.treasure
 	return treasure_number
-'''
-# 初めてヒント見たときに呼ばれる
-@csrf_exempt
-def first(request):
-	if request.method == 'POST':
-		datas = json.loads(request.body)
-		name = datas["name"]   # ダブルクオート内はディクショナリーのキー
-		tag = datas["treasureNo"]
-
-		# DBに使用時間を格納
-		usedhintdatas = UsedHint.objects.get(username = name)
-		if tag == 1:
-			usedhintdatas.hint1_1 = timezone.now()
-		elif tag == 2:
-			usedhintdatas.hint2_1 = timezone.now()
-		elif tag == 3:
-			usedhintdatas.hint3_1 = timezone.now()
-		usedhintdatas.save()
-
-		hintdatas = Hint.objects.get(treasure_num = tag, hint_num = 1)
-		first_hint = hintdatas.hint_sent
-		first_hint = u'ヒント1\n' + first_hint + u'\n'
-		return JsonResponse({"hint1":first_hint})
-	else:
-		response = HttpResponse()
-		response['msg'] = 'NG'
-'''
 
 #ヒント使うときによばれる
 @csrf_exempt
@@ -1036,6 +1009,7 @@ def recover_check(request):
 			return JsonResponse({"result":"error"})
 
 #復元するデータを送る
+#11/8今こっち使ってる
 @csrf_exempt
 def recover_data(request):
 	if request.method == 'POST':
@@ -1099,61 +1073,6 @@ def recover_data(request):
 
 		#return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon, "shop_beacon":shop_beacon, "KeyTime":KeyTime})
 		return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon, "shop_beacon":shop_beacon, "KeyTime":KeyTime, "recover_key":key_num})
-
-def recover_data2(request):
-	if request.method == 'POST':
-
-		shop_beacon = []
-
-		datas = json.loads(request.body)
-		name = datas["name"]
-
-		UserData = User.objects.get(username = name)
-		point = UserData.points
-		treasure = UserData.treasures
-		check_list = treasure.split(',')
-		treasure_beacon = []
-		for i in range(0, 10):
-			if check_list[i] != '0':
-				print i
-				temp = Treasure_Beacon.objects.get(treasure = i+1)
-				treasure_beacon.append([temp.major, temp.minor])
-
-		#選んだ店の配列を作る
-		shop_ = UserData.shopname.split(',')
-		make_map(name, shop_)
-
-		for i in shop_:
-			#print "logging"
-			#print i
-			shop_data = Shop_Beacon.objects.get(shopname = i)
-			## ここから変更 8/26 夜
-			#shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
-			shop_beacon.append(str(shop_data.major) + "-" + str(shop_data.minor))
-			## ここまで
-
-		#KeyTime = datas[key_time]
-		KeyTime = UserData.key_time
-		## ここから書き換え(8/26)
-		print "debug"
-		print len(UserData.key.split(','))
-		y = [x for x in check_list if x != '0']
-		print len(y)
-		if UserData.key == 'key':
-			key_num = 0
-		else:
-			key_num = len(UserData.key.split(',')) - len(y)
-
-		print key_num
-
-		## 書き換えここまで
-
-		#print point
-		#print treasure
-		print treasure_beacon
-
-		return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon, "shop_beacon":shop_beacon, "KeyTime":KeyTime})
-		#return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon, "shop_beacon":shop_beacon, "KeyTime":KeyTime, "recover_key":key_num})
 
 
 #csvとして出力する
