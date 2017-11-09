@@ -86,7 +86,7 @@ def pico_login(request):
 #アプリ内アンケートの内容をUserに保存
 @csrf_exempt
 def question(request):
-	KeyTime = 300
+	KeyTime = 300.0
 	if request.method =='POST':
 		datas = json.loads(request.body)
 		name = datas["name"]
@@ -94,15 +94,15 @@ def question(request):
 		shopping_time = datas["shopping_time"]
 
 	if shopping_time == "5min":
-		KeyTime = 300
+		KeyTime = 300.0
 	elif shopping_time == "7min":
-		KeyTime = 420
+		KeyTime = 420.0
 	elif shopping_time == "10min":
-		KeyTime = 600
+		KeyTime = 600.0
 	elif shopping_time == "15min":
-		KeyTime = 900
+		KeyTime = 900.0
 	else:
-		KeyTime = 300
+		KeyTime = 300.0
 
 	userdata = User.objects.get(username = name)
 	userdata.relationship = relationship
