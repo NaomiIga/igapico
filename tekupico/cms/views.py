@@ -1040,39 +1040,20 @@ def recover_data(request):
 			shop_data = Shop_Beacon.objects.get(shopname = i)
 			## ここから変更 8/26 夜
 			#shopbeacon.append({"major": shop_data.major, "minor": shop_data.minor})
-			shop_beacon.append(str(shop_data.major) + "-" + str(shop_data.minor))
-			## ここまで
+			shop_beacon.append(str(shop_data.major) + "-" + str(shop_data
 
 		#KeyTime = datas[key_time]
 		KeyTime = UserData.key_time
 
-		## ここから書き換え(8/26)
-		print "debug"
-		print len(UserData.key.split(','))
-		y = [x for x in check_list if x != '0']
-		print y
-		print len(y)
-		if UserData.key == 'key':
-			key_num = 0
-			#key_num = key_num + 1
-		else:
-			key_num = len(UserData.key.split(',')) - len(y)
-			#key_num = key_num + 1
-
-		print key_num
-		#key_num = key_num - 10
-
-		## 書き換えここまで
-
 		## 追記9/5
-		#key_num = UserData.key_num + 1
+		UserData.key_num += 1
 
 		#print point
 		#print treasure
 		print treasure_beacon
+		UserData.save()
 
-		#return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon, "shop_beacon":shop_beacon, "KeyTime":KeyTime})
-		return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon, "shop_beacon":shop_beacon, "KeyTime":KeyTime, "recover_key":key_num})
+		return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon, "shop_beacon":shop_beacon, "KeyTime":KeyTime, "recover_key":UserData.key_num})
 
 
 #csvとして出力する
