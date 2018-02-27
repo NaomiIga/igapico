@@ -43,34 +43,34 @@ class Shop_ladiesAdmin(admin.ModelAdmin):
 class Shop_mensAdmin(admin.ModelAdmin):
 	list_display = ('shop_name',)
 
-class Shop_ladiesmensAdmin(admin.ModelAdmin):
+class Shop_mensladiesAdmin(admin.ModelAdmin):
 	list_display = ('shop_name',)
 
 class Shop_kidsAdmin(admin.ModelAdmin):
 	list_display = ('shop_name',)
 
-class Shop_sportsAdmin(admin.ModelAdmin):
+class Shop_familyAdmin(admin.ModelAdmin):
 	list_display = ('shop_name',)
 
-class Shop_shoesbagAdmin(admin.ModelAdmin):
+class Shop_innerAdmin(admin.ModelAdmin):
 	list_display = ('shop_name',)
 
-class Shop_fassiongoodsAdmin(admin.ModelAdmin):
+class Shop_bagAdmin(admin.ModelAdmin):
 	list_display = ('shop_name',)
 
-class Shop_goodsvarietyAdmin(admin.ModelAdmin):
+class Shop_shoesAdmin(admin.ModelAdmin):
 	list_display = ('shop_name',)
 
-class Shop_accessoryAdmin(admin.ModelAdmin):
+class Shop_varietyAdmin(admin.ModelAdmin):
 	list_display = ('shop_name',)
 
-class Shop_foodAdmin(admin.ModelAdmin):
+class Shop_jewelryAdmin(admin.ModelAdmin):
 	list_display = ('shop_name',)
 
-class Shop_serviceAdmin(admin.ModelAdmin):
+class Shop_cosmeticsAdmin(admin.ModelAdmin):
 	list_display = ('shop_name',)
 
-class Shop_limitedAdmin(admin.ModelAdmin):
+class Shop_otherAdmin(admin.ModelAdmin):
 	list_display = ('shop_name',)
 
 
@@ -84,13 +84,13 @@ admin.site.register(Data, DataAdmin)
 admin.site.register(KeyArea, KeyAreaAdmin)
 admin.site.register(Shop_ladies, Shop_ladiesmensAdmin)
 admin.site.register(Shop_mens, Shop_mensAdmin)
-admin.site.register(Shop_ladiesmens, Shop_ladiesmensAdmin)
+admin.site.register(Shop_mensladies, Shop_mensladiesAdmin)
 admin.site.register(Shop_kids, Shop_kidsAdmin)
-admin.site.register(Shop_sports, Shop_sportsAdmin)
-admin.site.register(Shop_shoesbag, Shop_shoesbagAdmin)
-admin.site.register(Shop_fassiongoods, Shop_fassiongoodsAdmin)
-admin.site.register(Shop_goodsvariety, Shop_goodsvarietyAdmin)
-admin.site.register(Shop_accessory, Shop_accessoryAdmin)
-admin.site.register(Shop_food, Shop_foodAdmin)
-admin.site.register(Shop_service, Shop_serviceAdmin)
-admin.site.register(Shop_limited, Shop_limitedAdmin)
+admin.site.register(Shop_family, Shop_familyAdmin)
+admin.site.register(Shop_inner, Shop_innerAdmin)
+admin.site.register(Shop_bag, Shop_bagAdmin)
+admin.site.register(Shop_shoes, Shop_shoesAdmin)
+admin.site.register(Shop_variety, Shop_varietyAdmin)
+admin.site.register(Shop_jewelry, Shop_jewelryAdmin)
+admin.site.register(Shop_cosmetics, Shop_cosmeticsAdmin)
+admin.site.register(Shop_other, Shop_otherAdmin)
