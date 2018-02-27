@@ -267,9 +267,9 @@ def shop_loading(request):
 		shops["mens"] = shop_list
 
 		shop_list = []
-		for i in Shop_ladiesmens.objects.all():
+		for i in Shop_mensladies.objects.all():
 			shop_list.append(i.shop_name)
-		shops["ladiesmens"] = shop_list
+		shops["mensladies"] = shop_list
 
 		shop_list = []
 		for i in Shop_kids.objects.all():
@@ -277,44 +277,44 @@ def shop_loading(request):
 		shops["kids"] = shop_list
 
 		shop_list = []
-		for i in Shop_sports.objects.all():
+		for i in Shop_family.objects.all():
 			shop_list.append(i.shop_name)
-		shops["sports"] = shop_list
+		shops["family"] = shop_list
 
 		shop_list = []
-		for i in Shop_shoesbag.objects.all():
+		for i in Shop_inner.objects.all():
 			shop_list.append(i.shop_name)
-		shops["shoesbag"] = shop_list
+		shops["inner"] = shop_list
 
 		shop_list = []
-		for i in Shop_fassiongoods.objects.all():
+		for i in Shop_bag.objects.all():
 			shop_list.append(i.shop_name)
-		shops["fassiongoods"] = shop_list
+		shops["bag"] = shop_list
 
 		shop_list = []
-		for i in Shop_goodsvariety.objects.all():
+		for i in Shop_shoes.objects.all():
 			shop_list.append(i.shop_name)
-		shops["goodsvariety"] = shop_list
+		shops["shoes"] = shop_list
 
 		shop_list = []
-		for i in Shop_accessory.objects.all():
+		for i in Shop_variety.objects.all():
 			shop_list.append(i.shop_name)
-		shops["accessory"] = shop_list
+		shops["variety"] = shop_list
 
 		shop_list=[]
-		for i in Shop_food.objects.all():
+		for i in Shop_jewelry.objects.all():
 			shop_list.append(i.shop_name)
-		shops["food"] = shop_list
+		shops["jewelry"] = shop_list
 
 		shop_list = []
-		for i in Shop_service.objects.all():
+		for i in Shop_cosmetics.objects.all():
 			shop_list.append(i.shop_name)
-		shops["service"] = shop_list
+		shops["cosmetics"] = shop_list
 
 		shop_list = []
-		for i in Shop_limited.objects.all():
+		for i in Shop_other.objects.all():
 			shop_list.append(i.shop_name)
-		shops["limited"] = shop_list
+		shops["other"] = shop_list
 
 		return JsonResponse(shops, safe = False)
 
