@@ -333,9 +333,9 @@ def make_map(username, shopArr):
 	#重ねる画像のリサイズ
 	tmp = tmp.resize((50, 50))
 
-	img1 = Image.open("/home/niga/igapico/tekupico/cms/static/img/map1F.png")
-	img2 = Image.open("/home/niga/igapico/tekupico/cms/static/img/map2F.png")
-	img3 = Image.open("/home/niga/igapico/tekupico/cms/static/img/map3F.png")
+	img1 = Image.open("/home/niga/igapico/tekupico/cms/static/img/aeon_map1F.png")
+	img2 = Image.open("/home/niga/igapico/tekupico/cms/static/img/aeon_map2F.png")
+	img3 = Image.open("/home/niga/igapico/tekupico/cms/static/img/aeon_map3F.png")
 
 	for i in shopArr:
 		datas = Shop_Beacon.objects.get(shopname = i)
