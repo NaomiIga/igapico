@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^shop_loading', views.shop_loading, name="shop_loading"),
     url(r'^hint', views.hint, name="hint"),
     #url(r'^first', views.first, name="first"),
+    url(r'^treasure_num_check', views.treasure_num_check, name="treasure_num_check"),
     url(r'^treasure_check', views.treasure_check, name="treasure_check"),
     url(r'^export_csv', views.export_csv, name="export_csv"),
     url(r'^map', views.map, name="map"),
