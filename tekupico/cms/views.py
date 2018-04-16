@@ -395,6 +395,7 @@ def key_get(request):
 @csrf_exempt
 def treasure_num_check(request):
 	if request.method == 'POST':
+		print "near treasure"
 		datas = json.loads(request.body)
 		major = datas["major"]
 		minor = datas["minor"]
