@@ -391,6 +391,18 @@ def key_get(request):
 		update_data.save()
 	return JsonResponse({"key_num": update_data.key_num}, safe=False)
 
+#宝が近いとき
+@csrf_exempt
+def treasure_num_check(request):
+	if request.method == 'POST':
+		datas = json.loads(request.body)
+		major = datas["major"]
+		minor = datas["minor"]
+		treasure_number = treasure_num(major,minor)
+		print treasure_number
+
+	return JsonResponse({"treasure_number": treasure_number})
+
 
 #宝ゲットのとき
 @csrf_exempt
