@@ -113,10 +113,8 @@ def question(request):
 
 	TreasureInfo = []
 	for i in range(1, 11):
-		temp = []
 		treasuredata = Treasure_Beacon.objects.get(treasure = i)
-		temp.append(treasuredata.major)
-		temp.append(treasuredata.minor)
+		temp = str(treasuredata.major) + "-" + str(treasuredata.minor)
 		TreasureInfo.append(temp)
 
 	return JsonResponse({"key_time":KeyTime, "Threshold_RSSI":Threshold_RSSI, "TreasureInfo": TreasureInfo})
