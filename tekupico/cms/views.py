@@ -32,6 +32,8 @@ from django.utils import timezone
 #csrf_exemptはつけたい関数の上にそれぞれつけなきゃダメ
 #csrfを無視するコマンド
 
+#パラメータ
+Threshold_RSSI = -75
 
 #テスト用
 @csrf_exempt
@@ -109,7 +111,7 @@ def question(request):
 	userdata.key_time = KeyTime
 	userdata.save()
 
-	return JsonResponse({"key_time":KeyTime})
+	return JsonResponse({"key_time":KeyTime, "Threshold_RSSI":Threshold_RSSI})
 
 #ユーザが行きたいショップをUserに保存
 @csrf_exempt
