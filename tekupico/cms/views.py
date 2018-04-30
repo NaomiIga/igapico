@@ -1074,7 +1074,13 @@ def recover_data(request):
 		print treasure_beacon
 		UserData.save()
 
-		return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon, "shop_beacon":shop_beacon, "KeyTime":KeyTime, "key_num":UserData.key_num})
+		TreasureInfo = []
+		for i in range(1, 11):
+			treasuredata = Treasure_Beacon.objects.get(treasure = i)
+			temp = str(treasuredata.major) + "-" + str(treasuredata.minor)
+			TreasureInfo.append(temp)
+
+		return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon, "shop_beacon":shop_beacon, "KeyTime":KeyTime, "key_num":UserData.key_num, "Threshold_RSSI": Threshold_RSSI, "TreasureInfo": TreasureInfo})
 
 
 #csvとして出力する
