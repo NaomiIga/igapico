@@ -33,7 +33,7 @@ from django.utils import timezone
 #csrfを無視するコマンド
 
 #パラメータ
-Threshold_RSSI = -75
+Threshold_RSSI = -85
 
 #テスト用
 @csrf_exempt
