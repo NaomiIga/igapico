@@ -59,7 +59,8 @@ def pico_login(request):
 		datas = json.loads(request.body)  #追記
 		name = datas["name"]
 		### add parents to Nakamura's func (2018/12/13)###
-		parnets = datas["Parents"]
+		print datas
+		parents = datas["Parents"]
 		##################################################
 		temp = Shop_Beacon.objects.get(shopname = "COUNTER")
 		temp.shop_id += 1
@@ -76,7 +77,7 @@ def pico_login(request):
 			starttime = timezone.now(),
 			treasures = '0,0,0,0,0,0,0,0,0,0',
 			### add parents to Nakamura's func (2018/12/13)###
-			Parents = panrents,
+			Parents = parents,
 			##################################################
 			)
 			new_data.save()
