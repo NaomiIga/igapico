@@ -59,6 +59,7 @@ def pico_login(request):
 		datas = json.loads(request.body)  #追記
 		name = datas["name"]
 		### add parents to Nakamura's func (2018/12/13)###
+		print "aaaaaaaaaaaaaaaaaaaaaaaa"
 		print datas
 		parents = datas["Parents"]
 		##################################################
