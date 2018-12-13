@@ -31,6 +31,9 @@ class User(models.Model):
 	shopname = models.CharField('shopname', max_length = 255, default = 'SHOP')
 	relationship = models.CharField('relationship', max_length = 255, default = 'relationship')
 
+	### Iga add "Parents" to Nakamura's function(Parents beacon system). (2018/12/13)
+	Parents = models.CharField('Parents', max_length = 255, default = 'Parents')
+
 # User no hint siyou jyoukyou
 class UsedHint(models.Model):
 	username = models.CharField('username', max_length = 255, default = 'NAME')
