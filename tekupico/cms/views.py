@@ -58,6 +58,9 @@ def pico_login(request):
 	if request.method == 'POST':
 		datas = json.loads(request.body)  #追記
 		name = datas["name"]
+		### add parents to Nakamura's func (2018/12/13)###
+		parnets = datas["Parents"]
+		##################################################
 		temp = Shop_Beacon.objects.get(shopname = "COUNTER")
 		temp.shop_id += 1
 		temp.save()
@@ -72,6 +75,9 @@ def pico_login(request):
 			#starttime = timezone.now(),
 			starttime = timezone.now(),
 			treasures = '0,0,0,0,0,0,0,0,0,0',
+			### add parents to Nakamura's func (2018/12/13)###
+			Parents = panrents,
+			##################################################
 			)
 			new_data.save()
 
@@ -962,6 +968,9 @@ def recover_data(request):
 		UserData = User.objects.get(username = name)
 		point = UserData.points
 		treasure = UserData.treasures
+		### add parents to Nakamura's func (2018/12/13)###
+		Parents = UserData.Parents
+		##################################################
 		check_list = treasure.split(',')
 		treasure_beacon = []
 		for i in range(0, 10):
@@ -999,8 +1008,9 @@ def recover_data(request):
 			temp = str(treasuredata.major) + "-" + str(treasuredata.minor)
 			TreasureInfo.append(temp)
 
-		return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon, "shop_beacon":shop_beacon, "KeyTime":KeyTime, "key_num":UserData.key_num, "Threshold_RSSI": Threshold_RSSI, "TreasureInfo": TreasureInfo})
-
+		### add parents to Nakamura's func (2018/12/13)###
+		return JsonResponse({"point":point, "treasure":treasure, "treasure_beacon":treasure_beacon, "shop_beacon":shop_beacon, "KeyTime":KeyTime, "key_num":UserData.key_num, "Threshold_RSSI": Threshold_RSSI, "TreasureInfo": TreasureInfo, "Parents": Parents})
+		##################################################
 
 #csvとして出力する
 @csrf_exempt
